@@ -13,6 +13,7 @@
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.5",
+    "stylelint-config-recommended": "^5.0.0",
     "tailwindcss": "^2.2.4",
     "vite": "^2.3.8"
   }
