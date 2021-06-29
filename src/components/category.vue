@@ -1,6 +1,6 @@
+<!-- voici le composant "categorie" que j'ai commencé -->
 <template>
-    <!-- voici le composant "categorie" que j'ai commencer -->
-    <div class="bg-blue-500 w-full h-60 pt-0"> <!-- son contenat principal dont j'ai mis le background en bleu -->
+    <div class="bg-blue-500 w-full pt-0"> <!-- son contenant principal dont j'ai mis le background en bleu -->
         <div class="header__search"> <!-- l'élément que j'ai utilisé comme entête pour former la barre de recherche -->
             <form action="" method="get">
                 <div class="w-full bg-white h-14 rounded-b-3xl shadow-md flex justify-between items-center px-4">
@@ -32,4 +32,10 @@ export default {
     }
 }
 </script>
+
+<style>
+    .bg-blue-500 {
+        min-height: 812px
+    }
+</style>
 
