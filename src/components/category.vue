@@ -1,9 +1,9 @@
 <!-- voici le composant "categorie" que j'ai commencé -->
 <template>
-    <div class="bg-blue-500 w-full pt-0"> <!-- son contenant principal dont j'ai mis le background en bleu -->
+    <div class="w-full bg-blue-500  pt-0"> <!-- son contenant principal dont j'ai mis le background en bleu -->
         <div class="header__search"> <!-- l'élément que j'ai utilisé comme entête pour former la barre de recherche -->
             <form action="" method="get">
-                <div class="w-full bg-white h-14 rounded-b-3xl shadow-md flex justify-between items-center px-4">
+                <div class="w-full h-14 bg-white flex justify-between items-center px-4 rounded-b-3xl shadow-md">
                     <span class="inline-block">
                         <img src="../../public/loupe2.png" alt="loupe" class="h5 w-5 ml-5">
                     </span>

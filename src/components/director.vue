@@ -1,8 +1,9 @@
 <template>
     <div>
         <!-- <category />
-        <navbar /> -->
-        <paiement-mode />
+        <navbar />
+        <paiement-mode /> -->
+        <panier />
     </div>
 </template>
 
@@ -10,6 +11,7 @@
 import category from "./category.vue"
 import navbar from "./navbar.vue"
 import paiementMode from './paiementMode.vue'
+import panier from './panier.vue'
 
 export default {
    name: "director",
@@ -17,7 +19,8 @@ export default {
    components: {
        category,
        navbar,
-       paiementMode
+       paiementMode,
+       panier
    }
 
   
