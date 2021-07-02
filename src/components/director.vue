@@ -1,8 +1,8 @@
 <template>
     <div>
-        <!-- <category />
+        <!-- <category /> -->
         <navbar />
-        <paiement-mode /> -->
+        <!--<paiement-mode /> -->
         <panier />
     </div>
 </template>

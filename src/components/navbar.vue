@@ -44,13 +44,15 @@ export default {
         *pour habiller un élément de la navbar 
          *sur lequel on clique */
 
-       let Active = [ 
-                "bg-gray-200", 
-                "rounded", 
+       let Active = [
+                "bg-gray-100", 
+                "mb-5", 
                 "shadow-md",
                 "opacity-100",
                 "px-1",
-                "py-1"
+                "py-1",
+                "h-auto",
+                "text-blue-300"   
             ]
 
 
@@ -63,13 +65,24 @@ export default {
 
 <style lang="postcss">
     .navbar {
-        @apply fixed bottom-0 h-16 w-full bg-white pt-1 
+        @apply fixed bottom-0  h-16 w-full   pt-1  bg-white  border-t
     }
     .navbar a {
-        @apply text-xs inline-block h-11 mx-2.5 
+        @apply text-xs inline-block h-11 mx-2.5
     }
 
     .navbar svg {
-        @apply w-6 h-6 mx-auto opacity-70
+        @apply w-6  h-6  mx-auto  opacity-70  
+    }
+
+    @media only screen and (max-width: 360px) {
+        .navbar svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .navbar a {
+            font-size: 9px;
+        }
     }
 </style>

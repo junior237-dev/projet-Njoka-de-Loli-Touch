@@ -1,23 +1,37 @@
 <template>
-    <div class="bg-gray-200">
-        <div class="header  w-full h-16  shadow-lg  bg-white">
-            <div class="w-60 h-full  py-2 pt-4  border-r-2 font-semibold text-lg text-center inline-block">
-                <p>
-                    Panier (2 articles)
-                </p>
+    <div class="bg-gray-100">
+        <div class="__header  fixed top-0  w-full h-16  shadow-lg  bg-white">
+            <div class="w-60 h-full  pt-6  border-r-2 font-semibold text-lg text-center inline-block">
+                <p>Panier ({{elementsInPackage}})</p>
             </div>
             <div class="inline-block w-12 h-14  font-light">
-                <a href="#" class="inline-block  w-full pl-3  text-tiny">
-                    <svg class="icon  w-6 h-6  opacity-80  inline-block">
+                <a href="#" class="inline-block  w-full pl-3  text-xs ">
+                    <svg class="icon  inline-block  w-4 h-7  opacity-80">
                         <use xlink:href="../../public/icones/sprite (2).svg#garbage-can"></use>
-                    </svg> <br>
+                    </svg> 
+                    {{deleteElements}}
                 </a>
             </div>
         </div>
+        <main class="mt-14">
+            <info-article-panier />
+            <compo-verification />
+        </main>
     </div>
 </template>
 
+<script>
+    import compoVerification from "./compoVerification.vue"
+    import infoArticlePanier from "./infoArticlePanier.vue"
+    export default {
+        name: "panier",
 
+        components: {
+            infoArticlePanier,
+            compoVerification
+        }
+    }
+</script>
 
 
 <style lang="postcss">
