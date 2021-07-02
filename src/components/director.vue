@@ -1,13 +1,15 @@
 <template>
     <div>
         <!-- <category /> -->
-        <navbar />
-        <!--<paiement-mode /> -->
-        <panier />
+        <!-- <navbar /> -->
+        <paiement-mode />
+        <!-- <panier /> -->
+        <verit-art-panier />
     </div>
 </template>
 
 <script>
+import veritArtPanier from './verifArtPanier.vue'
 import category from "./category.vue"
 import navbar from "./navbar.vue"
 import paiementMode from './paiementMode.vue'
@@ -20,7 +22,8 @@ export default {
        category,
        navbar,
        paiementMode,
-       panier
+       panier,
+       veritArtPanier
    }
 
   

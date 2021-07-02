@@ -1,17 +1,11 @@
 <template>
     <div>
-        <div class="header  w-full h-16  shadow-lg">
-            <a href="#" class="inline-block float-left  w-10  ml-3 mt-5">
-                <svg class="icon w-7 h-7">
-                    <use xlink:href="../../public/icones/sprite (1).svg#arrow"></use>
-                </svg>
-            </a>
-        </div>
+        <composant-retour />
         <main class="container mt-10">
             <p class="text-center text-base px-3 text-gray-400">
                 Sélectionner un opérateur pour voir les directives (optionnel)
             </p>
-            <div class="mt-20 px-14  flex justify-between items-center">
+            <div class="__momoAndOm  mt-32 px-14  flex justify-between items-center">
                 <a href="#" class="inline-block">
                     <img src="../../public/Momo.jpg" alt="transfert Momo">
                 </a>
@@ -47,21 +41,39 @@
 </template>
 
 <script>
-export default {
-    name: "paiementMode",
+    import composantRetour from './composantRetour.vue'
+    export default {
+        name: "paiementMode",
+        components: {
+            composantRetour
+        },
+        setup () {
+            let montant = "500 XAF"
 
-    setup () {
-         let montant = "500 XAF"
-
-         return {
-             montant
-         }
+            return {
+                montant
+            }
+        }
     }
-}
 </script>
 
 <style lang="postcss">
     a.inline-block img {
-        @apply w-28 h-16  shadow-sm rounded-md border border-gray-300
+        @apply w-28 h-16  shadow-sm   rounded-md  border  border-gray-300
+    }
+
+    
+    @media only screen and (max-height: 667px){
+
+        div.mt-32 {
+            margin-top: 80px
+        }
+    }
+
+     @media only screen and (height: 568px){
+
+        div.mt-32 {
+            margin-top: 30px
+        }
     }
 </style>
