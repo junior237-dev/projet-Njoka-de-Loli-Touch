@@ -7,10 +7,10 @@
             </p>
             <div class="__momoAndOm  mt-32 px-14  flex justify-between items-center">
                 <a href="#" class="inline-block">
-                    <img src="../../public/Momo.jpg" alt="transfert Momo">
+                    <img src="../../public/Momo.jpg"  class="mom  object-cover"  alt="transfert Momo">
                 </a>
                 <a href="#" class="inline-block">
-                    <img src="../../public/orange-money-logo.png" alt="transfert orange-money">
+                    <img src="../../public/orange-money-logo.png"  class="mo  object-cover"  alt="transfert orange-money">
                 </a>
             </div>
             <div>
@@ -70,10 +70,45 @@
         }
     }
 
+    @media only screen and (min-width: 410px) and (max-width: 415px) {
+
+         a.inline-block:first-child {
+            margin-left: 1.2rem;
+        }
+
+        a.inline-block:last-child {
+            margin-right: 1.2rem;
+        }
+       
+    }
+
+    @media only screen and (max-width: 360px) {
+        div.mt-32 {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        div.mt-32 a {
+            max-width: 100px;
+            margin-bottom: 2px;
+            margin-right: 41px;
+            height: auto;
+        }
+
+        div.mt-32 img {
+            height: 50px;
+            width: 75px
+        }
+    }
+
+
+
      @media only screen and (height: 568px){
 
         div.mt-32 {
-            margin-top: 30px
+            margin-top: 30px;
+            padding-right: 10px
         }
     }
 </style>

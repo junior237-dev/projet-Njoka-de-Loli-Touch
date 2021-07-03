@@ -8,12 +8,12 @@
                 </div>
                 <div class="__infoGroup  inline-block  w-60">
                     <div class="flex justify-center item-center">
-                        <img src="../assets/xmaleya.jpg" class="w-28 h-28  rounded-md  shadow-md  object-cover" alt="photoXmaleya">
+                        <img :src="image" class="w-28 h-28  rounded-md  shadow-md  object-cover" alt="photoXmaleya">
                         <p class="text-left pl-2">
-                            <span class="inline-block  font-bold  text-lg">Cardio</span>
+                            <span class="inline-block  font-bold  text-lg">{{intitule}}</span>
                             <br>
-                            <span class="font-light  text-gray-300">X-maleya</span>
-                            <span class="inline-block  mt-9  text-sm  font-semibold">500 Fcfa</span>
+                            <span class="font-light  text-gray-300">{{nomArtiste}}</span>
+                            <span class="inline-block  mt-9  text-sm  font-semibold">{{montant}}</span>
                         </p>
                     </div>  
                 </div>
@@ -25,6 +25,42 @@
 <script>
 export default {
     name: "infoArticlePanier",
+
+    props: {
+        intitule: {
+            type: String,
+            default: 'Intitulé'
+        },
+        nomArtiste:  {
+            type: String,
+            default: 'Nom Artiste'
+        },
+        montant:  {
+            type: String,
+            default: 'Montant'
+        },
+        image: {
+            type: String
+        }
+    },
+
+    setup (props, context) {
+        let intitule = props.intitule
+        let nomArtiste = props.nomArtiste
+        let montant = props.montant
+        let image = props.image
+
+        console.log(intitule)
+        console.log(nomArtiste)
+        console.log(montant)
+
+        return {
+            intitule,
+            nomArtiste,
+            montant,
+            image
+        }
+    }
 
 }
 </script>

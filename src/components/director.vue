@@ -1,19 +1,22 @@
 <template>
     <div>
-        <!-- <category /> -->
+        <!-- <category />  -->
         <!-- <navbar /> -->
-        <paiement-mode />
+        <!-- <paiement-mode /> -->
         <!-- <panier /> -->
-        <verit-art-panier />
+        <!-- <verif-art-panier />  -->
+        <most-popular />
+
     </div>
 </template>
 
 <script>
-import veritArtPanier from './verifArtPanier.vue'
+import verifArtPanier from './verifArtPanier.vue'
 import category from "./category.vue"
 import navbar from "./navbar.vue"
 import paiementMode from './paiementMode.vue'
 import panier from './panier.vue'
+import mostPopular from './mostPopular.vue'
 
 export default {
    name: "director",
@@ -23,7 +26,8 @@ export default {
        navbar,
        paiementMode,
        panier,
-       veritArtPanier
+       verifArtPanier,
+       mostPopular
    }
 
   

@@ -5,7 +5,7 @@
                 <p>Panier ({{elementsInPackage}})</p>
             </div>
             <div class="inline-block w-12 h-14  font-light">
-                <a href="#" class="inline-block  w-full pl-3  text-xs ">
+                <a href="#" class="inline-block  w-full pl-3  text-xs text-red-400">
                     <svg class="icon  inline-block  w-4 h-7  opacity-80">
                         <use xlink:href="../../public/icones/sprite (2).svg#garbage-can"></use>
                     </svg> 
@@ -14,13 +14,14 @@
             </div>
         </div>
         <main class="mt-14">
-            <info-article-panier />
+            <info-article-panier :image="image"/>
             <compo-verification />
         </main>
     </div>
 </template>
 
 <script>
+    import image from '../assets/xmaleya.jpg'
     import compoVerification from "./compoVerification.vue"
     import infoArticlePanier from "./infoArticlePanier.vue"
     export default {
@@ -29,6 +30,21 @@
         components: {
             infoArticlePanier,
             compoVerification
+        },
+
+        data () {
+            return {
+                image
+            }
+        },
+
+        setup () {
+            let elementsInPackage = "", deleteElements = ""
+
+            return {
+                elementsInPackage,
+                deleteElements
+            }
         }
     }
 </script>
