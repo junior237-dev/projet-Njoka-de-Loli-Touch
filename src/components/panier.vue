@@ -14,7 +14,7 @@
             </div>
         </div>
         <main class="mt-14">
-            <info-article-panier :image="image"/>
+            <info-article-panier :image="image" id="composant"/>
             <compo-verification />
         </main>
     </div>
@@ -38,8 +38,9 @@
             }
         },
 
-        setup () {
+        setup (props, context) {
             let elementsInPackage = "", deleteElements = ""
+           
 
             return {
                 elementsInPackage,
