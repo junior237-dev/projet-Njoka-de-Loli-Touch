@@ -5,6 +5,7 @@
                 <use xlink:href="../../public/icones/sprite (1).svg#arrow"></use>
             </svg>
         </a>
+        <slot />
     </div>
 </template>
 

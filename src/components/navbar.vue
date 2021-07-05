@@ -7,7 +7,7 @@
                 </svg>
                 Accueil
             </a>
-            <a href="#">
+            <a href="#" >
                 <svg class="icon">
                     <use xlink:href="../../public/icones/sprite.svg#menu (1)"></use>
                 </svg>
@@ -52,7 +52,8 @@ export default {
                 "px-1",
                 "py-1",
                 "h-auto",
-                "text-blue-300"   
+                "text-blue-300",
+                "rounded-none"   
             ]
 
 
@@ -65,10 +66,10 @@ export default {
 
 <style lang="postcss">
     .navbar {
-        @apply fixed bottom-0  h-16 w-full   pt-1  bg-white  border-t
+        @apply fixed bottom-0  h-16 w-full  pt-1  bg-white  border-t
     }
     .navbar a {
-        @apply text-xs inline-block h-11 mx-2.5
+        @apply inline-block h-11 w-auto  mx-2.5  text-xs 
     }
 
     .navbar svg {

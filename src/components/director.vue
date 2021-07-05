@@ -1,10 +1,10 @@
 <template>
     <div>
         <!-- <category />   -->
-        <navbar />
+        <!-- <navbar /> -->
         <!-- <paiement-mode /> -->
-        <panier />
-        <!-- <verif-art-panier />  -->
+        <!-- <panier /> -->
+        <verif-art-panier /> 
         <!-- <most-popular /> -->
 
     </div>
