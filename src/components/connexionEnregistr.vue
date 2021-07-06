@@ -37,13 +37,6 @@
                                 <span class="inline-block float-left py-3 pl-3">
                                     <img src="../assets/cameroun.png" alt="country" class="w-7 h-7 rounded-full">
                                 </span>
-                                <!-- <label for="country" class="hidden">country</label>
-                                <select name="country" id="country" class="w-40 h-10 text-lg bg-blue-50 shadow-none">
-                                    <option value="Cameroun">Cameroun</option>
-                                    <option value="Cote d'Ivoire">Côte d'Ivoire</option>
-                                    <option value="Ghana">Ghana</option>
-                                    <option value="Congo">Congo</option>
-                                </select> -->
                                 <div class="relative self-center float-right">
                                     <svg class="text-white bg-blue-400 h-7 w-7 absolute top-0 right-0 m-3 pointer-events-none p-2 rounded" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="40px" viewBox="0 0 38 22" version="1.1">
                                         <title>F09B337F-81F6-41AC-8924-EC55BA135736</title>
@@ -59,7 +52,7 @@
                                         <option>Cameroun</option>
                                         <option>Congo</option>
                                         <option>Guinnée equatoriale</option>
-                                        <option>$ote d'ivoire</option>
+                                        <option>Côte d'ivoire</option>
                                     </select>
                                 </div>
 

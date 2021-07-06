@@ -5,8 +5,8 @@
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
-        <!-- <most-popular /> -->
-        <connexion-enregistr />
+        <most-popular />
+        <!-- <connexion-enregistr /> -->
 
     </div>
 </template>
