@@ -4,13 +4,15 @@
         <!-- <navbar /> -->
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
-        <verif-art-panier /> 
+        <!-- <verif-art-panier />  -->
         <!-- <most-popular /> -->
+        <connexion-enregistr />
 
     </div>
 </template>
 
 <script>
+import connexionEnregistr from './connexionEnregistr.vue'
 import verifArtPanier from './verifArtPanier.vue'
 import category from "./category.vue"
 import navbar from "./navbar.vue"
@@ -27,7 +29,8 @@ export default {
        paiementMode,
        panier,
        verifArtPanier,
-       mostPopular
+       mostPopular,
+       connexionEnregistr
    }
 
   
