@@ -25,23 +25,44 @@
                         <button type="submit" class="w-72 h-14 mt-5 bg-blue-400 rounded-full  text-xl text-white font-semibold">Connectez-vous</button>
                         <div class="__newOnNjoka mt-10">
                             <p class="text-gray-400">
-                                Nouveau sur Njoka? <a href="#" class="font-bold text-green-400 text-lg">cliquez ici pour vous inscrire</a>
+                                Nouveau sur Njoka? <a href="#" class="text-green-400 text-md underline">cliquez ici pour vous inscrire</a>
                             </p>
                         </div>  
                    </div>
 
                    <!-- pour les inscriptions -->
-                   <div class="__containerInscription w-auto mt-20" v-else if="!visible">
+                   <div class="__containerInscription w-auto mt-12" v-else if="!visible">
                        <div class="flex flex-row flex-wrap">
-                            <div class="__contry w-80 py-3 mb-8 bg-blue-50 rounded-full">
-                                <!-- <img src="../assets/cameroun.png" alt="country" class="w-7 h-7 "> -->
-                                <label for="country" class="hidden">country</label>
+                            <div class="__contry w-80 py-2 mb-8 bg-blue-50 rounded-full p-4">
+                                <span class="inline-block float-left py-3 pl-3">
+                                    <img src="../assets/cameroun.png" alt="country" class="w-7 h-7 rounded-full">
+                                </span>
+                                <!-- <label for="country" class="hidden">country</label>
                                 <select name="country" id="country" class="w-40 h-10 text-lg bg-blue-50 shadow-none">
                                     <option value="Cameroun">Cameroun</option>
                                     <option value="Cote d'Ivoire">Côte d'Ivoire</option>
                                     <option value="Ghana">Ghana</option>
                                     <option value="Congo">Congo</option>
-                                </select>
+                                </select> -->
+                                <div class="relative self-center float-right">
+                                    <svg class="text-white bg-blue-400 h-7 w-7 absolute top-0 right-0 m-3 pointer-events-none p-2 rounded" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="40px" viewBox="0 0 38 22" version="1.1">
+                                        <title>F09B337F-81F6-41AC-8924-EC55BA135736</title>
+                                        <g id="ZahnhelferDE—Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="ZahnhelferDE–Icon&amp;Asset-Download" transform="translate(-539.000000, -199.000000)" fill="#ffffff" fill-rule="nonzero">
+                                                <g id="Icon-/-ArrowRight-Copy-2" transform="translate(538.000000, 183.521208)">
+                                                    <polygon id="Path-Copy" transform="translate(20.000000, 18.384776) rotate(135.000000) translate(-20.000000, -18.384776) " points="33 5.38477631 33 31.3847763 29 31.3847763 28.999 9.38379168 7 9.38477631 7 5.38477631"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <select class="text-xl text-gray-600 font-light h-12 w-60 pt-1 pl-3 pr-10 bg-blue-50 hover:border-gray-400 focus:outline-none appearance-none">
+                                        <option>Cameroun</option>
+                                        <option>Congo</option>
+                                        <option>Guinnée equatoriale</option>
+                                        <option>$ote d'ivoire</option>
+                                    </select>
+                                </div>
+
                             </div>
                             <div class="__idAndPhoneNumber">
                                 <div class="inline-block w-16 py-3 mr-2 bg-blue-50 rounded-full text-center text-xl">+237</div>
@@ -80,7 +101,7 @@ export default {
         composantRetour
     },
     setup () {
-        let visible = true
+        let visible = !true
         return {
             visible
         }
