@@ -48,7 +48,7 @@
 <script>
     import composantRetour from './composantRetour.vue'
     export default {
-        name: 'reglages',
+        name: 'reglage',
         components: {
             composantRetour
         }

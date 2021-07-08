@@ -7,8 +7,9 @@
         <!-- <verif-art-panier />  -->
         <!-- <most-popular /> -->
         <!-- <connexion-enregistr /> -->
-        <profil />
+        <!-- <profil /> -->
         <!-- <reglages /> -->
+        <mon-compte />
 
     </div>
 </template>
@@ -22,7 +23,8 @@ import navbar from "./navbar.vue"
 import paiementMode from './paiementMode.vue'
 import panier from './panier.vue'
 import mostPopular from './mostPopular.vue'
-import reglages from './reglages.vue'
+import reglages from './reglage.vue'
+import monCompte from './monCompte.vue'
 
 export default {
    name: "director",
@@ -36,7 +38,8 @@ export default {
        mostPopular,
        connexionEnregistr,
        profil,
-       reglages
+       reglages,
+       monCompte
    }
 
   
