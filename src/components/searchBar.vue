@@ -17,3 +17,40 @@
         name: "searchBar"
     }
 </script>
+
+<style lang="postcss" scoped>
+    @media screen and (min-width: 405px) {
+        form div {
+            display: block;
+            margin: 20px auto;
+            max-width: 55%;
+            border: 1px solid rgba(128, 128, 128, 0.13);
+            border-radius: 30px;
+            padding-top: 5px
+        }
+
+        input[type="search"] {
+            max-width: 47%;
+            margin-left: 10px;
+            font-size: .85em
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        form div {
+            display: block;
+            margin: 20px auto;
+            width: 332px;
+            height: 60px;
+            border: 1px solid rgba(128, 128, 128, 0.13);
+            border-radius: 30px;
+            padding-top: 5px
+        }
+
+        input[type="search"] {
+            max-width: 47%;
+            margin-left: 10px;
+            font-size: .85em
+        }
+    }
+</style>

@@ -9,8 +9,8 @@
         <!-- <connexion-enregistr /> -->
         <!-- <profil /> -->
         <!-- <reglages /> -->
-        <mon-compte />
-
+        <!-- <mon-compte /> -->
+        <ma-musique />
     </div>
 </template>
 
@@ -25,6 +25,7 @@ import panier from './panier.vue'
 import mostPopular from './mostPopular.vue'
 import reglages from './reglage.vue'
 import monCompte from './monCompte.vue'
+import maMusique from './maMusique.vue'
 
 export default {
    name: "director",
@@ -39,7 +40,8 @@ export default {
        connexionEnregistr,
        profil,
        reglages,
-       monCompte
+       monCompte,
+       maMusique
    }
 
   

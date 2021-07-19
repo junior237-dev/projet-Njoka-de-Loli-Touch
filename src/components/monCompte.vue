@@ -1,10 +1,13 @@
 <template>
     <div class="__monCompte bg-gray-50">
         <div class="pt-3 bg-blue-400 h-28 w-full">
-            <div class="w-72 h-20 mx-auto flex justify-center items-center bg-white shadow-lg rounded-full">
+            <div class="w-72 h-20 mx-auto flex justify-center items-center bg-white shadow-lg rounded-full" v-if="visible">
                 <img src="../assets/tenor.jpg" alt="photo de profil" class="w-20 h-20  rounded-full">
                 <span class="inline-block w-44 text-2xl text-blue-400 font-medium mx-3">Rigobert Song</span>
                 <img src="../assets/icones/settings.png" alt="setting" class="">
+            </div>
+            <div class="w-72 h-20 mx-auto flex justify-center items-center bg-white shadow-lg rounded-full" v-else if="!visible">
+                <a href="#" class="text-xl text-blue-400 font-semibold">Connexion-Enregistrement</a>
             </div>
         </div>
         <div class="__mes achats h-48 border-b bg-white">
@@ -45,6 +48,13 @@
 <script>
     export default {
         name: "monCompte",
+
+        setup () {
+            let visible = true
+            return {
+                visible
+            }
+        }
        
     }
 </script>
