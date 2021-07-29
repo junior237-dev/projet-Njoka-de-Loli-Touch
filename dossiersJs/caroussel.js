@@ -1,165 +1,119 @@
-
-class Caroussel {
-
+class Carousel {
     /**
      * 
-     * @callback moveCallbacks
-     * @param {number} index 
-     */
-
-    /**
-     * @param {HTMLelement} element
-     * @param {object} options
-     * @param {object} options.slidesToScroll qui définit le nombre d'éléments sur lesquels on scroll
-     * @param {object} options.slidesVisible qui définit le nombre d'éléments visibles
-     * @param {Boolean} [options.loop = false] doit-on boucler en fi de carousel
+     * @param {HTMLElement} element 
+     * @param {Object} options 
+     * @param {Object} options.slidesToScroll pour définir le nombre d'éléments à slider
+     * @param {Object} options.slidesisible pour définir le nombre d'éléments visibles
+     * @param {Object} options.loop 
      */
 
     constructor (element, options = {}) {
-
         this.element = element
-        this.options = Object.assign({},{
+        this.options = Object.assign({}, {
             slidesToScroll: 1,
-            slidesVisible: 1,
+            slidesVisible: 1, 
             loop: false
         }, options)
-        let elementChildren = [].slice.call(element.children)
+
+        this.isMobile = false
         this.currentItem = 0
         this.moveCallbacks = []
-        this.isMobile = false
-       
-        this.carouselContainer = this.createDivWithClass('carouselContainer') //ceci représente root dans le tutoriel que je suis
-        this.panorama = this.createDivWithClass('panorama') //ceci représente caroussel__container dans le même tutoriel
+        let children = [].slice.call(this.element.children)
+        this.root = this.createDivWithClass('carousel')
         
-        
-
-        this.carouselContainer.appendChild(this.panorama) 
-        this.element.appendChild(this.carouselContainer)
-        this.carouselContainer.setAttribute('tabindex', '0')
-        
-        
-        this.items = elementChildren.map(element => {
-            let item = this.createDivWithClass('caroussel__item')
-            item.appendChild(element)
+        this.panorama = this.createDivWithClass('carousel__panorama')
+        this.root.appendChild(this.panorama)
+        this.element.appendChild(this.root)
+        this.items = children.map(child => {
+            let item = this.createDivWithClass("carousel__item")
+            item.appendChild(child)
             this.panorama.appendChild(item)
             return item
-        });
+        })
 
         this.setStyle()
         this.createNavigation()
-        this.moveCallbacks.forEach(cb =>cb(0))
+        this.moveCallbacks.forEach(cb => cb(0))
         this.onWindowResize()
         window.addEventListener('resize', this.onWindowResize.bind(this))
-        this.carouselContainer.addEventListener('keyup', e => {
-            if(e.key == "ArrowRight" || e.key == "Right") {
-                this.next()
-            } else if(e.key == "ArrowLeft" || e.key == "Left") {
-                this.prev()
-            }
-        })
+
     }
 
     /**
      * 
-     * @param {string} className
-     * @returns {HTMLelement}
-     * 
+     * @param {string} className 
+     * @returns {HTMLElement}
      */
 
-    createDivWithClass (className) {
-        
+    createDivWithClass(className) {
         let div = document.createElement('div')
         div.setAttribute('class', className)
         return div
     }
 
-    /**
-     * 
-     * Applique les bonnes dimensions aux élémeents
-     * 
-     */
-
     setStyle () {
-        let ratio = this.items.length /  this.slidesVisible
-        this.panorama.style.width = (ratio*100)+'%'
-        this.items.forEach(item => item.style.width = (100/this.slidesVisible) / ratio +"%");
+        let ratio = this.items.length / this.slidesVisible
+        this.panorama.style.width = (100 * ratio) +'%'
+        this.items.forEach (item => item.style.width = ((100 / this.slidesVisible) / ratio) +"%" )
     }
 
-    /**
-     * permet de créer des boutons de navigation pour le carousel
-     */
-
-    createNavigation(){
+    createNavigation () {
         let nextButton = this.createDivWithClass('carousel__next'), prevButton = this.createDivWithClass('carousel__prev')
+        
+        this.root.appendChild(nextButton)
+        this.root.appendChild(prevButton)
 
-        this.carouselContainer.appendChild(nextButton)
-        this.carouselContainer.appendChild(prevButton)
-
-        nextButton.addEventListener('click', this.next.bind(this))
-        prevButton.addEventListener('click', this.prev.bind(this))
+        nextButton.addEventListener("click", this.next.bind(this))
+        prevButton.addEventListener("click", this.prev.bind(this))
+ 
+        if(this.options.loop === true) {
+            return
+        }
 
         this.onMove (index => {
-            if(index == 0) {
-                prevButton.classList.add("carousel__prev__hidden")
+            if (index == 0) {
+                prevButton.classList.add("carousel__hidden")
             } else {
-                prevButton.classList.remove("carousel__prev__hidden")
+                prevButton.classList.remove("carousel__hidden")
             }
 
-            if (this.items[this.currentItem + this.slidesVisible] == undefined) {
-                nextButton.classList.add("carousel__prev__hidden")
+            if (this.items[this.currentItem + this.slidesVisible] === undefined) {
+                nextButton.classList.add("carousel__hidden")
             } else {
-                nextButton.classList.remove("carousel__prev__hidden")
+                nextButton.classList.remove("carousel__hidden")
             }
         })
     }
 
-   
-
     next() {
-
         this.goToItem(this.currentItem + this.slidesToScroll)
-
     }
 
     prev() {
         this.goToItem(this.currentItem - this.slidesToScroll)
- 
     }
 
-    
-
-    /**
-     * 
-     * permet de déplacer le carousel vers l'élément ciblé
-     * @param {number} index 
-     * 
-     */
     goToItem (index) {
-    
         if (index < 0) {
-            index = this.items.length - this.options.slidesVisible
-        } else if(index >= this.items.length || this.items[this.currentItem + this.options.slidesVisible] == undefined) {
             index = 0
+        } else if (index > this.items.length || (this.items[this.currentItem + this.slidesVisible] === undefined && (index > this.currentItem) )){
+            index = 0
+            
         }
-        let translateX = index * (-100 / this.items.length)
-        this.panorama.style.transform = 'translate3D('+ translateX+'%, 0, 0)'
+        
+        let translateX = -(100/this.items.length) * index
+        this.panorama.style.transform = "translateX("+translateX+"%)"
         this.currentItem = index
         this.moveCallbacks.forEach(cb => cb(index))
-        
     }
-
-    /**
-     * 
-     * @param {moveCallbacks} cb 
-     */
 
     onMove (cb) {
         this.moveCallbacks.push(cb)
-        
     }
 
     onWindowResize () {
-        let mobile = window.innerWidth < 800
+        let mobile = window.innerWidth < 600
         if (mobile !== this.isMobile) {
             this.isMobile = mobile
             this.setStyle()
@@ -167,39 +121,22 @@ class Caroussel {
         }
     }
 
-    /**
-     * @returns {number}
-     */
-
-    get slidesToScroll () {
-        return this.isMobile ? 1:this.options.slidesToScroll
+    get slidesToScroll() {
+        return this.isMobile ? 2:this.options.slidesToScroll
     }
-
-    /**
-     * @returns {number}
-     */
 
     get slidesVisible () {
-        return this.isMobile ? 1:this.options.slidesVisible
+        return this.isMobile ? 2: this.options.slidesVisible
     }
-
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
 
+    new Carousel (document.querySelector("div.carousel1"), {
+        slidesToScroll: 2,
+        slidesVisible: 3,
+        loop: true
+    })
 
-document.addEventListener('DOMContentLoaded', function(){
-    let carousel = document.querySelector('.carousel')
-    if(carousel){
-        new Caroussel(carousel, {
-            slidesToScroll: 1,
-            slidesVisible: 3,
-            loop: false
-        })
-        
-    } else {
-        return ''
-    }
-   
 })
-

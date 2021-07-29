@@ -1,7 +1,7 @@
 <template>
-    <div class="maMusique bg-gray-50 pt-1">
+    <div class="maMusique bg-gray-200 pt-1 h-screen">
         <search-bar />
-        <div class="container w-full">
+        <div class="GeneralContainer w-full mt-6">
             <slide-system />
         </div>
     </div>

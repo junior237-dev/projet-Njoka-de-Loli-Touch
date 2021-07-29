@@ -16,7 +16,11 @@ module.exports = {
       '6xl': '4rem',
       '7xl': '5rem',
     },
-    extend: {},
+    extend: {
+      backgroundImage: theme => ({
+        'aveiro': "url('./src/assets/aveiroDjess.jpg')"
+      })
+    },
   },
   variants: {
     extend: {},
