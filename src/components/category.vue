@@ -1,9 +1,9 @@
 <!-- voici le composant "categorie" que j'ai commencé -->
 <template>
-    <div class="w-full min-h-screen  bg-blue-500  pt-0"> <!-- son contenant principal dont j'ai mis le background en bleu -->
+    <div class="w-full pt-0 min-h-screen bg-blue-500"> <!-- son contenant principal dont j'ai mis le background en bleu -->
         <search-bar />
         <main></main>
-    </div>
+    </div> <!-- un petit commentaire -->
 </template>
 
 <script>
@@ -27,9 +27,4 @@ export default {
 }
 </script>
 
-<style>
-    .bg-blue-500 {
-        min-height: 812px
-    }
-</style>
 

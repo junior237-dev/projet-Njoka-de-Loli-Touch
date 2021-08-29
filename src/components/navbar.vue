@@ -3,31 +3,31 @@
         <div class="py-2">
             <a href="#">
                 <svg class="icon">
-                    <use xlink:href="../../public/icones/sprite.svg#home"></use>
+                    <use xlink:href="../assets/icones/sprite.svg#home"></use>
                 </svg>
                 Accueil
             </a>
             <a href="#" >
                 <svg class="icon">
-                    <use xlink:href="../../public/icones/sprite.svg#menu (1)"></use>
+                    <use xlink:href="../assets/icones/sprite.svg#menu (1)"></use>
                 </svg>
                 Catégories
             </a>
             <a href="#">
                 <svg class="icon">
-                    <use xlink:href="../../public/icones/sprite.svg#add-to-cart"></use>
+                    <use xlink:href="../assets/icones/sprite.svg#add-to-cart"></use>
                 </svg>
                 Panier
             </a>
             <a href="#">
                 <svg class="icon">
-                    <use xlink:href="../../public/icones/sprite.svg#music-note-on-folder"></use>
+                    <use xlink:href="../assets/icones/sprite.svg#music-note-on-folder"></use>
                 </svg>
                 Ma musique
             </a>
             <a href="#" :class="Active">
                 <svg class="icon">
-                    <use xlink:href="../../public/icones/sprite.svg#profile-user"></use>
+                    <use xlink:href="../assets/icones/sprite.svg#profile-user"></use>
                 </svg>
                 Mon compte
             </a>

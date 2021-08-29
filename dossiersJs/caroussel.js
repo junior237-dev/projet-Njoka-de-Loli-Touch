@@ -1,4 +1,4 @@
-class Carousel {
+export default class Carousel {
     /**
      * 
      * @param {HTMLElement} element 
@@ -131,12 +131,12 @@ class Carousel {
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
 
-    new Carousel (document.querySelector("div.carousel1"), {
-        slidesToScroll: 2,
-        slidesVisible: 3,
-        loop: true
-    })
+//     new Carousel (document.querySelector("div.carousel1"), {
+//         slidesToScroll: 2,
+//         slidesVisible: 3,
+//         loop: true
+//     })
 
-})
+// })

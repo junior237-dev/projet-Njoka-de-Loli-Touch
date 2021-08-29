@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen  bg-blue-400">
+    <div class="w-full min-h-screen bg-blue-400 mt-0">
         <search-bar />
         <main>
             <div class="px-3  mt-10">
@@ -34,7 +34,7 @@
                     </button>
                     <button class=" mb-5">
                         <span class="inline-block">
-                            <img src="../assets/charlotte dipanda.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2 border-blue-400">
+                            <img src="../assets/charlotteDipanda.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2 border-blue-400">
                         </span>
                         <br>
                         <span class="text-center text-white text-light text-md">Charlotte Dipanda</span>
@@ -60,11 +60,6 @@
                         <br>
                         <span class="text-center text-white text-light text-md">Aveiro Djess</span>
                     </button>
-                    
-                    
-                    
-                   
-                     
                 </div>
             </div>
         </main>
@@ -82,6 +77,3 @@
     }
 </script>
 
-<style>
-    
-</style>
