@@ -1,4 +1,4 @@
-export default class Carousel {
+class Carousel {
     /**
      * 
      * @param {HTMLElement} element 

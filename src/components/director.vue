@@ -10,12 +10,14 @@
         <!-- <profil /> -->
         <!-- <reglages /> -->
         <!-- <mon-compte /> -->
-        <ma-musique />
+        <!-- <ma-musique /> -->
+        <exemple />
     </div>
 </template>
 
 <script>
 import profil from './profil.vue'
+import exemple from './exempleComponent.vue'
 import connexionEnregistr from './connexionEnregistr.vue'
 import verifArtPanier from './verifArtPanier.vue'
 import category from "./category.vue"
@@ -41,7 +43,8 @@ export default {
        profil,
        reglages,
        monCompte,
-       maMusique
+       maMusique,
+       exemple
    }
 
   

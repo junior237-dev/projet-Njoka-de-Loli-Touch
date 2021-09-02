@@ -1,19 +1,5 @@
 <template>
-    <div class="containerSlideSystem">
-        <div class="carouselTitle">{{itemInformations.carouselTitle}}</div>
-        <div class="carousel1">
-            <item-carousel v-for="(item, indice) in items" :key="indice"
-                :image="item.containerImageUrl"
-                :itemTitle="item.itemTitle"
-                :titles="item.titles"
-                :likes="item.likes"
-                :shares="item.shares"
-                :views="item.views"
-                :duration="item.duration"
-                :creationDate="item.creationDate"
-            />
-        </div>
-   </div>
+    
 </template>
 
 <script>
@@ -21,17 +7,28 @@
     export default {
         name: 'slideSystem',
         components: {
-            itemCarousel
+            itemCarousel,
+            // Splide,
+            // SplideSlide
+            
         },
         props: {
             itemInformations: Object
         },
         setup (props) {
             let items = props.itemInformations.items
+            // document.addEventListener('DOMContentLoaded', function () {
+                
+            // })
             
             return {
                 items
             }
+        },
+        mounted () {
+           setTimeout(() => {
+                new Splide( '.splide' ).mount()
+           }, 700)
         }
     }
 </script>

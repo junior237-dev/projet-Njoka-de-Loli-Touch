@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="containerItem">
         <div class="container__info">
             <span><i class="fas fa-eye"></i>2350</span>
             <span><i class="fas fa-comment-alt"></i>624</span>
@@ -41,7 +41,7 @@ export default {
         box-sizing: border-box;
     }
     body {
-        background-color: #80afcd;
+        /* background-color: #80afcd; */
         font-family: Arial, Helvetica, sans-serif;
         display: flex;
         justify-content: center;
@@ -49,17 +49,27 @@ export default {
         min-height: 100vh;
         line-height: 1.4;
     }
-    .container {
-        background: url("https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
+    .containerItem {
+        background: url("https://i.pinimg.com/originals/46/86/bc/4686bc3cb215ee0cae30959a152bea87.jpg");
         background-repeat: no-repeat;
         background-position: center;
+        background-color: gray;
         background-size: cover;
+        opacity: .9;
         width: 350px;
         height: 500px;
+        transform: scale(1);
+        transition: transform .4s;
+        transition: opacity .4s;
         position: relative;
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.315);
     }
-    .container .container__info {
+
+    .containerItem:hover {
+        opacity: 1;
+        transition: scale(1.01)
+    }
+    .containerItem .container__info {
         position: absolute;
         right: 0;
         left: 0;
@@ -72,10 +82,10 @@ export default {
     .container .container__info span {
         margin-right: 20px;
     }
-    .container .container__info i {
+    .containerItem .container__info i {
         margin-right: 10px;
     }
-    .container .container__profile {
+    .containerItem .container__profile {
         background-color: #e4f2fd;
         display: flex;
         align-items: center;
@@ -85,7 +95,7 @@ export default {
         left: 0;
         bottom: 0;
     }
-    .container .container__profile img {
+    .containerItem .container__profile img {
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -93,15 +103,15 @@ export default {
         object-fit: cover;
         margin-right: 10px;
     }
-    .container .container__profile h2 {
+    .containerItem .container__profile h2 {
         color: #334454;
         font-size: 1.2rem;
     }
-    .container .container__profile p {
+    .containerItem .container__profile p {
         color: #a1b2bc;
         font-size: 0.8rem;
     }
-    .container .container__profile p b {
+    .containerItem .container__profile p b {
         font-style: italic;
     }
 
