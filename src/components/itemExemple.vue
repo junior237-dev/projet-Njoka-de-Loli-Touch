@@ -1,50 +1,48 @@
 <template>
-    <div class="font-sans">
-        <div class="mx-auto">
-            <div class="flex items-center justify-center min-h-screen">
-                <div class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-6 px-3">
-                    <div class="bg-white shadow-xl rounded-lg overflow-hidden">
-                        <div class="bg-cover bg-center h-56 p-4" style="background-image: url(https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">
-                            <div class="flex justify-end">
-                                <svg class="h-6 w-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="uppercase tracking-wide text-sm font-bold text-gray-700">Detached house • 5y old</p>
-                            <p class="text-3xl text-gray-900">$750,000</p>
-                            <p class="text-gray-700">742 Evergreen Terrace</p>
-                        </div>
-                        <div class="flex p-4 border-t border-gray-300 text-gray-700">
-                            <div class="flex-1 inline-flex items-center">
-                                <svg class="h-6 w-6 text-gray-600 fill-current mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M0 16L3 5V1a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4l3 11v5a1 1 0 0 1-1 1v2h-1v-2H2v2H1v-2a1 1 0 0 1-1-1v-5zM19 5h1V1H4v4h1V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h2V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1zm0 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V6h-2v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6H3.76L1.04 16h21.92L20.24 6H19zM1 17v4h22v-4H1zM6 4v4h4V4H6zm8 0v4h4V4h-4z"></path>
-                                </svg>
-                                <p><span class="text-gray-900 font-bold">3</span> Bedrooms</p>
-                            </div>
-                            <div class="flex-1 inline-flex items-center">
-                                <svg class="h-6 w-6 text-gray-600 fill-current mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd" d="M17.03 21H7.97a4 4 0 0 1-1.3-.22l-1.22 2.44-.9-.44 1.22-2.44a4 4 0 0 1-1.38-1.55L.5 11h7.56a4 4 0 0 1 1.78.42l2.32 1.16a4 4 0 0 0 1.78.42h9.56l-2.9 5.79a4 4 0 0 1-1.37 1.55l1.22 2.44-.9.44-1.22-2.44a4 4 0 0 1-1.3.22zM21 11h2.5a.5.5 0 1 1 0 1h-9.06a4.5 4.5 0 0 1-2-.48l-2.32-1.15A3.5 3.5 0 0 0 8.56 10H.5a.5.5 0 0 1 0-1h8.06c.7 0 1.38.16 2 .48l2.32 1.15a3.5 3.5 0 0 0 1.56.37H20V2a1 1 0 0 0-1.74-.67c.64.97.53 2.29-.32 3.14l-.35.36-3.54-3.54.35-.35a2.5 2.5 0 0 1 3.15-.32A2 2 0 0 1 21 2v9zm-5.48-9.65l2 2a1.5 1.5 0 0 0-2-2zm-10.23 17A3 3 0 0 0 7.97 20h9.06a3 3 0 0 0 2.68-1.66L21.88 14h-7.94a5 5 0 0 1-2.23-.53L9.4 12.32A3 3 0 0 0 8.06 12H2.12l3.17 6.34z"></path>
-                                </svg>
-                                <p><span class="text-gray-900 font-bold">2</span> Bathrooms</p>
-                            </div>
-                        </div>
-                        <div class="px-4 pt-3 pb-4 border-t border-gray-300 bg-gray-100">
-                            <div class="text-xs uppercase font-bold text-gray-600 tracking-wide">Realtor</div>
-                            <div class="flex items-center pt-2">
-                                <div class="bg-cover bg-center w-10 h-10 rounded-full mr-3" style="background-image: url(https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80)">
-                                </div>
-                                <div>
-                                    <p class="font-bold text-gray-900">Tiffany Heffner</p>
-                                    <p class="text-sm text-gray-700">(555) 555-4321</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <input id="slider" class="customSlider" type="checkbox">
+    <label for="slider"></label>
+
+    <div class="wrapper">
+        <div class="top-icons">
+            <i class="fas fa-long-arrow-alt-left"></i>
+            <i class="fas fa-ellipsis-v"></i>
+            <i class="far fa-heart"></i>
+        </div>
+        
+        <div class="profile">
+            <img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail">
+            <div class="check"><i class="fas fa-check"></i></div>
+            <h3 class="name">Beverly Little</h3>
+            <p class="title">Javascript Developer</p>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
+            <button type="button" class="btn">Hire Me</button>
+        </div>
+        
+        <div class="social-icons">
+            <div class="icon">
+                <a href="/"><i class="fab fa-dribbble"></i></a>
+                <h4>12.8k</h4>
+                <p>Followers</p>
+            </div>
+            
+            <div class="icon">
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <h4>12.8k</h4>
+                <p>Followers</p>
+            </div>
+            
+            <div class="icon">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <h4>12.8k</h4>
+                <p>Followers</p>
             </div>
         </div>
+    </div>
+
+    <div class="concept">concept by 
+        <a href="https://dribbble.com/shots/4346772-Profile-Card" target="_blank">
+            <i class="fab fa-dribbble"></i> Vijay Verma
+        </a>
     </div>
 </template>
 
@@ -53,3 +51,274 @@ export default {
     name: 'itemExemple'
 }
 </script>
+
+<style lang="scss">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    background: #eeeeec;
+    align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	
+	font-family: 'Open Sans', sans-serif;
+	font-size: 100%;
+}
+
+// ------------------------------------------------
+
+$purple-gradient: linear-gradient(45deg, rgba(87,29,146,1) 0%,rgba(172,25,102,1) 100%);
+$purple-gradient: linear-gradient(to bottom right, #C90A6D, #FF48A0);
+$blue1-gradient: linear-gradient(to bottom right, #5E5AEC, #3F9EFC);
+$blue2-gradient: linear-gradient(to bottom right, #6452E9, #639FF9);
+$shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
+
+// ------------------------------------------------
+
+.customSlider {
+  opacity: 0;
+  display: none;
+	+ label {
+		position: relative;
+		top: 35px;
+		left: 15px;
+		cursor: pointer;
+		&:before, &:after {
+			background: #FFFFFF;
+			position: absolute;
+			content: '';
+		}
+		&:before {
+			top: -90px; left: -60px;
+			width: 80px;
+			height: 40px;
+			background: #ccc;
+			border-radius: 20px;
+			transition: background .75s;
+		}
+		&:after {
+			height: 34px; width: 34px;
+			top: -87px; left: -55px;
+			border-radius: 50%;
+			transition: all .5s;
+		}
+	}
+	
+	&:checked + label:after {
+		height: 34px; width: 34px;
+		top: -87px; left: -19px;
+		border-radius: 50%;
+	}
+	
+	&:checked ~ .wrapper {
+		color: #fff;
+		transition: background .6s ease;
+		background: #31394D;
+		
+		.top-icons {
+			i {
+				color: #fff;
+			}
+		}
+		
+		.profile {
+			// &:after {background: #ececece;}
+			.name {
+				color: #FDFEFF;
+			}
+			
+			.title {
+				color: #7C8097;
+			} 
+			
+			.description {
+				color: #FDFEFF;
+			}
+		}
+		.icon {
+			h4 {
+				color: #FFFFFF;
+			}
+			
+			p {
+				color: #666B7D;
+			}
+		}
+	}
+}
+
+.wrapper {
+    width: 320px;
+    height: 540px;
+    background: #FDFEFF;
+	transition: background .6s ease;
+	border-radius: 10px;
+	padding: 20px 20px 20px 20px;
+	box-shadow: 0 8px 40px rgba(#000000, .2);
+	
+	.top-icons {
+		i {
+			color: #080911;
+			&:nth-of-type(1) {
+				float: left;
+			}
+			&:nth-of-type(2) {
+				float: right;
+			}
+			&:nth-of-type(3) {
+				float: right;
+				padding-right: .8em;
+			}
+		}
+	}
+	.profile {
+		margin-top: 2.2em;
+		position: relative;
+		
+		&:after {
+			width: 100%;
+			height: 1px;
+			content: ' ';
+			display: block;
+			margin-top: 1.3em;
+			background: #E9EFF6;
+		}
+		
+		.check {
+			position: absolute;
+			right: 5em;
+			bottom: 12.7em;
+			i {
+				color: #fff;
+				width: 20px;
+				height: 20px;
+				font-size: 12px;
+				line-height: 20px;
+				text-align: center;
+				border-radius: 100%;
+				background: $purple-gradient;	
+			}
+		}
+		.thumbnail {
+			width: 124px;
+			height: 124px;
+			display: flex;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 1.5em;
+			border-radius: 100%;
+			box-shadow: $shadow;
+		}
+		.name {
+			color: #2D354A;
+			font-size: 24px;
+			font-weight: 600;
+			text-align: center;
+		}
+		
+		.title {
+			color: #7C8097;
+			font-size: .75em;
+			font-weight: 300;
+			text-align: center;
+			padding-top: .5em;
+			padding-bottom: .7em;
+			letter-spacing: 1.5px;
+			text-transform: uppercase;
+		}
+		
+		.description {
+			color: #080911;
+			font-size: 14px;
+			font-weight: 300;
+			text-align: center;
+			margin-bottom: 1.3em;
+		}
+		
+		.btn {
+			color: #fff;
+			width: 130px;
+			height: 42px;
+			outline: none;
+			border: none;
+			display: block;
+			cursor: pointer;
+			font-weight: 300;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 70px;
+			box-shadow: 0 13px 26px rgba(#000, .16), 0 3px 6px rgba(#000, .16);
+			background: $purple-gradient;
+		}
+	}
+	
+	.social-icons {
+		display: flex;
+		margin-top: 1.2em;
+		justify-content: space-between;
+		
+		.icon {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			a {
+				color: #fff;
+				width: 60px;
+				height: 60px;
+				font-size: 28px;
+				line-height: 60px;
+				text-align: center;
+				border-radius: 30px;
+				box-shadow: $shadow;
+			}
+			&:nth-of-type(1) {
+				a {
+					background: $purple-gradient;
+				}
+			}
+			&:nth-of-type(2) {
+				a {
+					background: $blue1-gradient;
+				}
+			}
+			&:nth-of-type(3) {
+				a {
+					background: $blue2-gradient;
+				}
+			}
+			
+			h4 {
+				color: #080911;
+				font-size: 1em;
+				margin-top: 1.3em;
+				margin-bottom: .2em;
+			}
+			
+			p {
+				color: #666B7D;
+				font-size: 12px;		
+			}
+		}
+	}
+}
+
+.concept {
+	position: absolute;
+	bottom: 25px;
+	color: #AAB0C4;
+	font-size: .9em;
+	font-weight: 400;
+	a {
+		color: rgba(172,25,102,1);
+		text-decoration: none;
+	}
+}
+</style>

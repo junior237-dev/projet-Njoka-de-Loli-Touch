@@ -58,18 +58,31 @@
                 </div>
             </splide-slide>
             <splide-slide>
-                <div class="image">
-                    <img src="../assets/aveiroDjess.jpg" class="object-cover">
-                </div>
-                <div class="content border-2 rounded-b-2xl">
-                    <h1 class="mx-2 mt-2 text-bold text-left text-blue-500 text-tiny border-b font-light border-gray-300">Digital Marketing</h1>
-                    <div class="">
-                        <div class="__icons ">
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><img src="../assets/icones/eye.png" class="inline h-3 w-3  mb-1"><span class="value">999</span><span class="title">views</span></li>
-                                <li class="recipe-details-item ingredients"><img src="../assets/icones/like.png" class="inline h-3 w-3 mb-1"><span class="value">5</span><span class="title">likes</span></li>
-                                <li class="recipe-details-item servings"><img src="../assets/icones/share.png" class="inline h-3 w-3 mb-1"><span class="value">48</span><span class="title">shares</span></li>
-                            </ul>
+                <div class="">
+                    <div class="image relative" @mouseover="watchOpacityToShow" @mouseout="watchOpacityToHidde">
+                        <img src="../assets/aveiroDjess.jpg" class="object-cover">
+                    </div>
+                    <ul class="list-none flex justify-between items-center ml-3 z-10 w-4/5" v-if="show">
+                        <li class="w-10 h-10 rounded-full bg-blue-500 shadow-md">
+                            <img src="../assets/icones/playlist.png" class="h-3 w-3 inline-block" alt="">
+                        </li>
+                        <li class="w-10 h-10 rounded-full bg-blue-500 shadow-md">
+                            <img src="../assets/icones/clock.png" class="h-3 w-3 inline-block" alt="">
+                        </li>
+                        <li class="w-10 h-10 rounded-full bg-blue-500 shadow-md">
+                            <img src="../assets/icones/money.png" class="h-3 w-3 inline-block" alt="">
+                        </li>
+                    </ul>
+                    <div class="content border-2 rounded-b-2xl" >
+                        <h1 class="mx-2 mt-2 text-bold text-left text-blue-500 text-tiny border-b font-light border-gray-300">Digital Marketing</h1>
+                        <div class="">
+                            <div class="__icons ">
+                                <ul class="recipe-details">
+                                    <li class="recipe-details-item time"><img src="../assets/icones/eye.png" class="inline h-3 w-3  mb-1"><span class="value">999</span><span class="title">views</span></li>
+                                    <li class="recipe-details-item ingredients"><img src="../assets/icones/like.png" class="inline h-3 w-3 mb-1"><span class="value">5</span><span class="title">likes</span></li>
+                                    <li class="recipe-details-item servings"><img src="../assets/icones/share.png" class="inline h-3 w-3 mb-1"><span class="value">48</span><span class="title">shares</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,26 +102,36 @@ export default {
     components: {
         Splide, SplideSlide, itemExemple
     },
+
+    data () {
+        return{
+            show: false
+        }
+    },
+
     setup() {
         let options = {
             type: "loop",
-            perPage: 4,
+            perPage: 3,
 	        rewind : true,
-            // breakpoints: {
-            //     640: {
-            //         perPage: 1,
-            //         fixedWidth: 200,
-            //         fixedHeight: 200
-            //     }
-            // }
+            breakpoints: {
+            }
         }
+
         return {
-			options
+			options,
         }
     },
 
     methods: {
-        
+        watchOpacityToShow (event) {
+            this.show = true
+            console.log(event)
+            
+        },
+        watchOpacityToHidde (event) {
+            this.show = false
+        }
     },
 
     mounted () {
@@ -122,8 +145,10 @@ export default {
 
     %resize {
         height: 120px;
-        width: 180px;
+        width: 198px;
     }
+
+
     .recipe-details {
         display: flex;
         list-style: none;
@@ -147,7 +172,9 @@ export default {
                 border-bottom: solid 1px rgba(68, 174, 245, 0.959);
                 background-color: white;
                 border-radius: 10px;
-                transform: scale(1.1)
+                transform: scale(1.1);
+
+                
             }
         }
 
@@ -184,7 +211,6 @@ export default {
         cursor: pointer;
         background-color: transparent;
         transition: background-color .5s;
-        // border: 1px solid green;
 
         &:hover {
             background-color: #1f1f1f;
@@ -199,6 +225,8 @@ export default {
         img:hover {
             opacity: .35
         }
+
+        
     }
 
     .content {
