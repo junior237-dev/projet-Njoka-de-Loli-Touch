@@ -1,49 +1,34 @@
 <template>
-    <input id="slider" class="customSlider" type="checkbox">
-    <label for="slider"></label>
-
-    <div class="wrapper">
-        <div class="top-icons">
-            <i class="fas fa-long-arrow-alt-left"></i>
-            <i class="fas fa-ellipsis-v"></i>
-            <i class="far fa-heart"></i>
+  <div class="card-wrapper">
+    <div class="card">
+      <div class="card-image" >
+          <img src="../assets/aveiroDjess.jpg" class="object-cover">
+      </div>
+      <ul class="social-icons">
+          <li class="">
+            <a href=""><i class="bi bi-music-note-list text-blue-500"></i><br><span class="text-xs text-blue-500">15</span></a>
+          </li>
+          <li class="">
+            <a href=""><i class="bi bi-clock text-blue-500"></i><br><span class="text-xs text-blue-500">140min</span></a>
+          </li>
+          <li class="">
+            <a href=""><i class="bi bi-cash-coin text-blue-500"></i><br><span class="text-xs text-blue-500">500Fcfa</span></a>
+          </li>
+      </ul>
+      <div class="details">
+        <h2>Un titre pour l'item</h2>
+        <div class="">
+          <div class="__icons">
+            <ul class="recipe-details -mt-1">
+              <li class="recipe-details-item time"><img src="../assets/icones/eye.png" class="inline h-3 w-3  mb-1"><span class="value">999</span><span class="title">views</span></li>
+              <li class="recipe-details-item ingredients"><img src="../assets/icones/like.png" class="inline h-3 w-3 mb-1"><span class="value">5</span><span class="title">likes</span></li>
+              <li class="recipe-details-item servings"><img src="../assets/icones/share.png" class="inline h-3 w-3 mb-1"><span class="value">48</span><span class="title">shares</span></li>
+            </ul>
+          </div>
         </div>
-        
-        <div class="profile">
-            <img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail">
-            <div class="check"><i class="fas fa-check"></i></div>
-            <h3 class="name">Beverly Little</h3>
-            <p class="title">Javascript Developer</p>
-            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
-            <button type="button" class="btn">Hire Me</button>
-        </div>
-        
-        <div class="social-icons">
-            <div class="icon">
-                <a href="/"><i class="fab fa-dribbble"></i></a>
-                <h4>12.8k</h4>
-                <p>Followers</p>
-            </div>
-            
-            <div class="icon">
-                <a href="#"><i class="fab fa-behance"></i></a>
-                <h4>12.8k</h4>
-                <p>Followers</p>
-            </div>
-            
-            <div class="icon">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <h4>12.8k</h4>
-                <p>Followers</p>
-            </div>
-        </div>
+      </div>
     </div>
-
-    <div class="concept">concept by 
-        <a href="https://dribbble.com/shots/4346772-Profile-Card" target="_blank">
-            <i class="fab fa-dribbble"></i> Vijay Verma
-        </a>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -52,273 +37,269 @@ export default {
 }
 </script>
 
-<style lang="scss">
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+<style lang="scss" scoped>
+
+  $mobileSize: 'screen and (max-width: 642px)';
+
+  %resize {
+    height: 120px;
+    width: 198px;
+  }
+  .card-wrapper {
+    width: 100%;
+    height: 220px;
+    position: relative;
+  }
+
+  .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: 0.5s;
+      
+      .card-image {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-color: #000;
+        transition: .5s;
+
+        @media #{$mobileSize} {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          background-color: #000;
+          transition: none;
+        }
+        
+      }
+
+      &:hover img.object-cover {
+        opacity: 0.3;
+        transition: .5s;
+        @media #{$mobileSize} {
+          opacity: 1;
+          transition: none;
+        }
+      }
+  }
+
+
+  /***social media */
+  .social-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    display: flex;
+
+
+    li {
+      list-style: none;
+        
+      a {
+        position: relative;
+        display: block;
+        width: 50px;
+        height: 50px;
+        line-height: 20px;
+        text-align: center;
+        background: rgb(0, 0, 0);
+        padding: 3px 0;
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+        margin: 0 6px;
+        transition: .4s;
+        transform: translateY(200px);
+        opacity: 0;
+
+        @media #{$mobileSize} {
+          position: relative;
+          display: block;
+          width: 50px;
+          height: 50px;
+          line-height: 20px;
+          text-align: center;
+          background: rgba(0, 0, 0, 0.835);
+          padding: 3px 0;
+          font-size: 18px;
+          color: #333;
+          font-weight: bold;
+          margin: 0 6px;
+          opacity: 1;
+          transition: none;
+          transform: none;
+        }
+      } 
+
     }
 
-body {
+    @media #{$mobileSize} {
+      position: absolute;
+      top:34%;
+      left: 92%;
+      display: block;
+      z-index: 3
+    }
+  }
+
+  .card:hover .social-icons li a {
+    transform: translateY(0px);
+    opacity: 1; 
+  }
+
+    // .social-icons li a:hover {
+    //     background: #000; 
+    //     transition: .2s;
+    //     .fab {
+    //         color: rgb(255, 255, 255);
+    //     } 
+    // }
+
+  .social-icons li a .bi {
+    transition: .8s;
+        
+    &:hover {
+      transform: rotateY(360deg);
+      color: #fff;
+    } 
+
+    
+    @media #{$mobileSize} {
+      color: #fff;
+    }
+  }
+
+  .card:hover li:nth-child(1) a {
+    transition-delay: 0.1s;
+  }
+  .card:hover li:nth-child(2) a {
+    transition-delay: 0.3s;
+  }
+  .card:hover li:nth-child(3) a {
+    transition-delay: 0.5s;
+  }
+  .card:hover li:nth-child(4) a {
+    transition-delay: 0.4s;
+  }
+
+    /*** personal details ***/
+
+  .details {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    background: rgb(255, 255, 255);
     width: 100%;
-    height: 100vh;
+    height: 40%;//120px;
+    z-index: 4;
+    padding: 10px;
+
+    h2 {
+      margin-top: -10px;
+      padding: 0;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+
+
+
+  .recipe-details {
     display: flex;
-    position: relative;
-    background: #eeeeec;
-    align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	
-	font-family: 'Open Sans', sans-serif;
-	font-size: 100%;
-}
+    list-style: none;
+    padding: .3rem;
+    margin: 0;
+    justify-content: space-around;
 
-// ------------------------------------------------
+    .recipe-details-item {
+      display: flex-1;
+      cursor: pointer;
+      vertical-align: middle;
+      border-top: solid 0 transparent;
+      background-color: transparent;
+      border-radius: 0;
+      padding: 0 4px;
+      width: auto;
+      transition: transform .5s, border-top .5s, background-color .3s,  border-radius .3s, transform .3s;
+        
 
-$purple-gradient: linear-gradient(45deg, rgba(87,29,146,1) 0%,rgba(172,25,102,1) 100%);
-$purple-gradient: linear-gradient(to bottom right, #C90A6D, #FF48A0);
-$blue1-gradient: linear-gradient(to bottom right, #5E5AEC, #3F9EFC);
-$blue2-gradient: linear-gradient(to bottom right, #6452E9, #639FF9);
-$shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
+      &:hover {
+        border-top: solid 2px rgba(68, 174, 245, 0.959);
+        background-color: white;
+        border-radius: 10px;
+        transform: scale(1.06);
+      }
 
-// ------------------------------------------------
+      img {
 
-.customSlider {
-  opacity: 0;
-  display: none;
-	+ label {
-		position: relative;
-		top: 35px;
-		left: 15px;
-		cursor: pointer;
-		&:before, &:after {
-			background: #FFFFFF;
-			position: absolute;
-			content: '';
-		}
-		&:before {
-			top: -90px; left: -60px;
-			width: 80px;
-			height: 40px;
-			background: #ccc;
-			border-radius: 20px;
-			transition: background .75s;
-		}
-		&:after {
-			height: 34px; width: 34px;
-			top: -87px; left: -55px;
-			border-radius: 50%;
-			transition: all .5s;
-		}
-	}
-	
-	&:checked + label:after {
-		height: 34px; width: 34px;
-		top: -87px; left: -19px;
-		border-radius: 50%;
-	}
-	
-	&:checked ~ .wrapper {
-		color: #fff;
-		transition: background .6s ease;
-		background: #31394D;
-		
-		.top-icons {
-			i {
-				color: #fff;
-			}
-		}
-		
-		.profile {
-			// &:after {background: #ececece;}
-			.name {
-				color: #FDFEFF;
-			}
-			
-			.title {
-				color: #7C8097;
-			} 
-			
-			.description {
-				color: #FDFEFF;
-			}
-		}
-		.icon {
-			h4 {
-				color: #FFFFFF;
-			}
-			
-			p {
-				color: #666B7D;
-			}
-		}
-	}
-}
+        @media #{$mobileSize} {
+          height: 20px;
+          width: 20px
+        }
 
-.wrapper {
-    width: 320px;
-    height: 540px;
-    background: #FDFEFF;
-	transition: background .6s ease;
-	border-radius: 10px;
-	padding: 20px 20px 20px 20px;
-	box-shadow: 0 8px 40px rgba(#000000, .2);
-	
-	.top-icons {
-		i {
-			color: #080911;
-			&:nth-of-type(1) {
-				float: left;
-			}
-			&:nth-of-type(2) {
-				float: right;
-			}
-			&:nth-of-type(3) {
-				float: right;
-				padding-right: .8em;
-			}
-		}
-	}
-	.profile {
-		margin-top: 2.2em;
-		position: relative;
-		
-		&:after {
-			width: 100%;
-			height: 1px;
-			content: ' ';
-			display: block;
-			margin-top: 1.3em;
-			background: #E9EFF6;
-		}
-		
-		.check {
-			position: absolute;
-			right: 5em;
-			bottom: 12.7em;
-			i {
-				color: #fff;
-				width: 20px;
-				height: 20px;
-				font-size: 12px;
-				line-height: 20px;
-				text-align: center;
-				border-radius: 100%;
-				background: $purple-gradient;	
-			}
-		}
-		.thumbnail {
-			width: 124px;
-			height: 124px;
-			display: flex;
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 1.5em;
-			border-radius: 100%;
-			box-shadow: $shadow;
-		}
-		.name {
-			color: #2D354A;
-			font-size: 24px;
-			font-weight: 600;
-			text-align: center;
-		}
-		
-		.title {
-			color: #7C8097;
-			font-size: .75em;
-			font-weight: 300;
-			text-align: center;
-			padding-top: .5em;
-			padding-bottom: .7em;
-			letter-spacing: 1.5px;
-			text-transform: uppercase;
-		}
-		
-		.description {
-			color: #080911;
-			font-size: 14px;
-			font-weight: 300;
-			text-align: center;
-			margin-bottom: 1.3em;
-		}
-		
-		.btn {
-			color: #fff;
-			width: 130px;
-			height: 42px;
-			outline: none;
-			border: none;
-			display: block;
-			cursor: pointer;
-			font-weight: 300;
-			margin-left: auto;
-			margin-right: auto;
-			border-radius: 70px;
-			box-shadow: 0 13px 26px rgba(#000, .16), 0 3px 6px rgba(#000, .16);
-			background: $purple-gradient;
-		}
-	}
-	
-	.social-icons {
-		display: flex;
-		margin-top: 1.2em;
-		justify-content: space-between;
-		
-		.icon {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			a {
-				color: #fff;
-				width: 60px;
-				height: 60px;
-				font-size: 28px;
-				line-height: 60px;
-				text-align: center;
-				border-radius: 30px;
-				box-shadow: $shadow;
-			}
-			&:nth-of-type(1) {
-				a {
-					background: $purple-gradient;
-				}
-			}
-			&:nth-of-type(2) {
-				a {
-					background: $blue1-gradient;
-				}
-			}
-			&:nth-of-type(3) {
-				a {
-					background: $blue2-gradient;
-				}
-			}
-			
-			h4 {
-				color: #080911;
-				font-size: 1em;
-				margin-top: 1.3em;
-				margin-bottom: .2em;
-			}
-			
-			p {
-				color: #666B7D;
-				font-size: 12px;		
-			}
-		}
-	}
-}
+      }
 
-.concept {
-	position: absolute;
-	bottom: 25px;
-	color: #AAB0C4;
-	font-size: .9em;
-	font-weight: 400;
-	a {
-		color: rgba(172,25,102,1);
-		text-decoration: none;
-	}
-}
+      @media #{$mobileSize} {
+        border: 1px solid transparent;
+        border-radius: 30%;
+        box-shadow: 0 2px 6px rgba(156, 155, 155, 0.794)//rgba(79, 145, 199, 0.815)
+      }
+    }
+
+    i {
+      font-size: 10px;
+    }
+  }
+
+
+  .value {
+    color: rgba(59, 131, 246, 0.952);
+    margin-left: .25rem;
+    vertical-align: bottom;
+    font-size: .75rem;
+    font-weight: 100;
+
+    @media #{$mobileSize} {
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding-left: 5px;
+    }
+  }
+
+  .title {
+    display: block;
+    margin-top: -0.5rem;
+    color: black;
+    font-weight: 300;
+    padding-top: .25rem;
+    font-size: .57em;
+
+    @media #{$mobileSize} {
+      display: none
+    }
+  }
+
+
+  img.inline {
+    opacity: 1
+  }
+
 </style>
