@@ -46,10 +46,12 @@
 
                     900: {
                         perPage: 3,
-                        width: '600px',
+                        width: '800px',
+                        height: '300px',
                         pagination: false,
                         arrows: false,
-                        gap: '.3em'
+                        gap: '.3em',
+                        
                     },
 
                     

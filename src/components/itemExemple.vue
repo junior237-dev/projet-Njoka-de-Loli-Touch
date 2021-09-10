@@ -58,7 +58,7 @@ export default {
   }
   .card-wrapper {
     width: 100%;
-    height: 220px;
+    height: 90%;
     position: relative;
     padding: 5px;
 
@@ -114,7 +114,7 @@ export default {
       }
 
       & img.object-cover {
-        @media screen and (max-width: 321px) {
+        @media screen and (max-width: 356px) {
           height: 100%;
           object-fit: cover;
         }
