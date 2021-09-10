@@ -74,27 +74,30 @@ export default {
         Splide, SplideSlide, itemExemple
     },
 
-    data () {
-        return{
-            show: false
-        }
-    },
-
     setup() {
         let options = {
             type: "loop",
-            perPage: 3,
+            perPage: 4,
 	        rewind : true,
-            gap: '1em',
+            gap: '.4em',
             breakpoints: {
 
-                650: {
+                640: {
                     perPage: 2,
                     type: "loop",
                     rewind: true,
                     pagination: false,
                     arrows: false,
-                    width: '470px'
+                    width: '500px',
+                    height: '220px',
+                    gap: '.3em'
+                },
+
+                900: {
+                    perPage: 3,
+                    pagination: false,
+                    arrows: false,
+                    gap: '.3em'
                 }
             }
         }
@@ -102,16 +105,6 @@ export default {
         return {
 			options,
         }
-    },
-
-    mounted () {
-        
-
     }
 }
 </script>
-
-<style lang="scss">
-    
-
-</style>

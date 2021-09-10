@@ -2,27 +2,27 @@
   <div class="card-wrapper">
     <div class="card">
       <div class="card-image" >
-          <img src="../assets/aveiroDjess.jpg" class="object-cover">
+          <img src="../assets/Lydol.jpg" class="object-cover">
       </div>
       <ul class="social-icons">
           <li class="">
-            <a href=""><i class="bi bi-music-note-list text-blue-500"></i><br><span class="text-xs text-blue-500">15</span></a>
+            <a href=""><i class="bi bi-music-note-list text-blue-500"></i><br><span class="text-xs text-blue-500">{{itemInfo.titles}}</span></a>
           </li>
           <li class="">
-            <a href=""><i class="bi bi-clock text-blue-500"></i><br><span class="text-xs text-blue-500">140min</span></a>
+            <a href=""><i class="bi bi-clock text-blue-500"></i><br><span class="text-xs text-blue-500">{{itemInfo.duration}}mn</span></a>
           </li>
           <li class="">
-            <a href=""><i class="bi bi-cash-coin text-blue-500"></i><br><span class="text-xs text-blue-500">500Fcfa</span></a>
+            <a href=""><i class="bi bi-cash-coin text-blue-500"></i><br><span class="text-xs text-blue-500">{{itemInfo.price}}XAF</span></a>
           </li>
       </ul>
       <div class="details">
-        <h2>Un titre pour l'item</h2>
+        <h3>{{(itemInfo.itemTitle.split('').length <= 9)? itemInfo.itemTitle:itemInfo.itemTitle.substring(0, 9)+'...'}}</h3>
         <div class="">
           <div class="__icons">
-            <ul class="recipe-details -mt-1">
-              <li class="recipe-details-item time"><img src="../assets/icones/eye.png" class="inline h-3 w-3  mb-1"><span class="value">999</span><span class="title">views</span></li>
-              <li class="recipe-details-item ingredients"><img src="../assets/icones/like.png" class="inline h-3 w-3 mb-1"><span class="value">5</span><span class="title">likes</span></li>
-              <li class="recipe-details-item servings"><img src="../assets/icones/share.png" class="inline h-3 w-3 mb-1"><span class="value">48</span><span class="title">shares</span></li>
+            <ul class="recipe-details -mt-1 ">
+              <li class="recipe-details-item time"><img src="../assets/icones/eye.png" class="inline h-3 w-3  mb-1"><span class="value">{{itemInfo.views}}</span><span class="title">views</span></li>
+              <li class="recipe-details-item ingredients"><img src="../assets/icones/like.png" class="inline h-3 w-3 mb-1"><span class="value">{{itemInfo.likes}}</span><span class="title">likes</span></li>
+              <li class="recipe-details-item servings"><img src="../assets/icones/share.png" class="inline h-3 w-3 mb-1"><span class="value">{{itemInfo.shares}}</span><span class="title">shares</span></li>
             </ul>
           </div>
         </div>
@@ -33,13 +33,24 @@
 
 <script>
 export default {
-    name: 'itemExemple'
+    name: 'itemExemple',
+    props: {
+      itemInfo: Object
+    },
+    setup (props) {
+      let itemInfo = props.itemInfo
+
+      return {
+        itemInfo
+      }
+    }
+
 }
 </script>
 
 <style lang="scss" scoped>
 
-  $mobileSize: 'screen and (max-width: 642px)';
+  $mobileSize: 'screen and (max-width: 900px)';
 
   %resize {
     height: 120px;
@@ -49,20 +60,26 @@ export default {
     width: 100%;
     height: 220px;
     position: relative;
+    padding: 5px;
+
+    @media screen and (max-width: 650px) {
+      height: 270px;
+    }
   }
 
   .card {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      transform: translate(-50%, -50%);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: 0.5s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    margin: -1px;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 3px 5px rgba(102, 102, 102, 0.3);
+    cursor: pointer;
+    transition: 0.5s;
       
       .card-image {
         position: absolute;
@@ -93,6 +110,13 @@ export default {
         @media #{$mobileSize} {
           opacity: 1;
           transition: none;
+        }
+      }
+
+      & img.object-cover {
+        @media screen and (max-width: 321px) {
+          height: 100%;
+          object-fit: cover;
         }
       }
   }
@@ -129,14 +153,20 @@ export default {
         transform: translateY(200px);
         opacity: 0;
 
+        // &:first-child {
+        //   @media #{$mobileSize} {
+        //     height: 65px
+        //   }  
+        // }
+
         @media #{$mobileSize} {
           position: relative;
           display: block;
           width: 50px;
-          height: 50px;
+          height: 60px;
           line-height: 20px;
           text-align: center;
-          background: rgba(0, 0, 0, 0.835);
+          background: transparent;
           padding: 3px 0;
           font-size: 18px;
           color: #333;
@@ -148,12 +178,20 @@ export default {
         }
       } 
 
+      a span {
+
+        @media #{$mobileSize} {
+          color: white;
+          font-weight: bold
+        }
+      }
+
     }
 
     @media #{$mobileSize} {
       position: absolute;
-      top:34%;
-      left: 92%;
+      top:35%;
+      left: 88%;
       display: block;
       z-index: 3
     }
@@ -182,7 +220,7 @@ export default {
 
     
     @media #{$mobileSize} {
-      color: #fff;
+      color: white;
     }
   }
 
@@ -209,7 +247,7 @@ export default {
     width: 100%;
     height: 40%;//120px;
     z-index: 4;
-    padding: 10px;
+    padding: 8px;
 
     h2 {
       margin-top: -10px;
@@ -246,21 +284,26 @@ export default {
         background-color: white;
         border-radius: 10px;
         transform: scale(1.06);
+
+        @media #{$mobileSize} {
+          border-top: none;
+          background-color: white;
+          border-radius: none;
+          transform: none;
+        }
       }
 
       img {
 
         @media #{$mobileSize} {
-          height: 20px;
-          width: 20px
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          border: 1px solid transparent;
+          box-shadow: 2px 1px 5px rgba(70, 68, 68, 0.376);
+          padding: 4px
         }
 
-      }
-
-      @media #{$mobileSize} {
-        border: 1px solid transparent;
-        border-radius: 30%;
-        box-shadow: 0 2px 6px rgba(156, 155, 155, 0.794)//rgba(79, 145, 199, 0.815)
       }
     }
 
@@ -274,13 +317,14 @@ export default {
     color: rgba(59, 131, 246, 0.952);
     margin-left: .25rem;
     vertical-align: bottom;
-    font-size: .75rem;
+    font-size: .9em;
     font-weight: 100;
 
     @media #{$mobileSize} {
-      font-size: 1.1rem;
+      font-size: .85em;
       font-weight: 500;
-      padding-left: 5px;
+      padding-left: 2px;
+
     }
   }
 

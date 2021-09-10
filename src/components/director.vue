@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <category />   -->
-        <!-- <navbar /> -->
+        <navbar />
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
@@ -10,8 +10,8 @@
         <!-- <profil /> -->
         <!-- <reglages /> -->
         <!-- <mon-compte /> -->
-        <!-- <ma-musique /> -->
-        <exemple />
+        <ma-musique />
+        <!-- <exemple /> -->
     </div>
 </template>
 

@@ -14,7 +14,8 @@ export default {
                     "duration": 180,
                     "creationDate": new Date(),
                     "likes": 80,
-                    "shares": 77
+                    "shares": 77,
+                    'price': 500
                 },
                 {
                     "containerImageNumber": 2,
@@ -25,7 +26,8 @@ export default {
                     "duration": 155,
                     "CreationDate": new Date(),
                     "likes": 74,
-                    "shares": 77
+                    "shares": 77,
+                    'price': 500
                 },
                 {
                     "containerImageNumber": 3,
@@ -36,7 +38,8 @@ export default {
                     "duration": 170,
                     "CreationDate": new Date(),
                     "likes": 80,
-                    "shares": 77
+                    "shares": 77,
+                    'price': 500
                 },
                 {
                     "containerImageNumber": 4,
@@ -47,7 +50,8 @@ export default {
                     "duration":320,
                     "CreationDate": new Date(),
                     "likes": 80,
-                    "shares": 77
+                    "shares": 77,
+                    'price': 500
                 },
                 {
                     "containerImageNumber": 5,
@@ -58,7 +62,8 @@ export default {
                     "duration": 210,
                     "CreationDate": new Date(),
                     "likes": 80,
-                    "shares": 77
+                    "shares": 77,
+                    'price': 500
                 },
                 {
                     "containerImageNumber": 6,
@@ -69,7 +74,8 @@ export default {
                     "duration": 250,
                     "CreationDate": new Date(),
                     "likes": 80,
-                    "shares": 77
+                    "shares": 77,
+                    'price': 500
                 }
             ]
         } //,
