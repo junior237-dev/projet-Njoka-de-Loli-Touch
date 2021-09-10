@@ -1,6 +1,6 @@
 <template>
-    <div class="py-5 bg-gray-100 h-auto">
-        <h2 class="text-left text-blue-400 font-medium text-lg ml-7">{{informations.carouselTitle}}</h2>
+    <div class="py-3 bg-gray-600 h-auto">
+        <h2 class="text-white mb-2 font-bold text-xl ml-3 text-left">{{informations.carouselTitle}}</h2>
         <splide :options="options"  class="m-auto">
             <splide-slide v-for="(item, indice) in informations.items" :key="indice">
                 <item-exemple :itemInfo="item"/>
@@ -28,9 +28,10 @@
         setup (props) {
             let options = {
                 type: "loop",
-                perPage: 5,
+                perPage: 4,
                 rewind : true,
-                gap: '.4em',
+                height: '300px',
+                gap: '.8em',
                 breakpoints: {
 
                     640: {

@@ -2,7 +2,7 @@
     <div class="maMusique bg-white pt-1 h-screen">
         <search-bar />
          <div class="GeneralContainer w-full h-auto my-6"> <!--v-for="(item, indice) in myMusic" :key="indice" -->
-            <slide-system :itemInformations="myMusic" />
+            <slide-system :itemInformations="myMusic" class="mb-4"/>
         </div>
     </div>
 </template>

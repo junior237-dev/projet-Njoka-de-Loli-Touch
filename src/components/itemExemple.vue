@@ -2,7 +2,7 @@
   <div class="card-wrapper">
     <div class="card">
       <div class="card-image" >
-          <img src="../assets/Lydol.jpg" class="object-cover">
+          <img src="../assets/xmaleya.jpg" class="object-cover">
       </div>
       <ul class="social-icons">
           <li class="">
@@ -114,10 +114,19 @@ export default {
       }
 
       & img.object-cover {
-        @media screen and (max-width: 356px) {
-          height: 100%;
-          object-fit: cover;
-        }
+        object-fit: cover ;
+        height: 100%;
+        width: 100%;
+        // @media screen and (max-width: 356px) {
+        //   height: 100%;
+        //   object-fit: cover;
+        // }
+
+        // @media screen and (min-width: 580px) {
+        //   width: 100%;
+        //   height: 100%;
+        //   object-fit: cover;
+        // }
       }
   }
 
