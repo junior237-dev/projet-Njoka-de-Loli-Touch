@@ -66,7 +66,7 @@ export default {
 
 <style lang="postcss">
     .navbar {
-        @apply fixed bottom-0  h-16 w-full  pt-1  bg-white  border-t
+        @apply fixed z-50 bottom-0  h-16 w-full  pt-1  bg-white  border-t
     }
     .navbar a {
         @apply inline-block h-11 w-auto  mx-2.5  text-xs 

@@ -131,7 +131,7 @@ export default {
   }
 
 
-  /***social media */
+  /***social media***/
   .social-icons {
     position: absolute;
     top: 50%;

@@ -12,6 +12,7 @@
         <!-- <mon-compte /> -->
         <ma-musique />
         <!-- <exemple /> -->
+        <!-- <home /> -->
     </div>
 </template>
 
@@ -28,6 +29,7 @@ import mostPopular from './mostPopular.vue'
 import reglages from './reglage.vue'
 import monCompte from './monCompte.vue'
 import maMusique from './maMusique.vue'
+import home from './accueil.vue'
 
 export default {
    name: "director",
@@ -44,7 +46,8 @@ export default {
        reglages,
        monCompte,
        maMusique,
-       exemple
+       exemple,
+       home
    }
 
   
