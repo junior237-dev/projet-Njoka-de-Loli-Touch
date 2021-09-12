@@ -19,7 +19,14 @@ module.exports = {
     extend: {
       backgroundImage: theme => ({
         'aveiro': "url('./src/assets/aveiroDjess.jpg')"
-      })
+      }),
+
+      backgroundColor: {
+        translusent: {
+          100: '#e3e2e377',
+          200: '#d7d8d7'
+        }
+      },
     },
   },
   variants: {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <category />   -->
-        <navbar />
+        <!-- <navbar /> -->
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
@@ -10,8 +10,9 @@
         <!-- <profil /> -->
         <!-- <reglages /> -->
         <!-- <mon-compte /> -->
-        <ma-musique />
+        <!-- <ma-musique /> -->
         <!-- <exemple /> -->
+        <compteArtist />
     </div>
 </template>
 
@@ -28,6 +29,7 @@ import mostPopular from './mostPopular.vue'
 import reglages from './reglage.vue'
 import monCompte from './monCompte.vue'
 import maMusique from './maMusique.vue'
+import compteArtist from './compteArtist.vue'
 
 export default {
    name: "director",
@@ -44,7 +46,8 @@ export default {
        reglages,
        monCompte,
        maMusique,
-       exemple
+       exemple,
+       compteArtist
    }
 
   
