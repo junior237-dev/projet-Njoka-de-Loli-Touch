@@ -1,24 +1,32 @@
 <template>
-    <div class="home relative mt-0 h-screen bg-pink-200 border w-full xs:container">
-        <search-bar class="bg-transparent absolute top-1 left-1/4 z-10"/>
-        <div class="pubs absolute top-0 left-0 w-full z-0">
-            <splide :options="options"  class="mx-auto">
-                <splide-slide>
-                    <img src="../assets/aveiroDjess.jpg" alt="" class="w-full h-full cover">
-                </splide-slide>
-                <splide-slide>
-                    <img src="../assets/charlotteDipanda.jpg" alt="" class="w-full h-full cover">
-                </splide-slide>
-                <splide-slide>
-                    <img src="../assets/cysoul.jpg" alt="" class="w-full h-full cover">
-                </splide-slide>
-                <splide-slide>
-                    <img src="../assets/happy.jpg" alt="" class="w-full h-full cover">
-                </splide-slide>
-                <splide-slide>
-                    <img src="../assets/jovi.jpg" alt="" class="w-full h-full cover">
-                </splide-slide>
-            </splide>
+    <div class="w-full">
+        <div class="home mt-0">
+            <search-bar class=""/> <!--absolute top-1 left-1/3 z-10-->
+            <div class="pubs mb-4">
+                <splide :options="options"  class="mx-auto">
+                    <splide-slide>
+                        <img src="../assets/aveiroDjess.jpg"  alt="index" class="w-full h-full cover">
+                    </splide-slide>
+                    <splide-slide>
+                        <img src="../assets/charlotteDipanda.jpg" alt="" class="w-full h-full cover">
+                    </splide-slide>
+                    <splide-slide>
+                        <img src="../assets/cysoul.jpg" alt="" class="w-full h-full cover">
+                    </splide-slide>
+                    <splide-slide>
+                        <img src="../assets/happy.jpg" alt="" class="w-full h-full cover">
+                    </splide-slide>
+                    <splide-slide>
+                        <img src="../assets/jovi.jpg" alt="" class="w-full h-full cover">
+                    </splide-slide>
+                    <splide-slide>
+                        <img src="../assets/Maleya.jpg" alt="" class="w-full h-full cover">
+                    </splide-slide>
+                    <splide-slide>
+                        <img src="../assets/Lydol.jpg" alt="" class="w-full h-full cover">
+                    </splide-slide>
+                </splide>
+            </div>
         </div>
     </div>
 </template>
@@ -46,20 +54,21 @@ export default {
             interval: 4000,
 			pauseOnHover: false,
             perPage: 3,
-            width: '900px'
+            width: '990px',
+
         }
 
         return {
-            options
+            options,
         }
     },
 }
 </script>
 
-<style scoped>
-    body {
-        padding: 0;
-        margin: 0;
-        box-sizing: content-box;
+<style lang='scss' scoped>
+    .home {
+        position: relative;
+        width: 100%;
+
     }
 </style>

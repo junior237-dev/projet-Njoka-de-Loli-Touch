@@ -10,9 +10,9 @@
         <!-- <profil /> -->
         <!-- <reglages /> -->
         <!-- <mon-compte /> -->
-        <ma-musique />
+        <!-- <ma-musique /> -->
         <!-- <exemple /> -->
-        <!-- <home /> -->
+        <home />
     </div>
 </template>
 

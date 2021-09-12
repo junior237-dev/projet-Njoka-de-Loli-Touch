@@ -1,5 +1,5 @@
 <template>
-    <div class="header__search"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
+    <div class="header__search bg-transparent" :class="classApply"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
         <form action="" method="">
             <div class="w-full h-14 px-4 flex justify-between items-center bg-white rounded-b-3xl shadow-md">
                 <span class="inline-block">
@@ -14,15 +14,23 @@
 
 <script>
     export default {
-        name: "searchBar"
+        name: "searchBar",
+        props: {
+            classApply: {type: Array, default: []}
+        }
     }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
+    @media screen and (max-width: 405px) {
+        form div {
+            margin-bottom: 10px;
+        }
+    }
     @media screen and (min-width: 405px) {
         form div {
             display: block;
-            margin: 20px auto;
+            margin: 10px auto;
             max-width: 55%;
             border: 1px solid transparent;
             border-radius: 30px;
