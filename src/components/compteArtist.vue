@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="pl-2 relative border-b-8 border-gray-100 collection" v-for="collection in collectiongrid" :key="collection.id">
+    <div class="pl-6 relative border-b-8 border-gray-100 collection" v-for="collection in collectiongrid" :key="collection.id">
         <span class="text-2xl mt-1 mb-4 block font-semibold heading">{{collection.heading}}</span>
         <div class="whitespace-nowrap overflow-auto pb-4 scrollbar-none scrollableDiv">
             <div class="w-56 inline-block mr-4 rounded-3xl shadow-md cursor-pointer" v-for="album in collection.albums" :key="album">
