@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full">
+    <div class="mt-1">
         <div class="home mt-0 w-full pb-28">
             <search-bar class="fixed top-0 z-10 bg-transparent" :classApply="['bg-white', 'opacity-80']"/>
             <div class="pubs mb-4">
@@ -56,7 +56,7 @@
                     </splide-slide>
                     <splide-slide>
                         <span class="inline-block">
-                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
+                            <img :src="getImageUrl('../assets/Maleya.jpg')" alt="Maleya" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
                         </span>
                         <br>
                         <span class="text-center text-black font-semibold text-md">X-maleya</span>
@@ -115,7 +115,7 @@ export default {
             pagination: false,
 			pauseOnHover: false,
             perPage: 3,
-            width: '990px',
+            width: '900px',
             breakpoints: {
                 600: {
                     perPage: 3,
@@ -155,6 +155,11 @@ export default {
             music
         }
     },
+    methods: {
+        getImageUrl(name) {
+            return new URL(name, import.meta.url)
+        }
+    }
 }
 </script>
 
