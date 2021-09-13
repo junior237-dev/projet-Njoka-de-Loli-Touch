@@ -7,7 +7,7 @@
     </div>
 
     <div class="artist">
-        <img src="../assets/Maleya.jpg" alt="X-Maleya">
+        <img src="../assets/Maleya2.jpg" class="object-cover" alt="X-Maleya">
         <div class="txt-block">
             <span class="block artistName">X-Maleya</span>
             <i class="fas fa-users"></i> 12k Abonnés
@@ -15,582 +15,27 @@
         </div>
     </div>
 
-    <div class="pl-6 relative border-b-8 border-gray-100 collection" v-for="collection in collectiongrid" :key="collection.id">
-        <span class="text-2xl mt-1 mb-4 block font-semibold heading">{{collection.heading}}</span>
-        <div class="whitespace-nowrap overflow-auto pb-4 scrollbar-none scrollableDiv">
-            <div class="w-56 inline-block mr-4 rounded-3xl shadow-md cursor-pointer" v-for="album in collection.albums" :key="album">
-                <div class="img">
-                    <img class="w-full h-48 rounded-t-3xl" :src="album.imgUrl" alt="Stanley Enow">
-                </div>
-
-                <div class="rounded-b-3xl pl-3 pt-2 pb-1 relative">
-                    <div class="block text-lg font-semibold mb-4">{{album.title}}</div>
-                    <div class="block text-sm mb-1">{{album.artist.name}}</div>
-                    <div class="block text-sm mb-1">{{album.album}}</div>
-                    <div class="block text-sm mb-1 items-center"><span>{{album.songCount}}</span>  <div class="block text-xs text-center w-6 absolute right-3 top-24 mt-1 text-black"><i class="fa fa-eye text-lg"></i><br> 1000k</div> </div>
-                    <div class="block text-sm mb-1"><span>{{album.commingOutAt}}</span>  <i class="fa fa-share-alt absolute right-4 top-32 mt-2 mr-0.5 text-black"></i></div>
-                    <div class="block text-sm mt-3 mb-2 text-blue-500"><span>{{album.price}} fcfa</span> <del class="ml-7">2000 fcfa</del> <i class="far fa-heart absolute right-4 top-42 mt-1 text-black"></i></div>
-                </div>
-            </div>
-        </div>
-        <div class="w-24 p-5 text-6xl absolute top-48 right-0 rounded-l-full bg-translusent-100 text-secondary-100 shadow-lg swipe"><i class="fa fa-angle-double-right"></i></div>
+    <div>
+        <slide-system :itemInformations="music"/>
     </div>
 </template>
 
 <script>
-import kmer from '../assets/kmer.jpg'
-import micro from '../assets/micro.jpg'
-import tenor from '../assets/tenor.png'
-import six from '../assets/6.jpg'
-import art from '../assets/art.jpg'
-import jovi from '../assets/jovi.jpg'
-
+import slideSystem from './slideSystem.vue'
+import carouselParams from "../../dossiersJs/carouselParams"
 
 export default {
     name: 'compteArtist',
-    data() {
+    components: {
+        slideSystem
+    },
+
+    setup () {
+        let music = carouselParams.MyMusic[0]
+        console.log(music)
+
         return {
-            collectiongrid: [
-                {
-
-                    id: 1,
-                    heading: 'Album',
-                    albums: [
-                        {
-                            imgUrl: kmer,
-                            title: 'Soldier Like Ma Papa',
-                            vue: '110k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: six,
-                            title: 'Tranches 2 vie',
-                            vue: '5k',
-                            artist: {
-                                name: "Mink's",
-                            },
-                            album: 'Album',
-                            songCount: '11 titre / 1h',
-                            commingOutAt: '02/03/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: micro,
-                            title: 'Stanley VS Enow',
-                            vue: '15k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '01/05/2021',
-                            price: 1500,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: tenor,
-                            title: 'je fais ce que je veux',
-                            vue: '45k',
-                            artist: {
-                                name: 'Tenor',
-                            },
-                            album: 'Album',
-                            songCount: '1 titre / 03:45',
-                            commingOutAt: '02/05/2021',
-                            price: 200,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: art,
-                            title: 'Soldier Like Ma Papa',
-                            vue: '58k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: kmer,
-                            title: 'Tranches 2 vie',
-                            vue: '75k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: jovi,
-                            title: 'God don kam',
-                            vue: '51k',
-                            artist: {
-                                name: 'jovi',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                    ]
-                },
-
-                {
-                    id: 2,
-                    heading: 'Single',
-                    albums: [
-                        {
-                            imgUrl: tenor,
-                            title: 'Soldier Like Ma Papa',
-                            vue: '15k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: micro,
-                            title: 'Tranches 2 vie',
-                            vue: '52k',
-                            artist: {
-                                name: "Mink's",
-                            },
-                            album: 'Album',
-                            songCount: '11 titre / 1h',
-                            commingOutAt: '02/03/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: art,
-                            title: 'Stanley VS Enow',
-                            vue: '65k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '01/05/2021',
-                            price: 1500,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: six,
-                            title: 'je fais ce que je veux',
-                            vue: '126k',
-                            artist: {
-                                name: 'Tenor',
-                            },
-                            album: 'Album',
-                            songCount: '1 titre / 03:45',
-                            commingOutAt: '02/05/2021',
-                            price: 200,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: jovi,
-                            title: 'Soldier Like Ma Papa',
-                            vue: '56k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: kmer,
-                            title: 'Tranches 2 vie',
-                            vue: '105k',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: six,
-                            title: 'God don kam',
-                            vue: '55k',
-                            artist: {
-                                name: 'jovi',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                    ]
-                }, 
-                
-                {
-                    id: 3,
-                    heading: 'EP',
-                    albums: [
-                        {
-                            imgUrl: jovi,
-                            title: 'Soldier Like Ma Papa',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: art,
-                            title: 'Tranches 2 vie',
-                            artist: {
-                                name: "Mink's",
-                            },
-                            album: 'Album',
-                            songCount: '11 titre / 1h',
-                            commingOutAt: '02/03/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: six,
-                            title: 'Stanley VS Enow',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '01/05/2021',
-                            price: 1500,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: kmer,
-                            title: 'je fais ce que je veux',
-                            artist: {
-                                name: 'Tenor',
-                            },
-                            album: 'Album',
-                            songCount: '1 titre / 03:45',
-                            commingOutAt: '02/05/2021',
-                            price: 200,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: micro,
-                            title: 'Soldier Like Ma Papa',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: tenor,
-                            title: 'Tranches 2 vie',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: art,
-                            title: 'God don kam',
-                            artist: {
-                                name: 'jovi',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                    ]
-                },
-
-                {
-                    id: 4,
-                    heading: 'Recommadation',
-                    albums: [
-                        {
-                            imgUrl: six,
-                            title: 'YAJE vol 2',
-                            artist: {
-                                name: 'Jovi',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: micro,
-                            title: 'Tranches 2 vie',
-                            artist: {
-                                name: "Mink's",
-                            },
-                            album: 'Album',
-                            songCount: '11 titre / 1h',
-                            commingOutAt: '02/03/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: tenor,
-                            title: 'Stanley VS Enow',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '01/05/2021',
-                            price: 1500,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: six,
-                            title: 'je fais ce que je veux',
-                            artist: {
-                                name: 'Tenor',
-                            },
-                            album: 'Album',
-                            songCount: '1 titre / 03:45',
-                            commingOutAt: '02/05/2021',
-                            price: 200,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: art,
-                            title: 'Soldier Like Ma Papa',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: kmer,
-                            title: 'Tranches 2 vie',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: jovi,
-                            title: 'God don kam',
-                            artist: {
-                                name: 'jovi',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                    ]
-                },
-
-                {
-                    id: 5,
-                    heading: 'Nouveauté',
-                    albums: [
-                        {
-                            imgUrl: tenor,
-                            title: 'Cardio',
-                            artist: {
-                                name: 'X Maleya',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: micro,
-                            title: 'Tranches 2 vie',
-                            artist: {
-                                name: "Mink's",
-                            },
-                            album: 'Album',
-                            songCount: '11 titre / 1h',
-                            commingOutAt: '02/03/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: art,
-                            title: 'Stanley VS Enow',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '01/05/2021',
-                            price: 1500,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: six,
-                            title: 'je fais ce que je veux',
-                            artist: {
-                                name: 'Tenor',
-                            },
-                            album: 'Album',
-                            songCount: '1 titre / 03:45',
-                            commingOutAt: '02/05/2021',
-                            price: 200,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: jovi,
-                            title: 'Soldier Like Ma Papa',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: kmer,
-                            title: 'Tranches 2 vie',
-                            artist: {
-                                name: 'Stanley Enow',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                        {
-                            imgUrl: tenor,
-                            title: 'God don kam',
-                            artist: {
-                                name: 'jovi',
-                            },
-                            album: 'Album',
-                            songCount: '12 titre / 1h',
-                            commingOutAt: '02/05/2021',
-                            price: 1000,
-                            currency: {
-                                name: 'fcfa',
-                            }
-                        },
-                    ]
-                },
-            ]
+            music
         }
     }
 }
@@ -655,7 +100,7 @@ export default {
     background-color: rgba(76, 0, 255, 0.952);
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 414px) {
     .artist .txt-block .artistName {
         font-size: 45px;
     }
@@ -665,13 +110,29 @@ export default {
     }
 }
 
-@media screen and (max-width: 250px) {
+@media screen and (max-width: 356px) {
     .artist .txt-block .artistName {
         font-size: 35px;
     }
 
     .artist .txt-block {
         padding: 20px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .artist .txt-block .artistName {
+        font-size: 25px;
+    }
+
+    .artist .txt-block {
+        padding: 10px;
+    }
+
+    .artist .txt-block .btn {
+        padding: 8px;
+        font-size: 17px;
+
     }
 }
 </style>
