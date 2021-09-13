@@ -1,12 +1,12 @@
 <template>
-    <div class="header__search bg-transparent" :class="classApply"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
+    <div class="header__search w-full"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
         <form action="" method="">
-            <div class="w-full h-14 px-4 flex justify-between items-center bg-white rounded-b-3xl shadow-md">
+            <div class="w-full h-14 px-4 flex justify-between items-center rounded-b-3xl shadow-md" :class="classApply">
                 <span class="inline-block">
                     <i class="bi bi-search text-2xl"></i>
                 </span>
                 <label for="recherche" class="hidden">recherche de categories</label>
-                <input type="search" placeholder="Rechercher..." class="bg-white mt-0 w-72 h-12 focus:outline-none mr-6 text-xs pl-2" id="recherche" name="recherche">
+                <input type="search" placeholder="Rechercher..." class="mt-0 w-72 h-12 focus:outline-none mr-6 text-xs pl-2" id="recherche" name="recherche" :class="classApply">
             </div>
         </form>
     </div>
@@ -16,7 +16,7 @@
     export default {
         name: "searchBar",
         props: {
-            classApply: {type: Array, default: []}
+            classApply: {type: Array, default: ['bg-white']}
         }
     }
 </script>

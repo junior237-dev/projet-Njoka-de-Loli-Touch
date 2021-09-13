@@ -12,7 +12,7 @@
         <!-- <mon-compte /> -->
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
-        <!-- <home /> -->
+        <home />
     </div>
 </template>
 

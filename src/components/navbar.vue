@@ -2,33 +2,23 @@
     <nav class="navbar">
         <div class="py-2">
             <a href="#" @click.stop="activeClass">
-                <svg class="icon">
-                    <use xlink:href="../assets/icones/sprite.svg#home"></use>
-                </svg>
+                <svg class="icon"><use xlink:href="../assets/icones/sprite.svg#home"></use></svg>
                 Accueil
             </a>
             <a href="#" @click.stop="activeClass">
-                <svg class="icon">
-                    <use xlink:href="../assets/icones/sprite.svg#menu (1)"></use>
-                </svg>
+                <svg class="icon"><use xlink:href="../assets/icones/sprite.svg#menu (1)"></use></svg>
                 Catégories
             </a>
             <a href="#" @click.stop="activeClass">
-                <svg class="icon">
-                    <use xlink:href="../assets/icones/sprite.svg#add-to-cart"></use>
-                </svg>
+                <svg class="icon"><use xlink:href="../assets/icones/sprite.svg#add-to-cart"></use></svg>
                 Panier
             </a>
             <a href="#" @click.stop="activeClass">
-                <svg class="icon">
-                    <use xlink:href="../assets/icones/sprite.svg#music-note-on-folder"></use>
-                </svg>
+                <svg class="icon"><use xlink:href="../assets/icones/sprite.svg#music-note-on-folder"></use></svg>
                 Ma musique
             </a>
             <a href="#" class="active" @click.stop="activeClass">
-                <svg class="icon">
-                    <use xlink:href="../assets/icones/sprite.svg#profile-user"></use>
-                </svg>
+                <svg class="icon"><use xlink:href="../assets/icones/sprite.svg#profile-user"></use></svg>
                 Mon compte
             </a>
         </div>
@@ -44,9 +34,6 @@ export default {
         
        }
    },
-   mounted () {
-       let links = document.querySelectorAll('a')
-   },
    methods: {
        activeClass (e) {
             let parent = e.currentTarget.parentNode
@@ -55,8 +42,7 @@ export default {
             }
             parent.querySelector("a.active").classList.remove("active")
             e.currentTarget.classList.add('active')
-           
-       }
+        }
    }
 }
 </script>

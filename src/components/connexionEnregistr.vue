@@ -2,13 +2,13 @@
     <div>
         <composant-retour>
             <ul class="w-76 py-5 mr-1  float-right">
-                <li class="inline-block mx-2 active"><a href="#" class="text-md font-light  text-blue-400">Se connecter</a></li>
-                <li class="inline-block mx-3 "><a href="#" class="text-md font-light text-green-400">S'enregistrer</a></li>
+                <li class="inline-block mx-2 active" @click.stop="activeClass"><a href="#" class="text-md font-light text-blue-400">Se connecter</a></li>
+                <li class="inline-block mx-3" @click.stop="activeClass"><a href="#" class="text-md font-light text-green-400">S'enregistrer</a></li>
             </ul>
         </composant-retour>
         <main>
             <div class="__connexionAndInsciption m-12">
-                <form action="" class="flex flex-row flex-wrap justify-center items-center">
+                <form action="" class="flex flex-row flex-wrap justify-center items-center w-3/5 mx-auto">
                     <!-- pour la connexion -->
                    <div class="__containerConnexion w-auto mt-24" v-if="visible">
                         <div class="__inputGroupPhone w-80 py-3 mb-8">
@@ -98,12 +98,22 @@ export default {
         return {
             visible
         }
+    },
+    methods: {
+       activeClass (e) {
+            let parent = e.currentTarget.parentNode
+            if (e.currentTarget.classList.contains("active")) {
+                return 
+            }
+            parent.querySelector("li.active").classList.remove("active")
+            e.currentTarget.classList.add('active')
+        }
     }
 }
 </script>
 
 <style lang="postcss">
-     li.active a{
+    .active a{
         @apply font-semibold text-lg border-b rounded-none shadow-md p-2
     }
 
