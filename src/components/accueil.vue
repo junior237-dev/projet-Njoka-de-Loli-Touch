@@ -1,8 +1,8 @@
 <template>
-    <div class="mt-1">
+    <div class="mt-0">
         <div class="home mt-0 w-full pb-28">
             <search-bar class="fixed top-0 z-10 bg-transparent" :classApply="['bg-white', 'opacity-80']"/>
-            <div class="pubs mb-4">
+            <div class="pubs mb-5">
                 <splide :options="options"  class="mx-auto">
                     <splide-slide>
                         <img src="../assets/aveiroDjess.jpg"  alt="index" class="w-full h-full cover">
@@ -27,7 +27,7 @@
                     </splide-slide>
                 </splide>
             </div>
-            <div class="top_10 mb-4">
+            <div class="top_10 mb-5">
                 <slide-system :itemInformations="music" :classList="['bg-transparent']" :titleClass="['text-black','text-2xl']"/>
             </div>
             <div class="artistes">

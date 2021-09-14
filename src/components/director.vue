@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <category />   -->
-        <navbar />
+        <!-- <navbar /> -->
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
@@ -12,7 +12,8 @@
         <!-- <mon-compte /> -->
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
-        <home />
+        <!-- <home /> -->
+        <post-album />
     </div>
 </template>
 
@@ -30,6 +31,7 @@ import reglages from './reglage.vue'
 import monCompte from './monCompte.vue'
 import maMusique from './maMusique.vue'
 import home from './accueil.vue'
+import postAlbum from './postAlbum.vue'
 
 export default {
    name: "director",
@@ -47,7 +49,8 @@ export default {
        monCompte,
        maMusique,
        exemple,
-       home
+       home,
+       postAlbum
    }
 
   
