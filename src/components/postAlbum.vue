@@ -10,7 +10,7 @@
                 <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-three-dots-vertical"></i></a></li>
             </ul>
         </div>
-        <div class="post-description mt-5">
+        <div class="post-description mt-5 mb-5">
             <h1 class="text-left text-2xl font-semibold  mx-auto text-black">Cardio</h1>
             <h3 class="text-left mx-auto -mt-2">X-maleya</h3>  
             <img src="../assets/Maleya.jpg" alt="" class="block w-full max-h-80 object-cover">
@@ -33,6 +33,7 @@
                 </div>
             </div>
         </div>
+        <fake />
     </div>
 </template>
 

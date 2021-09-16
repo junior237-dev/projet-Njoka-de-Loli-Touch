@@ -1,143 +1,141 @@
 <template>
     <div class="player">
-	<div class="cover"></div>
-	<nav>
-		<div class="left">
-			<i class="material-icons">menu</i>
-			<h6>Playlist</h6>
-		</div>
-		<div class="right">
-			<i class="material-icons search">search</i>
-			<i class="material-icons">queue_music</i>
-		</div>
-	</nav>
-	<div class="player-ui">
-		<div class="title">
-			<h3>Hello</h3>
-		</div>
-		<div class="small">
-			<i class="material-icons">replay</i>
-			<p>Adele</p>
-			<i class="material-icons">volume_up</i>
-		</div>
-		<div class="progress">
-			<div class="played">
-				<div class="circle"></div>
+		<div class="cover"></div>
+		<nav>
+			<div class="left">
+				<i class="bi bi-list text-xl"></i> <!--menu-->
+				<h6>Playlist</h6>
+			</div>
+			<div class="right">
+				<i class="bi bi-search text-xl"></i> <!--search-->
+				<i class="bi bi-music-note-list text-xl ml-5"></i> <!--playlist-->
+			</div>
+		</nav>
+		<div class="player-ui">
+			<div class="title">
+				<h3>Hello</h3>
+			</div>
+			<div class="small">
+				<i class="bi bi-arrow-counterclockwise"></i> <!--replay-->
+				<p>Adele</p>
+				<i class="bi bi-volume-up"></i> <!--volume_up-->
+			</div>
+			<div class="progress">
+				<div class="played">
+					<div class="circle"></div>
+				</div>
+			</div>
+			<div class="controls">
+				<i class="bi bi-caret-left-fill"></i> <!--previous-->
+				<i class="bi bi-caret-right-square-fill"></i> <!--play-->
+				<i class="bi bi-caret-right-fill"></i> <!--next-->
 			</div>
 		</div>
-		<div class="controls">
-			<i class="material-icons">skip_previous</i>
-			<i class="material-icons">play_arrow</i>
-			<i class="material-icons">skip_next</i>
+		
+		<div class="music">
+			<div class="song-1">
+				<div class="info">
+					<div class="img first"></div>
+					<div class="titles">
+						<h5 class="text-left">Hello</h5>
+						<p class="text-left">Adele</p>
+					</div>
+				</div>
+				<div class="state playing">
+					<i class="bi bi-sliders"></i> <!--equalizer-->
+				</div>
+			</div>
+			<div class="song-2">
+				<div class="info">
+					<div class="img second"></div>
+					<div class="titles">
+						<h5 class="text-left">Californication</h5>
+						<p class="text-left">Red Hot Chili Pepers</p>
+					</div>
+				</div>
+				<div class="state">
+					<i class="bi bi-caret-right-square-fill"></i><br><span class="text-blue-500 text-xs">100XAF</span><!--play-->
+				</div>
+			</div>
+			<div class="song-3">
+				<div class="info">
+					<div class="img third"></div>
+					<div class="titles">
+						<h5 class="text-left">6 INCH</h5>
+						<p class="text-left">beyoncé</p>
+					</div>
+				</div>
+				<div class="state">
+					<i class="bi bi-caret-right-square-fill"></i><br><span class="text-blue-500 text-xs">100XAF</span> <!--play-->
+				</div>
+			</div>
+			<div class="song-4">
+				<div class="info">
+					<div class="img fourth"></div>
+					<div class="titles">
+						<h5 class="text-left">Purple rain</h5>
+						<p class="text-left">Prince & The Revolution</p>
+					</div>
+				</div>
+				<div class="state">
+					<i class="bi bi-caret-right-square-fill"></i><br> <span class="text-blue-500 text-xs">100XAF</span> <!--play-->
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="btn">
-<!-- 		<i class="material-icons">shuffle</i> -->
-	</div>
-	<div class="music">
-		<div class="song-1">
-			<div class="info">
-				<div class="img first"></div>
-				<div class="titles">
-					<h5>Hello</h5>
-					<p>Adele</p>
-				</div>
-			</div>
-			<div class="state playing">
-				<i class="material-icons">equalizer</i>
-			</div>
-		</div>
-		<div class="song-2">
-			<div class="info">
-				<div class="img second"></div>
-				<div class="titles">
-					<h5>Californication</h5>
-					<p>Red Hot Chili Pepers</p>
-				</div>
-			</div>
-			<div class="state">
-				<i class="material-icons">play_arrow</i>
-			</div>
-		</div>
-		<div class="song-3">
-			<div class="info">
-				<div class="img third"></div>
-				<div class="titles">
-					<h5>6 INCH</h5>
-					<p>beyoncé</p>
-				</div>
-			</div>
-			<div class="state">
-				<i class="material-icons">play_arrow</i>
-			</div>
-		</div>
-		<div class="song-4">
-			<div class="info">
-				<div class="img fourth"></div>
-				<div class="titles">
-					<h5>Purple rain</h5>
-					<p>Prince & The Revolution</p>
-				</div>
-			</div>
-			<div class="state">
-				<i class="material-icons">play_arrow</i>
-			</div>
-		</div>
-	</div>
-</div>
 </template>
 
 <style lang="scss" scoped>
     $primary: #F44336;
-$secondary: #03A9F4;
+	$secondary: #03A9F4;
 
-html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
+	html {
+		font-family: sans-serif;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+	}
 
-html, body {
-	margin: 0;
-	height: 100%;
-	align-items: center;
-    color: #333;
-    font-family: "Roboto",sans-serif;
-    font-size: 1em;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1em;
-}
+	html, body {
+		margin: 0;
+		height: 100%;
+		align-items: center;
+		color: #333;
+		font-family: "Roboto",sans-serif;
+		font-size: 1em;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1em;
+	}
 
-body {
-	background: #e9e9e9;
-	display: flex;
-	justify-content: center;
-}
+	body {
+		background: #e9e9e9;
+		display: flex;
+		justify-content: center;
+	}
 
-* {
-	box-sizing: border-box;
-	user-select: none;
-}
+	* {
+		box-sizing: border-box;
+		user-select: none;
+	}
 
-i {
-	cursor: pointer;
-}
+	i {
+		cursor: pointer;
+	}
 
 .player {
 	overflow: hidden;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
 	position: relative;
-	width: 320px;
-	height: 510px;
+	width: 100%;
+	height: auto;
 	background-size: contain;
 	background-repeat: no-repeat;
 	
 	.cover {
 		position: absolute;
 		z-index: 1;
-		width: 320px;
-		height: 250px;
-		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(http://static.stereogum.com/blogs.dir/2/files/2011/12/Adele-21.jpg) center bottom;
+		width: 100%;
+		height: 45%;
+		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(../assets/play.jpg) center center;
 		background-size: cover;
 	}
 	
@@ -315,7 +313,7 @@ i {
 				}
 				
 				.img.fourth {
-					background: url(http://djrichiep.us/wp-content/uploads/2014/06/princelgc7F.jpg) center center;
+					background: url(../assets/jovi.jpg) center center;
 					background-size: cover;
 				}
 				
