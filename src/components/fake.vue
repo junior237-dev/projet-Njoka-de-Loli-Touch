@@ -41,7 +41,7 @@
 						<p class="text-left">Adele</p>
 					</div>
 				</div>
-				<div class="state playing">
+				<div class="state playing text-right">
 					<i class="bi bi-sliders"></i> <!--equalizer-->
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 						<p class="text-left">Red Hot Chili Pepers</p>
 					</div>
 				</div>
-				<div class="state">
+				<div class="state text-right">
 					<i class="bi bi-caret-right-square-fill"></i><br><span class="text-blue-500 text-xs">100XAF</span><!--play-->
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 						<p class="text-left">beyoncé</p>
 					</div>
 				</div>
-				<div class="state">
+				<div class="state text-right">
 					<i class="bi bi-caret-right-square-fill"></i><br><span class="text-blue-500 text-xs">100XAF</span> <!--play-->
 				</div>
 			</div>
@@ -77,7 +77,7 @@
 						<p class="text-left">Prince & The Revolution</p>
 					</div>
 				</div>
-				<div class="state">
+				<div class="state text-right">
 					<i class="bi bi-caret-right-square-fill"></i><br> <span class="text-blue-500 text-xs">100XAF</span> <!--play-->
 				</div>
 			</div>

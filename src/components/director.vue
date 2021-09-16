@@ -14,6 +14,7 @@
         <!-- <exemple /> -->
         <!-- <home /> -->
         <post-album />
+        <!-- <compteArtist /> -->
     </div>
 </template>
 
@@ -32,6 +33,7 @@ import monCompte from './monCompte.vue'
 import maMusique from './maMusique.vue'
 import home from './accueil.vue'
 import postAlbum from './postAlbum.vue'
+import compteArtist from './compteArtist.vue'
 
 export default {
    name: "director",
@@ -50,7 +52,9 @@ export default {
        maMusique,
        exemple,
        home,
-       postAlbum
+       postAlbum,
+       compteArtist
+
    }
 
   
