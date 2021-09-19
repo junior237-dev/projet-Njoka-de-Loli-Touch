@@ -2,7 +2,7 @@
     <div>
         <!-- <category />   -->
         <!-- <navbar /> -->
-        <!-- <paiement-mode /> -->
+        <paiement-mode />
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
         <!-- <most-popular /> -->
@@ -13,7 +13,7 @@
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
         <!-- <home /> -->
-        <post-album />
+        <!-- <post-album /> -->
         <!-- <compteArtist /> -->
     </div>
 </template>
