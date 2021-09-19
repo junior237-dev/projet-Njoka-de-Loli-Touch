@@ -2,10 +2,10 @@
     <div>
         <!-- <category />   -->
         <!-- <navbar /> -->
-        <paiement-mode />
+        <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
-        <!-- <most-popular /> -->
+        <most-popular />
         <!-- <connexion-enregistr /> -->
         <!-- <profil /> -->
         <!-- <reglages /> -->
