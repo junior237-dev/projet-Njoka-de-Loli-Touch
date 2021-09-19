@@ -1,9 +1,9 @@
 <template>
-    <div class="__profil bg-gray-50">
-        <composant-retour>
+    <div class="profil bg-gray-50 max-w-lg mx-auto">
+        <composant-retour class="fixed left-0 right-0">
             <div class="py-4 mr-2 text-center text-xl  font-medium">Profil d'utilisateur</div>
         </composant-retour>
-        <div class="__informations"> 
+        <div class="informations pt-16"> 
             <div class="h-20  px-4 mt-2  bg-white  border-b  flex justify-between items-center">
                 <span class="__intitule inline-block font-medium text-sm">photo de profil</span>
                 <span class="__valeur inline-block">

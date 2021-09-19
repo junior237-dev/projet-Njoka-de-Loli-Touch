@@ -7,9 +7,9 @@
         <!-- <verif-art-panier />  -->
         <!-- <most-popular /> -->
         <!-- <connexion-enregistr /> -->
-        <!-- <profil /> -->
+        <profil />
         <!-- <reglages /> -->
-        <mon-compte />
+        <!-- <mon-compte /> -->
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
         <!-- <home /> -->
