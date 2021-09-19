@@ -33,54 +33,54 @@
             <div class="artistes">
                 <h2 class="mb-2 font-bold text-black text-2xl ml-3 text-left">Artistes</h2>
                 <splide :options="options2">
-                    <splide-slide>
+                    <splide-slide class="text-center">
+                        <span class="inline-block">
+                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
+                        </span>
+                        <br>
+                        <span class="text-black font-semibold text-md">X-maleya</span>
+                    </splide-slide>
+                    <splide-slide class="text-center">
                         <span class="inline-block">
                             <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
                         </span>
                         <br>
                         <span class="text-center text-black font-semibold text-md">X-maleya</span>
                     </splide-slide>
-                    <splide-slide>
+                    <splide-slide class="text-center">
                         <span class="inline-block">
                             <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
                         </span>
                         <br>
-                        <span class="text-center text-black font-semibold text-md">X-maleya</span>
+                        <span class=" text-black font-semibold text-md">X-maleya</span>
                     </splide-slide>
-                    <splide-slide>
-                        <span class="inline-block">
-                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
-                        </span>
-                        <br>
-                        <span class="text-center text-black font-semibold text-md">X-maleya</span>
-                    </splide-slide>
-                    <splide-slide>
+                    <splide-slide class="text-center">
                         <span class="inline-block">
                             <img :src="getImageUrl('../assets/Maleya.jpg')" alt="Maleya" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
                         </span>
                         <br>
                         <span class="text-center text-black font-semibold text-md">X-maleya</span>
                     </splide-slide>
-                    <splide-slide>
+                    <splide-slide class="text-center">
                         <span class="inline-block">
                             <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
                         </span>
                         <br>
-                        <span class="text-center text-black font-semibold text-md">X-maleya</span>
+                        <span class="text-black font-semibold text-md">X-maleya</span>
                     </splide-slide>
-                    <splide-slide>
+                    <splide-slide class="text-center">
                         <span class="inline-block">
                             <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
                         </span>
                         <br>
-                        <span class="text-center text-black font-semibold text-md">X-maleya</span>
+                        <span class="text-black font-semibold text-md">X-maleya</span>
                     </splide-slide>
-                    <splide-slide>
+                    <splide-slide class="text-center">
                         <span class="inline-block">
                             <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-40 h-40 shadow-md border-2">
                         </span>
                         <br>
-                        <span class="text-center text-black font-semibold text-md">X-maleya</span>
+                        <span class="text-black font-semibold text-md">X-maleya</span>
                     </splide-slide>
                 </splide>
             </div>

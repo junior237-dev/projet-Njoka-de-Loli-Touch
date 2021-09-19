@@ -13,77 +13,131 @@
 		</nav>
 		<div class="player-ui">
 			<div class="title">
-				<h3>Hello</h3>
+				<h3>{{returnInfoMusic(currentItem).nameMusic}}</h3>
 			</div>
 			<div class="small">
-				<i class="bi bi-arrow-counterclockwise"></i> <!--replay-->
-				<p>Adele</p>
-				<i class="bi bi-volume-up"></i> <!--volume_up-->
+				<i class="material-icons text-xl text-white">replay</i><!--replay-->
+				<p>{{returnInfoMusic(currentItem).nameArtist}}</p>
+				<i class="bi bi-volume-up text-xl text-white"></i> <!--volume_up-->
+			</div>
+			<div class="time w-full px-5 text-white text-sm mt-4 mx-auto flex justify-between -mb-4">
+				<span class="timer">00:10</span>
+				<span class="totalTime">03:45</span>
 			</div>
 			<div class="progress">
 				<div class="played">
 					<div class="circle"></div>
 				</div>
+				<audio class="audio" :src="getMediaUrl(returnInfoMusic(currentItem).root)" />
 			</div>
-			<div class="controls">
-				<i class="bi bi-caret-left-fill"></i> <!--previous-->
-				<i class="bi bi-caret-right-square-fill"></i> <!--play-->
-				<i class="bi bi-caret-right-fill"></i> <!--next-->
+			<div class="controls flex justify-between items-center w-4/5 mx-auto mt-3 text-white">
+				<span class="inline-block"><i class="material-icons text-tiny" @click="previousMusic()">skip_previous</i></span> <!--previous-->
+				<span class="inline-block"><i class="material-icons text-tiny" @click="playOrPause">play_arrow</i></span> <!--play-->
+				<span class="inline-block"><i class="material-icons text-tiny" @click="nextMusic()">skip_next</i></span> <!--next-->
 			</div>
 		</div>
 		
-		<div class="music">
-			<div class="song-1">
-				<div class="info">
-					<div class="img first"></div>
+		<div class="music max-h-80 overflow-y-scroll pt-3  bg-gray-900 px-5 pb-0">
+			<div class="song h-20 flex justify-between items-center border-b border-gray-500" v-for="(music, index) in allMusic" :key="index">
+				<div class="info flex items-center">
+					<div class="img first w-16 h-16 bg-red-700 mr-3">
+						<img :src="getMediaUrl(music.img)" :alt="music.artist" class="object-cover"/>
+					</div>
 					<div class="titles">
-						<h5 class="text-left">Hello</h5>
-						<p class="text-left">Adele</p>
+						<h5 class="text-left text-base text-white font-normal mx-0 mt-0 mb-2">{{music.name}}</h5>
+						<p class="text-left m-0 text-tiny text-gray-400">{{music.artist}}<br><span class="totalTime">03:08</span></p>
 					</div>
 				</div>
-				<div class="state playing text-right">
-					<i class="bi bi-sliders"></i> <!--equalizer-->
-				</div>
-			</div>
-			<div class="song-2">
-				<div class="info">
-					<div class="img second"></div>
-					<div class="titles">
-						<h5 class="text-left">Californication</h5>
-						<p class="text-left">Red Hot Chili Pepers</p>
-					</div>
-				</div>
-				<div class="state text-right">
-					<i class="bi bi-caret-right-square-fill"></i><br><span class="text-blue-500 text-xs">100XAF</span><!--play-->
-				</div>
-			</div>
-			<div class="song-3">
-				<div class="info">
-					<div class="img third"></div>
-					<div class="titles">
-						<h5 class="text-left">6 INCH</h5>
-						<p class="text-left">beyoncé</p>
-					</div>
-				</div>
-				<div class="state text-right">
-					<i class="bi bi-caret-right-square-fill"></i><br><span class="text-blue-500 text-xs">100XAF</span> <!--play-->
-				</div>
-			</div>
-			<div class="song-4">
-				<div class="info">
-					<div class="img fourth"></div>
-					<div class="titles">
-						<h5 class="text-left">Purple rain</h5>
-						<p class="text-left">Prince & The Revolution</p>
-					</div>
-				</div>
-				<div class="state text-right">
-					<i class="bi bi-caret-right-square-fill"></i><br> <span class="text-blue-500 text-xs">100XAF</span> <!--play-->
+				<div class="state text-center">
+					<i class="material-icons text-xl">play_arrow</i> <!--equalizer=graphic_eq-->
+					<br><span class="text-blue-500 text-xs">{{music.price}}XAF</span>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+	name: 'fake',
+	setup() {
+		
+		let allMusic = [
+			{
+				name: "Noir meilleur",
+				artist: "damso",
+				img: "../assets/tenor.jpg",
+				src: "../assets/music/noirMeilleur.mp3",
+				price: 100
+			},
+			
+			{
+				name: "Silence ft Angèle",
+				artist: "Damso",
+				img: "../assets/tenor.jpg",
+				src: "../assets/music/silenceFtAngele.mp3",
+				price: 100
+			},
+			{
+				name: "Smog",
+				artist: "Damso",
+				img: "../assets/tenor.jpg",
+				src: "../assets/music/smog.mp3",
+				price: 100
+			},
+			{
+				name: "Tard la night",
+				artist: "Damso",
+				img: "../assets/tenor.jpg",
+				src: "../assets/music/tardLaNight.mp3",
+				price: 100
+			},
+		]
+
+		let currentItem = 3
+		return {
+			allMusic,
+			currentItem,
+		}
+	},
+	methods: {
+		//retourne l'url du média demandé
+        getMediaUrl(name) {
+            return new URL(name, import.meta.url)
+        },
+		returnInfoMusic(currentItem){
+			let musicInfo = this.$options.setup().allMusic[currentItem]
+			return {
+				nameMusic: musicInfo.name, 
+				nameArtist: musicInfo.artist,
+				root: musicInfo.src
+			}
+		},
+		playOrPause(e) {
+			let play_arrow = e.currentTarget.innerHTML
+			let audio = e.currentTarget.parentNode.parentNode.previousSibling.lastChild
+			if (play_arrow == "play_arrow") {
+				e.currentTarget.innerHTML = "pause"
+				audio.play()
+			} else {
+				e.currentTarget.innerHTML = "play_arrow"
+				audio.pause()
+			}
+			
+		},
+		nextMusic() {
+			this.$options.setup().currentItem =  null
+			console.log(this.$options.setup().currentItem)
+			
+		},
+		previousMusic() {
+			
+		}
+    },
+	mounted() {
+	}
+}
+</script>
 
 <style lang="scss" scoped>
     $primary: #F44336;
@@ -127,6 +181,7 @@
 	position: relative;
 	width: 100%;
 	height: auto;
+	// border-radius: 8px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	
@@ -134,7 +189,8 @@
 		position: absolute;
 		z-index: 1;
 		width: 100%;
-		height: 45%;
+		height: 275px;
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.514);
 		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(../assets/play.jpg) center center;
 		background-size: cover;
 	}
@@ -202,7 +258,7 @@
 			display: flex;
 			justify-content: space-between;
 			
-			p, i {
+			p{
 				margin: 0;
 				color: white;
 				font-size: 14px;
@@ -210,10 +266,8 @@
 			
 			p {
 				color: #ddd;
-			}
-			
-			i {
-				font-size: 16px;
+				margin: 0;
+				font-size: 14px;
 			}
 		}
 		
@@ -241,16 +295,7 @@
 			}
 		}
 		
-		.controls {
-			display: flex;
-			justify-content: space-between;
-			padding: 25px 50px 0px 50px;
-			
-			i {
-				color: white;
-				font-size: 32px;
-			}
-		}
+		
 	}
 	
 	.btn {
@@ -275,67 +320,9 @@
 	}
 	
 	.music {
-		padding: 10px 20px 0px 20px;
-		background: #1A1B1E;
-		margin-top: -26px;
-		
-		.song-1, .song-2, .song-3, .song-4 {
-			height: 80px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			border-bottom: 1px solid rgba(255 , 255, 255, 0.2);
-			
-			.info {
-				display: flex;
-				align-items: center;
-				
-				.img {
-					width: 60px;
-					height: 60px;
-					background: red;
-					margin-right: 10px;
-				}
-				
-				.img.first {
-					background: url(http://static.stereogum.com/blogs.dir/2/files/2011/12/Adele-21.jpg) center center;
-					background-size: cover;
-				}
-				
-				.img.second {
-					background: url(https://upload.wikimedia.org/wikipedia/en/d/df/RedHotChiliPeppersCalifornication.jpg) center center;
-					background-size: cover;
-				}
-				
-				.img.third {
-					background: url(http://images.rapgenius.com/59fc635f7dbe6b5cd1e07e5e605c96b5.640x640x1.jpg) center center;
-					background-size: cover;
-				}
-				
-				.img.fourth {
-					background: url(../assets/jovi.jpg) center center;
-					background-size: cover;
-				}
-				
-				.titles {
-					
-					h5, p {
-						margin: 0;
-						color: white;
-					}
-					
-					h5 {
-						font-size: 17px;
-						font-weight: 400;
-						margin-bottom: 7px;
-					}
-					
-					p {
-						font-size: 13px;
-						color: #929292;
-					}
-				}
-			}
+		&::-webkit-scrollbar {
+			width: 0
+		}
 			
 			.state.playing {
 				
@@ -350,7 +337,7 @@
 					color: #ddd;
 				}
 			}
-		}
+	
 	}
 }
 </style>

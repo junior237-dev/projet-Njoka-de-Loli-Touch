@@ -16,7 +16,7 @@
           </li>
       </ul>
       <div class="details">
-        <h3>{{(itemInfo.itemTitle.split('').length <= 9)? itemInfo.itemTitle:itemInfo.itemTitle.substring(0, 9)+'...'}}</h3>
+        <h3 class="text-center">{{(itemInfo.itemTitle.split('').length <= 9)? itemInfo.itemTitle:itemInfo.itemTitle.substring(0, 9)+'...'}}</h3>
         <div class="">
           <div class="__icons">
             <ul class="recipe-details -mt-1 ">

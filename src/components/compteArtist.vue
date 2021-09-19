@@ -10,7 +10,7 @@
                 <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-three-dots-vertical"></i></a></li>
             </ul>
         </div>
-        <banner-artist />
+        <banner-artist class="mb-5 mt-1"/>
         <div>
             <slide-system :itemInformations="music"/>
         </div>
