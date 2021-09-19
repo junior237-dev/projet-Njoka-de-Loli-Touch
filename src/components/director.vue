@@ -5,11 +5,11 @@
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
-        <most-popular />
+        <!-- <most-popular /> -->
         <!-- <connexion-enregistr /> -->
         <!-- <profil /> -->
         <!-- <reglages /> -->
-        <!-- <mon-compte /> -->
+        <mon-compte />
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
         <!-- <home /> -->
