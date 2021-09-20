@@ -1,5 +1,5 @@
 <template>
-    <div class="profil bg-gray-50 max-w-lg mx-auto">
+    <div class="profil bg-gray-50 max-w-lg mx-auto border shadow-lg">
         <composant-retour class="fixed left-0 right-0">
             <div class="py-4 mr-2 text-center text-xl  font-medium">Profil d'utilisateur</div>
         </composant-retour>
