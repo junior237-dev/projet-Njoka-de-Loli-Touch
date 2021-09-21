@@ -7,13 +7,13 @@
         <!-- <verif-art-panier />  -->
         <!-- <most-popular /> -->
         <!-- <connexion-enregistr /> -->
-        <profil />
+        <!-- <profil /> -->
         <!-- <reglages /> -->
         <!-- <mon-compte /> -->
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
         <!-- <home /> -->
-        <!-- <post-album /> -->
+        <post-album />
         <!-- <compteArtist /> -->
     </div>
 </template>

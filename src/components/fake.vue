@@ -21,23 +21,23 @@
 				<i class="bi bi-volume-up text-xl text-white"></i> <!--volume_up-->
 			</div>
 			<div class="time w-full px-5 text-white text-sm mt-4 mx-auto flex justify-between -mb-4">
-				<span class="timer">00:10</span>
-				<span class="totalTime">03:45</span>
+				<span class="timer">{{timer.timer}}</span>
+				<span class="totalTime">{{timer.totalTime}}</span>
 			</div>
 			<div class="progress">
 				<div class="played">
 					<div class="circle"></div>
 				</div>
-				<audio class="audio" :src="getMediaUrl(returnInfoMusic(currentItem).root)" />
+				<audio class="audio" :src="getMediaUrl(returnInfoMusic(currentItem).root)" @timeupdate="timeupdate" @loadeddata="timer"/>
 			</div>
 			<div class="controls flex justify-between items-center w-4/5 mx-auto mt-3 text-white">
-				<span class="inline-block"><i class="material-icons text-tiny" @click="previousMusic()">skip_previous</i></span> <!--previous-->
+				<span class="inline-block"><i class="material-icons text-tiny" @click="previousMusic">skip_previous</i></span> <!--previous-->
 				<span class="inline-block"><i class="material-icons text-tiny" @click="playOrPause">play_arrow</i></span> <!--play-->
-				<span class="inline-block"><i class="material-icons text-tiny" @click="nextMusic()">skip_next</i></span> <!--next-->
+				<span class="inline-block"><i class="material-icons text-tiny" @click="nextMusic">skip_next</i></span> <!--next-->
 			</div>
 		</div>
 		
-		<div class="music max-h-80 overflow-y-scroll pt-3  bg-gray-900 px-5 pb-0">
+		<div class="music max-h-80 overflow-y-scroll pt-5  bg-gray-900 px-5 pb-0">
 			<div class="song h-20 flex justify-between items-center border-b border-gray-500" v-for="(music, index) in allMusic" :key="index">
 				<div class="info flex items-center">
 					<div class="img first w-16 h-16 bg-red-700 mr-3">
@@ -49,19 +49,21 @@
 					</div>
 				</div>
 				<div class="state text-center">
-					<i class="material-icons text-xl">play_arrow</i> <!--equalizer=graphic_eq-->
+					<i class="material-icons text-xl play_arrow">play_arrow</i> <!--equalizer=graphic_eq-->
 					<br><span class="text-blue-500 text-xs">{{music.price}}XAF</span>
 				</div>
 			</div>
 		</div>
+		{{loaded()}}
 	</div>
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
 	name: 'fake',
 	setup() {
-		
+		//allMusic contient toutes les informations sur les musiques de la playlist
 		let allMusic = [
 			{
 				name: "Noir meilleur",
@@ -92,20 +94,104 @@ export default {
 				src: "../assets/music/tardLaNight.mp3",
 				price: 100
 			},
-		]
+		],
 
-		let currentItem = 3
+		// playBtn contient le bouton du lecteur audio pour la lecture des sons
+		playBtn,
+		currentItem = ref(0),
+
+		// nextMusic gère le fonctionnement du bouton next sur le lecteur
+		nextMusic = function (e) {
+			let progressBar = e.currentTarget.parentNode.parentNode.previousSibling.firstChild
+			progressBar.style.width = 0;
+			// incrémente d'abord currentItem
+			currentItem.value++
+			playBtn.value.innerHTML = "play_arrow"
+			// si la valeur de currentItem en incrémentant devient négative, alors donne lui la valeur du premier
+			if(currentItem.value >= allMusic.length) {
+				currentItem.value = 0
+			}
+		},
+
+		// previousMusic gère le fonctionnement du bouton previous sur le lecteur
+		previousMusic = function(e) {
+			let progressBar = e.currentTarget.parentNode.parentNode.previousSibling.firstChild
+			progressBar.style.width = 0;
+			// décrémente d'abord currentItem
+			currentItem.value--
+			playBtn.value.innerHTML = "play_arrow"
+			// si la valeur de currentItem en décrémentant devient négative, alors donne lui la valeur du dernier item
+			if(currentItem.value < 0) {
+				currentItem.value = allMusic.length - 1
+			}
+		},
+
+		// playOrPause gère le fonctionnement du bouton play sur le lecteur
+		playOrPause = function(e) {
+			playBtn = ref(e.currentTarget)
+			let audio = e.currentTarget.parentNode.parentNode.previousSibling.lastChild
+			if (playBtn.value.innerHTML == "play_arrow") {
+				playBtn.value.innerHTML = "pause"
+				audio.play()
+			} else {
+				playBtn.value.innerHTML = "play_arrow"
+				audio.pause()
+			}
+			
+		},
+
+		//retourne l'url du média demandé
+        getMediaUrl = function(name) {
+            return new URL(name, import.meta.url)
+        },
+
+		//
+		timeupdate = function(e) {
+			let playerProgress = e.target.previousSibling,
+			duration = e.target.duration,
+			currentTime = e.target.currentTime
+			playerProgress.style.width = (currentTime / duration * 100)+"%"
+		},
+
+		timer = function (e) {
+			let duration = e.target.duration,
+			currentTime = e.target.currentTime,
+			minutes = parseInt(duration / 60, 10),
+			actualMinutes = parseInt(currentTime / 60, 10),
+			secondes = parseInt(duration%60, 10),
+			actualSecondes = parseInt(currentTime % 60, 10),
+
+			totalTime = e.target.parentNode.previousSibling.lastChild,
+			timer = e.target.parentNode.previousSibling.firstChild
+
+			timer.innerHTML = `${actualMinutes}:${(actualSecondes<10) ? "0"+actualSecondes: actualSecondes}`
+			totalTime.innerHTML = `${minutes}:${(secondes<10) ? "0"+secondes: secondes}`
+			
+		},
+
+		loaded = function() {setTimeout(() => {
+			console.log(document.querySelector('div.player-ui'))
+		}, 300);
+
+			
+		}
+
 		return {
 			allMusic,
 			currentItem,
+			nextMusic,
+			previousMusic,
+			playOrPause,
+			getMediaUrl,
+			timeupdate,
+			timer,
+			loaded
+			
 		}
 	},
 	methods: {
-		//retourne l'url du média demandé
-        getMediaUrl(name) {
-            return new URL(name, import.meta.url)
-        },
-		returnInfoMusic(currentItem){
+		
+		returnInfoMusic(currentItem) {
 			let musicInfo = this.$options.setup().allMusic[currentItem]
 			return {
 				nameMusic: musicInfo.name, 
@@ -113,29 +199,8 @@ export default {
 				root: musicInfo.src
 			}
 		},
-		playOrPause(e) {
-			let play_arrow = e.currentTarget.innerHTML
-			let audio = e.currentTarget.parentNode.parentNode.previousSibling.lastChild
-			if (play_arrow == "play_arrow") {
-				e.currentTarget.innerHTML = "pause"
-				audio.play()
-			} else {
-				e.currentTarget.innerHTML = "play_arrow"
-				audio.pause()
-			}
-			
-		},
-		nextMusic() {
-			this.$options.setup().currentItem =  null
-			console.log(this.$options.setup().currentItem)
-			
-		},
-		previousMusic() {
-			
-		}
-    },
-	mounted() {
-	}
+		
+    }
 }
 </script>
 
@@ -278,20 +343,21 @@ export default {
 			background: rgba(255, 255, 255, 0.3);
 			
 			.played {
-				width: 20%;
+				width: 0;
 				height: 2px;
 				position: absolute;
 				background: $primary;
 				
-				.circle {
-					width: 10px;
-					height: 10px;
-					background: $primary;
-					border-radius: 50%;
-					margin-left: 52px;
-					margin-top: -4px;
-					box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-				}
+				// .circle {
+				// 	width: 10px;
+				// 	height: 10px;
+				// 	background: $primary;
+				// 	border-radius: 50%;
+				// 	margin-top: -4px;
+				// 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+				// 	position: absolute;
+				// 	left: 0;
+				// }
 			}
 		}
 		
