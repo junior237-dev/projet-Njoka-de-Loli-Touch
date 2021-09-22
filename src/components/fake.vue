@@ -16,7 +16,7 @@
 				<h3>{{returnInfoMusic(currentItem).nameMusic}}</h3>
 			</div>
 			<div class="small">
-				<i class="material-icons text-xl text-white">replay</i><!--replay-->
+				<i class="material-icons text-xl text-white" @click="replayMusic">replay</i><!--replay-->
 				<p>{{returnInfoMusic(currentItem).nameArtist}}</p>
 				<i class="bi bi-volume-up text-xl text-white"></i> <!--volume_up-->
 			</div>
@@ -24,7 +24,7 @@
 				<span class="timer">{{timer.timer}}</span>
 				<span class="totalTime">{{timer.totalTime}}</span>
 			</div>
-			<div class="progress">
+			<div class="progress" @click="moveSong">
 				<div class="played">
 					<div class="circle"></div>
 				</div>
@@ -32,7 +32,7 @@
 			</div>
 			<div class="controls flex justify-between items-center w-4/5 mx-auto mt-3 text-white">
 				<span class="inline-block"><i class="material-icons text-tiny" @click="previousMusic">skip_previous</i></span> <!--previous-->
-				<span class="inline-block"><i class="material-icons text-tiny" @click="playOrPause">play_arrow</i></span> <!--play-->
+				<span class="inline-block"><i class="material-icons text-tiny" id="playBtn" @click="playOrPause">play_arrow</i></span> <!--play-->
 				<span class="inline-block"><i class="material-icons text-tiny" @click="nextMusic">skip_next</i></span> <!--next-->
 			</div>
 		</div>
@@ -98,15 +98,44 @@ export default {
 
 		// playBtn contient le bouton du lecteur audio pour la lecture des sons
 		playBtn,
+		audio,
 		currentItem = ref(0),
+		progressBar,
+		readingBar,
+
+		// pour charger tous les éléments du DOM dont j'aurai besoin
+		loaded = function() {
+			setTimeout(() => {
+
+				playBtn = ref(document.querySelector('i#playBtn'))
+				progressBar = ref(document.querySelector('.played')).value
+				audio = ref(document.querySelector('audio'))
+				readingBar = ref(document.querySelector('.progress'))
+
+			}, 200);
+		},
+
+		// pour repêter la music
+		replayMusic = function() {
+
+		},
+
+		//permet d'avancer le song à l'instant voulu
+		moveSong = function(e) {
+
+			let widthProgreesBar = readingBar.value.clientWidth, //la largeur de la bar de progression
+			clickedOffesetX = e.offsetX, //la valeur en x sur laquelle on a cliqué
+			duration = audio.value.duration
+			audio.value.currentTime = clickedOffesetX / widthProgreesBar * duration
+		},
 
 		// nextMusic gère le fonctionnement du bouton next sur le lecteur
 		nextMusic = function (e) {
-			let progressBar = e.currentTarget.parentNode.parentNode.previousSibling.firstChild
+			playBtn.value.innerHTML = "play_arrow"
+			//remettre la bar de progression à zéro quand on navigue entre les sons
 			progressBar.style.width = 0;
 			// incrémente d'abord currentItem
 			currentItem.value++
-			playBtn.value.innerHTML = "play_arrow"
 			// si la valeur de currentItem en incrémentant devient négative, alors donne lui la valeur du premier
 			if(currentItem.value >= allMusic.length) {
 				currentItem.value = 0
@@ -115,11 +144,11 @@ export default {
 
 		// previousMusic gère le fonctionnement du bouton previous sur le lecteur
 		previousMusic = function(e) {
-			let progressBar = e.currentTarget.parentNode.parentNode.previousSibling.firstChild
+			playBtn.value.innerHTML = "play_arrow"
+			//remettre la bar de progression à zéro quand on navigue entre les sons
 			progressBar.style.width = 0;
 			// décrémente d'abord currentItem
 			currentItem.value--
-			playBtn.value.innerHTML = "play_arrow"
 			// si la valeur de currentItem en décrémentant devient négative, alors donne lui la valeur du dernier item
 			if(currentItem.value < 0) {
 				currentItem.value = allMusic.length - 1
@@ -148,33 +177,32 @@ export default {
 		//
 		timeupdate = function(e) {
 			let playerProgress = e.target.previousSibling,
-			duration = e.target.duration,
-			currentTime = e.target.currentTime
-			playerProgress.style.width = (currentTime / duration * 100)+"%"
+			audioDuration = e.target.duration,
+			currentCount = e.target.currentTime
+
+			playerProgress.style.width = (currentCount / audioDuration * 100)+"%"
 		},
 
+		 
 		timer = function (e) {
-			let duration = e.target.duration,
+			let duration = audio.value.duration,
 			currentTime = e.target.currentTime,
 			minutes = parseInt(duration / 60, 10),
 			actualMinutes = parseInt(currentTime / 60, 10),
 			secondes = parseInt(duration%60, 10),
-			actualSecondes = parseInt(currentTime % 60, 10),
+			actualSecondes = parseInt(currentTime%60, 10),
 
 			totalTime = e.target.parentNode.previousSibling.lastChild,
 			timer = e.target.parentNode.previousSibling.firstChild
 
+			console.log(currentTime)
+			// timer.innerHTML = 'bonjour'
 			timer.innerHTML = `${actualMinutes}:${(actualSecondes<10) ? "0"+actualSecondes: actualSecondes}`
 			totalTime.innerHTML = `${minutes}:${(secondes<10) ? "0"+secondes: secondes}`
 			
-		},
-
-		loaded = function() {setTimeout(() => {
-			console.log(document.querySelector('div.player-ui'))
-		}, 300);
-
-			
 		}
+
+		
 
 		return {
 			allMusic,
@@ -185,7 +213,9 @@ export default {
 			getMediaUrl,
 			timeupdate,
 			timer,
-			loaded
+			loaded,
+			moveSong,
+			replayMusic
 			
 		}
 	},
