@@ -1,26 +1,25 @@
 <template>
     <div class="player">
 		<div class="cover"></div>
-		<nav>
-			<div class="left">
-				<i class="bi bi-list text-xl"></i> <!--menu-->
-				<h6>Playlist</h6>
+		<nav class="">
+			<div class="left w-5 h-5 rounded-full bg-red-600 text-center" @click="hiddenPlaylist">
+				<i class="material-icons text-xl ">arrow_drop_down</i> <!--menu-->
 			</div>
 			<div class="right">
 				<i class="bi bi-search text-xl"></i> <!--search-->
-				<i class="bi bi-music-note-list text-xl ml-5"></i> <!--playlist-->
+				<i class="material-icons text-2xl ml-5">get_app</i> <!--playlist-->
 			</div>
 		</nav>
-		<div class="player-ui">
+		<div class="player-ui pb-3">
 			<div class="title">
 				<h3>{{returnInfoMusic(currentItem).nameMusic}}</h3>
 			</div>
 			<div class="small">
-				<i class="material-icons text-xl text-white" @click="replayMusic">replay</i><!--replay-->
+				<i class="material-icons text-xl text-transparent" @click="replayMusic">repeat</i> <!--replay-->
 				<p>{{returnInfoMusic(currentItem).nameArtist}}</p>
 				<i class="bi bi-volume-up text-xl text-white"></i> <!--volume_up-->
 			</div>
-			<div class="time w-full px-5 text-white text-sm mt-4 mx-auto flex justify-between -mb-4">
+			<div class="time w-full px-5 text-white text-lg mt-4 mx-auto flex justify-between -mb-4">
 				<span class="timer">{{timer.timer}}</span>
 				<span class="totalTime">{{timer.totalTime}}</span>
 			</div>
@@ -28,7 +27,7 @@
 				<div class="played">
 					<div class="circle"></div>
 				</div>
-				<audio class="audio" :src="getMediaUrl(returnInfoMusic(currentItem).root)" @timeupdate="timeupdate" @loadeddata="timer"/>
+				<audio class="audio" :src="getMediaUrl(returnInfoMusic(currentItem).root)" @timeupdate="timeupdate" @loadeddata="timer" @ended="uploadanotherSong"/>
 			</div>
 			<div class="controls flex justify-between items-center w-4/5 mx-auto mt-3 text-white">
 				<span class="inline-block"><i class="material-icons text-tiny" @click="previousMusic">skip_previous</i></span> <!--previous-->
@@ -36,24 +35,25 @@
 				<span class="inline-block"><i class="material-icons text-tiny" @click="nextMusic">skip_next</i></span> <!--next-->
 			</div>
 		</div>
-		
-		<div class="music max-h-80 overflow-y-scroll pt-5  bg-gray-900 px-5 pb-0">
-			<div class="song h-20 flex justify-between items-center border-b border-gray-500" v-for="(music, index) in allMusic" :key="index">
-				<div class="info flex items-center">
-					<div class="img first w-16 h-16 bg-red-700 mr-3">
-						<img :src="getMediaUrl(music.img)" :alt="music.artist" class="object-cover"/>
+		<transition name="coulisse">
+			<div class="music max-h-80 overflow-y-scroll pt-5  bg-gray-900 px-5 pb-0" v-show="hidden">
+				<div class="song h-20 flex justify-between items-center border-b border-gray-500" v-for="(music, index) in allMusic" :key="index">
+					<div class="info flex items-center">
+						<div class="img first w-16 h-16 bg-red-700 mr-3">
+							<img :src="getMediaUrl(music.img)" :alt="music.artist" class="object-cover"/>
+						</div>
+						<div class="titles">
+							<h5 class="text-left text-base text-white font-normal mx-0 mt-0 mb-2">{{music.name}}</h5>
+							<p class="text-left m-0 text-tiny text-gray-400">{{music.artist}}<br><span class="totalTime">03:08</span></p>
+						</div>
 					</div>
-					<div class="titles">
-						<h5 class="text-left text-base text-white font-normal mx-0 mt-0 mb-2">{{music.name}}</h5>
-						<p class="text-left m-0 text-tiny text-gray-400">{{music.artist}}<br><span class="totalTime">03:08</span></p>
+					<div class="state text-center">
+						<i class="material-icons text-xl play_arrow">play_arrow</i> <!--equalizer=graphic_eq-->
+						<br><span class="text-blue-500 text-xs">{{music.price}}XAF</span>
 					</div>
-				</div>
-				<div class="state text-center">
-					<i class="material-icons text-xl play_arrow">play_arrow</i> <!--equalizer=graphic_eq-->
-					<br><span class="text-blue-500 text-xs">{{music.price}}XAF</span>
 				</div>
 			</div>
-		</div>
+		</transition>
 		{{loaded()}}
 	</div>
 </template>
@@ -102,7 +102,8 @@ export default {
 		currentItem = ref(0),
 		progressBar,
 		readingBar,
-
+		hidden = ref(true),
+		iconePlay,
 		// pour charger tous les éléments du DOM dont j'aurai besoin
 		loaded = function() {
 			setTimeout(() => {
@@ -111,13 +112,45 @@ export default {
 				progressBar = ref(document.querySelector('.played')).value
 				audio = ref(document.querySelector('audio'))
 				readingBar = ref(document.querySelector('.progress'))
-
+				iconePlay = ref(document.querySelectorAll("i.play_arrow")[currentItem.value])
+				iconePlay.value.style.backgroundColor = "red"
 			}, 200);
+		},
+
+		//
+		hiddenPlaylist = function(e) {
+			hidden.value = !hidden.value
+			let hiddenArrow = e.target //pour cibler la flèche sur laquelle on clique pour cacher ou montrer la playlist
+			
+			hiddenArrow.innerHTML = (hiddenArrow.innerHTML == "arrow_drop_down")? "arrow_drop_up": "arrow_drop_down"
+
 		},
 
 		// pour repêter la music
 		replayMusic = function() {
 
+		},
+
+		//
+		selectSongInPlaylist = function(currentItem) {
+			let songsplayArrow = document.querySelectorAll("i.play_arrow") //les flèches d'icones play des sons de la playslist
+			songsplayArrow = Array.prototype.slice.call(songsplayArrow) 
+
+			for(let i=0; i<songsplayArrow.length; i++) {
+
+				if(songsplayArrow[i].style.backgroundColor === "red") {
+					console.log("il y'en a un")
+					songsplayArrow[i].style.backgroundColor = ""
+					songsplayArrow[i].innerHTML = "play_arrow"
+					songsplayArrow[currentItem].style.backgroundColor = "red"
+					iconePlay.value = songsplayArrow[currentItem]
+					break;
+				}
+			}
+			
+			
+			
+			
 		},
 
 		//permet d'avancer le song à l'instant voulu
@@ -130,7 +163,8 @@ export default {
 		},
 
 		// nextMusic gère le fonctionnement du bouton next sur le lecteur
-		nextMusic = function (e) {
+		nextMusic = function () {
+
 			playBtn.value.innerHTML = "play_arrow"
 			//remettre la bar de progression à zéro quand on navigue entre les sons
 			progressBar.style.width = 0;
@@ -140,10 +174,12 @@ export default {
 			if(currentItem.value >= allMusic.length) {
 				currentItem.value = 0
 			}
+
+			selectSongInPlaylist(currentItem.value)
 		},
 
 		// previousMusic gère le fonctionnement du bouton previous sur le lecteur
-		previousMusic = function(e) {
+		previousMusic = function() {
 			playBtn.value.innerHTML = "play_arrow"
 			//remettre la bar de progression à zéro quand on navigue entre les sons
 			progressBar.style.width = 0;
@@ -153,6 +189,7 @@ export default {
 			if(currentItem.value < 0) {
 				currentItem.value = allMusic.length - 1
 			}
+			selectSongInPlaylist(currentItem.value)
 		},
 
 		// playOrPause gère le fonctionnement du bouton play sur le lecteur
@@ -162,11 +199,25 @@ export default {
 			if (playBtn.value.innerHTML == "play_arrow") {
 				playBtn.value.innerHTML = "pause"
 				audio.play()
+				iconePlay.value.innerHTML = "graphic_eq"
 			} else {
 				playBtn.value.innerHTML = "play_arrow"
 				audio.pause()
+				iconePlay.value.innerHTML = "play_arrow"
 			}
+
 			
+		},
+
+		uploadanotherSong = function() {
+			currentItem.value++
+			if (currentItem.value >= allMusic.length) {
+				currentItem.value = 0
+			}
+			playBtn.value.innerHTML = "play_arrow"
+			progressBar.style.width = 0
+			iconePlay.value.style.backgroundColor = ""
+			iconePlay.value.innerHTML = "play_arrow"
 		},
 
 		//retourne l'url du média demandé
@@ -195,7 +246,7 @@ export default {
 			totalTime = e.target.parentNode.previousSibling.lastChild,
 			timer = e.target.parentNode.previousSibling.firstChild
 
-			console.log(currentTime)
+			// console.log(currentTime)
 			// timer.innerHTML = 'bonjour'
 			timer.innerHTML = `${actualMinutes}:${(actualSecondes<10) ? "0"+actualSecondes: actualSecondes}`
 			totalTime.innerHTML = `${minutes}:${(secondes<10) ? "0"+secondes: secondes}`
@@ -215,7 +266,10 @@ export default {
 			timer,
 			loaded,
 			moveSong,
-			replayMusic
+			replayMusic,
+			hidden,
+			hiddenPlaylist,
+			uploadanotherSong
 			
 		}
 	},
@@ -270,9 +324,18 @@ export default {
 		cursor: pointer;
 	}
 
+	.coulisse-enter-active, .coulisse-leave-active {
+		transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+	}
+
+	.coulisse-enter-from, .coulisse-leave-to {
+		opacity: .7;
+		transform: translateY(-400px)
+	}
+
 .player {
 	overflow: hidden;
-	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
+	// box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
 	position: relative;
 	width: 100%;
 	height: auto;
