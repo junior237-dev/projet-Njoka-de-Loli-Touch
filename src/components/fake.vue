@@ -2,22 +2,24 @@
     <div class="player">
 		<div class="cover"></div>
 		<nav class="">
-			<div class="left w-5 h-5 rounded-full bg-red-600 text-center" @click="hiddenPlaylist">
+			<div class="left w-5 h-5 rounded-full bg-red-600 shadow-md text-center" @click="hiddenPlaylist">
 				<i class="material-icons text-xl ">arrow_drop_down</i> <!--menu-->
 			</div>
-			<div class="right">
+			<div class="right align-middle">
 				<i class="bi bi-search text-xl"></i> <!--search-->
-				<i class="material-icons text-2xl ml-5">get_app</i> <!--playlist-->
+				<i class="material-icons text-2xl ml-10 mt-1">get_app</i> <!--playlist-->
 			</div>
 		</nav>
 		<div class="player-ui pb-3">
 			<div class="title">
 				<h3>{{returnInfoMusic(currentItem).nameMusic}}</h3>
 			</div>
-			<div class="small">
+			<div class="small relative">
 				<i class="material-icons text-xl text-transparent" @click="replayMusic">repeat</i> <!--replay-->
 				<p>{{returnInfoMusic(currentItem).nameArtist}}</p>
-				<i class="bi bi-volume-up text-xl text-white"></i> <!--volume_up-->
+				<i class="bi bi-volume-up text-xl text-white" @click="showVolume = !showVolume"></i> <!--volume_up-->
+				<div class="volumeBar border border-gray-200 absolute bottom-2 right-5 w-2 h-24 rounded-full shadow-sm z-20" v-if="showVolume" @click="makevolume"></div>
+				<div class="voulumeProgress absolute bottom-2 right-5 w-2 h-20 rounded-full bg-yellow-700 z-10" v-if="showVolume"></div>
 			</div>
 			<div class="time w-full px-5 text-white text-lg mt-4 mx-auto flex justify-between -mb-4">
 				<span class="timer">{{timer.timer}}</span>
@@ -29,15 +31,16 @@
 				</div>
 				<audio class="audio" :src="getMediaUrl(returnInfoMusic(currentItem).root)" @timeupdate="timeupdate" @loadeddata="timer" @ended="uploadanotherSong"/>
 			</div>
-			<div class="controls flex justify-between items-center w-4/5 mx-auto mt-3 text-white">
-				<span class="inline-block"><i class="material-icons text-tiny" @click="previousMusic">skip_previous</i></span> <!--previous-->
-				<span class="inline-block"><i class="material-icons text-tiny" id="playBtn" @click="playOrPause">play_arrow</i></span> <!--play-->
-				<span class="inline-block"><i class="material-icons text-tiny" @click="nextMusic">skip_next</i></span> <!--next-->
+			<div class="controls flex justify-between items-center w-4/5 pb-1 mx-auto mt-3 text-white">
+				<span class="inline-block"><i class="material-icons text-2xl" @click="previousMusic">skip_previous</i></span> <!--previous-->
+				<span class="inline-block"><i class="material-icons text-2xl border-2 align-middle border-white h-9 w-9 py-1 rounded-full text-center" id="playBtn" @click="playOrPause">play_arrow</i></span> <!--play-->
+				<span class="inline-block"><i class="material-icons text-2xl" @click="nextMusic">skip_next</i></span> <!--next-->
 			</div>
 		</div>
+		
 		<transition name="coulisse">
 			<div class="music max-h-80 overflow-y-scroll pt-5  bg-gray-900 px-5 pb-0" v-show="hidden">
-				<div class="song h-20 flex justify-between items-center border-b border-gray-500" v-for="(music, index) in allMusic" :key="index">
+				<div class="song h-20 flex justify-between items-center border-b border-gray-500" v-for="(music, index) in allMusic" :key="index" @click="playmusic">
 					<div class="info flex items-center">
 						<div class="img first w-16 h-16 bg-red-700 mr-3">
 							<img :src="getMediaUrl(music.img)" :alt="music.artist" class="object-cover"/>
@@ -59,9 +62,13 @@
 </template>
 
 <script>
+import VueRouter from 'vue-router'
 import { ref } from 'vue'
 export default {
 	name: 'fake',
+	plugins: {
+		VueRouter
+	},
 	setup() {
 		//allMusic contient toutes les informations sur les musiques de la playlist
 		let allMusic = [
@@ -104,6 +111,8 @@ export default {
 		readingBar,
 		hidden = ref(true),
 		iconePlay,
+		showVolume = ref(false),
+
 		// pour charger tous les éléments du DOM dont j'aurai besoin
 		loaded = function() {
 			setTimeout(() => {
@@ -118,20 +127,24 @@ export default {
 		},
 
 		//
-		hiddenPlaylist = function(e) {
-			hidden.value = !hidden.value
-			let hiddenArrow = e.target //pour cibler la flèche sur laquelle on clique pour cacher ou montrer la playlist
-			
-			hiddenArrow.innerHTML = (hiddenArrow.innerHTML == "arrow_drop_down")? "arrow_drop_up": "arrow_drop_down"
+		makevolume = function(e) {
+			let volume = e.target.parentNode.nextSibling.nextSibling.lastChild.volume
+			let heightVolumeBar = e.target.clientHeight, //la longueur de la bar du volume
+			clickedOffesetY = e.offsetY, //la valeur en y sur laquelle on a cliqué
 
-		},
-
-		// pour repêter la music
-		replayMusic = function() {
-
+			// audio.value.currentTime = clickedOffesetX / widthProgreesBar * duration
+			// console.log(volume)
 		},
 
 		//
+		hiddenPlaylist = function(e) {
+			hidden.value = !hidden.value
+			let hiddenArrow = e.target //pour cibler la flèche sur laquelle on clique pour cacher ou montrer la playlist
+			hiddenArrow.innerHTML = (hiddenArrow.innerHTML == "arrow_drop_down")? "arrow_drop_up": "arrow_drop_down"
+		},
+
+
+		//permet d'identifier dans la playlist la musique ciblé et affichée sur le lecteur
 		selectSongInPlaylist = function(currentItem) {
 			let songsplayArrow = document.querySelectorAll("i.play_arrow") //les flèches d'icones play des sons de la playslist
 			songsplayArrow = Array.prototype.slice.call(songsplayArrow) 
@@ -139,7 +152,7 @@ export default {
 			for(let i=0; i<songsplayArrow.length; i++) {
 
 				if(songsplayArrow[i].style.backgroundColor === "red") {
-					console.log("il y'en a un")
+	
 					songsplayArrow[i].style.backgroundColor = ""
 					songsplayArrow[i].innerHTML = "play_arrow"
 					songsplayArrow[currentItem].style.backgroundColor = "red"
@@ -151,6 +164,24 @@ export default {
 			
 			
 			
+		},
+
+		playmusic = function(e) {
+			let musictitle = e.target.querySelector('h5').innerHTML
+
+			for(let i=0; i<allMusic.length; i++) {
+
+				for(let a  in allMusic[i]) {
+					
+					if(allMusic[i][a] === musictitle) {
+						currentItem.value = i
+						selectSongInPlaylist(currentItem.value)
+						progressBar.style.width = 0
+						playBtn.value.innerHTML = "play_arrow"
+					}
+				}
+			}
+			console.log(e.target.querySelector('h5').innerHTML)
 		},
 
 		//permet d'avancer le song à l'instant voulu
@@ -209,6 +240,7 @@ export default {
 			
 		},
 
+		//charge sur l'affichage du lecteur ainsi que dans la playlist, la musique suivante juste lorsque la précédente termine
 		uploadanotherSong = function() {
 			currentItem.value++
 			if (currentItem.value >= allMusic.length) {
@@ -266,10 +298,12 @@ export default {
 			timer,
 			loaded,
 			moveSong,
-			replayMusic,
 			hidden,
 			hiddenPlaylist,
-			uploadanotherSong
+			uploadanotherSong,
+			playmusic,
+			showVolume,
+			makevolume
 			
 		}
 	},
@@ -324,13 +358,20 @@ export default {
 		cursor: pointer;
 	}
 
+
 	.coulisse-enter-active, .coulisse-leave-active {
-		transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+		transition:opacity 1.5s ease, transform 1.5s ease-out, height 2s ease-in, margin-bottom 1s ease;
 	}
 
 	.coulisse-enter-from, .coulisse-leave-to {
-		opacity: .7;
-		transform: translateY(-400px)
+		opacity: .5;
+		height: 50px;
+		transform: translateY(-280px)
+	}
+
+	.coulisse-leave-to {
+		height: 0px;
+		margin-bottom: -22px
 	}
 
 .player {
@@ -348,7 +389,7 @@ export default {
 		z-index: 1;
 		width: 100%;
 		height: 275px;
-		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.514);
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.514);
 		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(../assets/play.jpg) center center;
 		background-size: cover;
 	}
@@ -499,4 +540,6 @@ export default {
 	
 	}
 }
+
+
 </style>

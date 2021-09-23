@@ -11,11 +11,11 @@
             </ul>
         </div>
         <banner-artist class="mb-5"/>
-        <div class="post-description mt-1 mb-5 bg-gray-100">
-            <h1 class="text-left text-3xl font-semibold  mx-auto text-black">Cardio</h1>
-            <h3 class="text-left mx-auto -mt-2">X-maleya</h3>  
+        <div class="post-description mt-1 mb-5 h-auto bg-gray-800">
+            <h1 class="text-center text-4xl font-semibold  mx-auto text-white">Cardio</h1>
+            <h3 class="text-center text-white mx-auto -mt-2">X-maleya</h3>  
             <img src="../assets/Maleya.jpg" alt="" class="block w-full max-h-80 object-cover">
-            <div class="description inline-block w-full h-full align-bottom">
+            <div class="description inline-block w-full align-bottom">
                 <div class="informations text-blue-500 text-2xl w-full mx-auto">
                     <ul class="info-1 grid grid-cols-3">
                         <li class="w-full  border bg-black py-2 text-center"><i class="bi bi-eye-fill"></i><span class="value text-tiny font-bold block -mt-2">20</span></li>
@@ -26,7 +26,7 @@
                         <li class="w-full  border bg-black py-2 text-center"><i class="bi bi-cash-coin"></i><span class="value text-sm font-bold block -mt-2">200XAF</span></li>
                     </ul>
                     <div class="control">
-                        <button class="btn w-full bg-blue-500 rounded-sm h-20 mt-1">
+                        <button class="btn w-full bg-blue-500 rounded-sm h-20 mt-0">
                             <span class="shopping-cart text-white"><i class="bi bi-cart3"></i></span>
                             <span class="buy text-white ml-3">Obtenez maintenant</span>
                         </button>
