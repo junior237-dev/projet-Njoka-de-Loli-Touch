@@ -17,9 +17,9 @@
 			<div class="small relative">
 				<i class="material-icons text-xl text-transparent" @click="replayMusic">repeat</i> <!--replay-->
 				<p>{{returnInfoMusic(currentItem).nameArtist}}</p>
-				<i class="bi bi-volume-up text-xl text-white" @click="showVolume = !showVolume"></i> <!--volume_up-->
-				<div class="volumeBar border border-gray-200 absolute bottom-2 right-5 w-2 h-24 rounded-full shadow-sm z-20" v-if="showVolume" @click="makevolume"></div>
-				<div class="voulumeProgress absolute bottom-2 right-5 w-2 h-20 rounded-full bg-yellow-700 z-10" v-if="showVolume"></div>
+				<i class="bi bi-volume-up text-xl text-white" @click="showVolume"></i> <!--volume_up-->
+				<div class="volumeBar border border-gray-200 absolute bottom-2 right-5 w-2 h-24 rounded-full shadow-sm z-20 hidden" @click="makevolume"></div>
+				<div class="volumeProgress absolute bottom-2 right-5 w-2 h-20 rounded-full bg-yellow-500 hidden"></div>
 			</div>
 			<div class="time w-full px-5 text-white text-lg mt-4 mx-auto flex justify-between -mb-4">
 				<span class="timer">{{timer.timer}}</span>
@@ -111,7 +111,8 @@ export default {
 		readingBar,
 		hidden = ref(true),
 		iconePlay,
-		showVolume = ref(false),
+		volumeBar = ref(false),
+		volumeBarProgress,
 
 		// pour charger tous les éléments du DOM dont j'aurai besoin
 		loaded = function() {
@@ -123,17 +124,28 @@ export default {
 				readingBar = ref(document.querySelector('.progress'))
 				iconePlay = ref(document.querySelectorAll("i.play_arrow")[currentItem.value])
 				iconePlay.value.style.backgroundColor = "red"
+				volumeBarProgress = ref(document.querySelector('.volumeProgress'))
 			}, 200);
 		},
 
+		showVolume = function(e) {
+			volumeBar.value = !volumeBar.value
+			let volume = e.target.parentNode.nextSibling.nextSibling.lastChild.volume 
+
+			volumeBar.value === true? e.target.nextSibling.nextSibling.nextSibling.classList.remove('hidden') : e.target.nextSibling.nextSibling.nextSibling.classList.add('hidden')
+			volumeBar.value === true? e.target.nextSibling.nextSibling.classList.remove('hidden') : e.target.nextSibling.nextSibling.classList.add('hidden')
+
+			volumeBarProgress.value.style.height = volume * e.target.nextSibling.nextSibling.clientHeight+"px"
+		},
 		//
 		makevolume = function(e) {
-			let volume = e.target.parentNode.nextSibling.nextSibling.lastChild.volume
-			let heightVolumeBar = e.target.clientHeight, //la longueur de la bar du volume
-			clickedOffesetY = e.offsetY, //la valeur en y sur laquelle on a cliqué
+			// e.target.parentNode.nextSibling.nextSibling.lastChild.volume => c'est le volume de la musique que je récupère
 
-			// audio.value.currentTime = clickedOffesetX / widthProgreesBar * duration
-			// console.log(volume)
+			let volumeBarHeight = e.target.clientHeight, // la longueur de la bar du volume
+			clickedOffesetY = e.offsetY // la valeur en y sur laquelle on a cliqué quittant du haut vers le bas
+			
+			e.target.parentNode.nextSibling.nextSibling.lastChild.volume = (volumeBarHeight-clickedOffesetY) / volumeBarHeight
+			volumeBarProgress.value.style.height = (volumeBarHeight-clickedOffesetY)+"px"
 		},
 
 		//
@@ -166,6 +178,7 @@ export default {
 			
 		},
 
+		//pour sélectionner la musique directement  dans la playlist
 		playmusic = function(e) {
 			let musictitle = e.target.querySelector('h5').innerHTML
 
@@ -302,6 +315,7 @@ export default {
 			hiddenPlaylist,
 			uploadanotherSong,
 			playmusic,
+			volumeBar,
 			showVolume,
 			makevolume
 			
@@ -371,8 +385,32 @@ export default {
 
 	.coulisse-leave-to {
 		height: 0px;
-		margin-bottom: -22px
+		margin-bottom: -20px
 	}
+
+	.volumeBar::before {
+		content: '+';
+		display: block;
+		color: white;
+		height: 5px;
+		width: 5px;
+		margin-top: -19px;
+		margin-inline-start: -2px;
+		
+	}
+
+	.volumeBar::after {
+		content: '-';
+		display: block;
+		color: white;
+		height: 5px;
+		width: 5px;
+		margin-top: 100px;
+		margin-inline-start: 1px;
+		
+	}
+
+	
 
 .player {
 	overflow: hidden;
