@@ -1,6 +1,6 @@
 <template>
     <div class="py-3" :class="classList">
-        <h2 class="mb-2 font-bold text-xl ml-3 text-left" :class="titleClass">{{informations.carouselTitle}}</h2>
+        <h2 class="mb-2 font-semibold text-xs ml-3 text-left" :class="titleClass">{{informations.carouselTitle}}</h2>
         <splide :options="options"  class="m-auto">
             <splide-slide v-for="(item, indice) in informations.items" :key="indice">
                 <item-exemple :itemInfo="item"/>

@@ -1,6 +1,6 @@
 <!-- voici le composant "categorie" que j'ai commencé -->
 <template>
-    <div class="w-full pt-0 min-h-screen bg-blue-500"> <!-- son contenant principal dont j'ai mis le background en bleu -->
+    <div class="max-w-lg mx-auto -mt-4 pt-0 min-h-screen bg-blue-500"> <!-- son contenant principal dont j'ai mis le background en bleu -->
         <search-bar />
         <main></main>
     </div> <!-- un petit commentaire -->

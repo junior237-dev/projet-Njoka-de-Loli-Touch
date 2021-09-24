@@ -20,9 +20,9 @@
         <div class="">
           <div class="__icons">
             <ul class="recipe-details -mt-1 ">
-              <li class="recipe-details-item time"><img src="../assets/icones/eye.png" class="inline h-3 w-3  mb-1"><span class="value">{{itemInfo.views}}</span><span class="title">views</span></li>
-              <li class="recipe-details-item ingredients"><img src="../assets/icones/like.png" class="inline h-3 w-3 mb-1"><span class="value">{{itemInfo.likes}}</span><span class="title">likes</span></li>
-              <li class="recipe-details-item servings"><img src="../assets/icones/share.png" class="inline h-3 w-3 mb-1"><span class="value">{{itemInfo.shares}}</span><span class="title">shares</span></li>
+              <li class="recipe-details-item time text-center"><span class="h-1 w-1 mb-1 border border-gray-200 shadow-md p-2 text-center text-gray-800 hover:bg-gray-300"><i class="material-icons text-lg">remove_red_eye</i></span><span class="value font-semibold">{{itemInfo.views}}</span><span class="title hidden">views</span></li>
+              <li class="recipe-details-item ingredients text-center"><span class="h-1 w-1 mb-1 border border-gray-300 shadow-md p-2 text-center text-gray-800 hover:bg-gray-300"><i class="material-icons text-lg">thumb_up</i></span><span class="value font-semibold">{{itemInfo.likes}}</span><span class="title hidden">likes</span></li>
+              <li class="recipe-details-item servings text-center"><span class="h-1 w-1 mb-1 border border-gray-300 shadow-md p-2 text-center text-gray-800 hover:bg-gray-300"><i class="material-icons text-lg">share</i></span><span class="value font-semibold">{{itemInfo.shares}}</span><span class="title hidden">shares</span></li>
             </ul>
           </div>
         </div>
@@ -285,13 +285,10 @@ export default {
       border-radius: 0;
       padding: 0 4px;
       width: auto;
-      transition: transform .5s, border-top .5s, background-color .3s,  border-radius .3s, transform .3s;
+      transition: transform .2s;
         
 
       &:hover {
-        border-top: solid 2px rgba(68, 174, 245, 0.959);
-        background-color: white;
-        border-radius: 10px;
         transform: scale(1.06);
 
         @media #{$mobileSize} {
@@ -316,9 +313,7 @@ export default {
       }
     }
 
-    i {
-      font-size: 10px;
-    }
+    
   }
 
 
@@ -327,23 +322,23 @@ export default {
     margin-left: .25rem;
     vertical-align: bottom;
     font-size: .9em;
-    font-weight: 100;
+    // font-weight: 100;
 
     @media #{$mobileSize} {
       font-size: .85em;
-      font-weight: 500;
-      padding-left: 2px;
+      // font-weight: 500;
+      padding-left: 1px;
 
     }
   }
 
   .title {
-    display: block;
-    margin-top: -0.5rem;
-    color: black;
-    font-weight: 300;
-    padding-top: .25rem;
-    font-size: .57em;
+    // display: block;
+    // margin-top: -0.5rem;
+    // color: black;
+    // font-weight: 300;
+    // padding-top: .25rem;
+    // font-size: .57em;
 
     @media #{$mobileSize} {
       display: none

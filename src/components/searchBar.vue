@@ -6,7 +6,7 @@
                     <i class="bi bi-search text-2xl"></i>
                 </span>
                 <label for="recherche" class="hidden">recherche de categories</label>
-                <input type="search" placeholder="Rechercher..." class="mt-0 w-72 h-12 focus:outline-none mr-6 text-xs pl-2" id="recherche" name="recherche" :class="classApply">
+                <input type="search" placeholder="Rechercher..." class="mt-0 w-4/6 h-12 focus:outline-none text-xs pl-2" id="recherche" name="recherche" :class="classApply">
             </div>
         </form>
     </div>

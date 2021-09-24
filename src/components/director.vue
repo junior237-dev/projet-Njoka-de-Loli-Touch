@@ -12,8 +12,8 @@
         <!-- <mon-compte /> -->
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
-        <!-- <home /> -->
-        <post-album />
+        <home />
+        <!-- <post-album /> -->
         <!-- <compteArtist /> -->
     </div>
 </template>
