@@ -36,32 +36,24 @@
         setup (props) {
             let options = {
                 type: "loop",
-                perPage: 4,
+                perPage: 3,
+                arrows: true,
                 rewind : true,
                 height: '300px',
                 gap: '.8em',
                 breakpoints: {
 
-                    600: {
+                    800: {
                         perPage: 2,
                         type: "loop",
                         rewind: true,
                         pagination: false,
                         arrows: false,
-                        width: '590px',
+                        width: '490px',
                         height: '275px',
                         gap: '.3em'
                     },
 
-                    900: {
-                        perPage: 3,
-                        width: '800px',
-                        height: '300px',
-                        pagination: false,
-                        arrows: false,
-                        gap: '.3em',
-                        
-                    },
 
                     
                 }

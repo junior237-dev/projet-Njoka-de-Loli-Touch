@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <category />   -->
-        <!-- <navbar /> -->
+        <navbar />
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->

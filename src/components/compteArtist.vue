@@ -1,5 +1,5 @@
 <template>
-    <div class="compteArtsite max-w-2xl mx-auto">
+    <div class="compteArtsite max-w-lg mx-auto mb-20 border shadow-md">
         <div class="header flex flex-row justify-between w-full px-4  h-16">
             <span class="back inline-block text-3xl text-black py-2">
                 <i class="bi bi-arrow-left"></i>

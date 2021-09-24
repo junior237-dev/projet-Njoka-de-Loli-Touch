@@ -15,10 +15,10 @@
 				<h3>{{returnInfoMusic(currentItem).nameMusic}}</h3>
 			</div>
 			<div class="small relative">
-				<i class="material-icons text-xl text-transparent" @click="replayMusic">repeat</i> <!--replay-->
+				<i class="material-icons text-xl text-transparent">repeat</i> <!--replay-->
 				<p>{{returnInfoMusic(currentItem).nameArtist}}</p>
 				<i class="bi bi-volume-up text-xl text-white" @click="showVolume"></i> <!--volume_up-->
-				<div class="volumeBar border border-gray-200 absolute bottom-2 right-5 w-2 h-24 rounded-full shadow-sm z-20 hidden" @click="makevolume"></div>
+				<div class="volumeBar border border-gray-200 absolute bottom-2 right-5 w-2 h-24 rounded-full shadow-sm z-20 hidden cursor-pointer" @click="makevolume"></div>
 				<div class="volumeProgress absolute bottom-2 right-5 w-2 h-20 rounded-full bg-yellow-500 hidden"></div>
 			</div>
 			<div class="time w-full px-5 text-white text-lg mt-4 mx-auto flex justify-between -mb-4">
@@ -74,7 +74,7 @@ export default {
 		let allMusic = [
 			{
 				name: "Noir meilleur",
-				artist: "damso",
+				artist: "Damso",
 				img: "../assets/tenor.jpg",
 				src: "../assets/music/noirMeilleur.mp3",
 				price: 100
@@ -194,7 +194,7 @@ export default {
 					}
 				}
 			}
-			console.log(e.target.querySelector('h5').innerHTML)
+			// console.log(e.target.querySelector('h5').innerHTML)
 		},
 
 		//permet d'avancer le song à l'instant voulu
