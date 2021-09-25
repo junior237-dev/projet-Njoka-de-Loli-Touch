@@ -20,7 +20,7 @@
         <div class="">
           <div class="__icons">
             <ul class="recipe-details -mt-1 ">
-              <li class="recipe-details-item time text-center"><span class="h-1 w-1 mb-1 border border-gray-200 shadow-md p-2 text-center text-gray-800 hover:bg-gray-300"><i class="material-icons text-lg">remove_red_eye</i></span><span class="value font-semibold">{{itemInfo.views}}</span><span class="title hidden">views</span></li>
+              <li class="recipe-details-item time text-center"><span class="h-1 w-1 mb-1 border border-gray-200 shadow-md p-2 text-center text-gray-800"><i class="material-icons text-lg">remove_red_eye</i></span><span class="value font-semibold">{{itemInfo.views}}</span><span class="title hidden">views</span></li>
               <li class="recipe-details-item ingredients text-center"><span class="h-1 w-1 mb-1 border border-gray-300 shadow-md p-2 text-center text-gray-800 hover:bg-gray-300"><i class="material-icons text-lg">thumb_up</i></span><span class="value font-semibold">{{itemInfo.likes}}</span><span class="title hidden">likes</span></li>
               <li class="recipe-details-item servings text-center"><span class="h-1 w-1 mb-1 border border-gray-300 shadow-md p-2 text-center text-gray-800 hover:bg-gray-300"><i class="material-icons text-lg">share</i></span><span class="value font-semibold">{{itemInfo.shares}}</span><span class="title hidden">shares</span></li>
             </ul>
@@ -287,7 +287,11 @@ export default {
       width: auto;
       transition: transform .2s;
         
-
+      span:first-child:hover {
+        @media screen and (min-width: 512px) {
+          background-color: rgb(212, 211, 211)
+        }
+      }
       &:hover {
         transform: scale(1.06);
 
