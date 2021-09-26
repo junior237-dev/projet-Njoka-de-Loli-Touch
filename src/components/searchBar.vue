@@ -1,5 +1,5 @@
 <template>
-    <div class="header__search w-full h-12 rounded-b-3xl shadow-md" :class="classApply"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
+    <div class="header__search w-full h-12 rounded-b-3xl shadow-lg" :class="classApply"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
         <form action="" method="">
             <div class="w-4/5 py-2 mx-auto" >
                 <span class="inline-block w-1/6 text-right pr-2">

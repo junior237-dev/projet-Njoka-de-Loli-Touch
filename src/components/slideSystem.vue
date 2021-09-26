@@ -40,10 +40,10 @@
                 arrows: true,
                 rewind : true,
                 height: '300px',
-                gap: '.8em',
+                gap: '.3em',
                 breakpoints: {
 
-                    800: {
+                    450: {
                         perPage: 2,
                         type: "loop",
                         rewind: true,
@@ -51,7 +51,7 @@
                         arrows: false,
                         width: '490px',
                         height: '275px',
-                        gap: '.3em'
+                        gap: '.1em'
                     },
 
 
