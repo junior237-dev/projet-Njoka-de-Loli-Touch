@@ -1,7 +1,7 @@
 <template>
     <div class="mt-0 max-w-lg mx-auto">
         <div class="home mt-0 w-full pb-28">
-            <search-bar class="fixed top-0 left-0 right-0 z-10 bg-transparent" :classApply="['bg-white', 'opacity-80']"/>
+            <search-bar :classApply="['','z-10','right-0','left-0','top-0','fixed','bg-white', 'opacity-80']"/>
             <pubs />
             <div class="top_10 mb-5">
                 <slide-system :itemInformations="music" :classList="['bg-transparent']" :titleClass="['text-black','text-2xl']"/>

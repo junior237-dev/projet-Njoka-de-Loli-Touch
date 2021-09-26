@@ -1,12 +1,12 @@
 <template>
-    <div class="header__search w-full"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
+    <div class="header__search w-full h-12 rounded-b-3xl shadow-md" :class="classApply"> <!-- l'élément que j'ai utilisé en entête pour former la barre de recherche -->
         <form action="" method="">
-            <div class="w-full h-14 px-4 flex justify-around items-center rounded-b-3xl shadow-md" :class="classApply">
-                <span class="inline-block">
-                    <i class="bi bi-search text-lg"></i>
+            <div class="w-4/5 py-2 mx-auto" >
+                <span class="inline-block w-1/6 text-right pr-2">
+                    <i class="bi bi-search text-lg text-black"></i>
                 </span>
                 <label for="recherche" class="hidden">recherche de categories</label>
-                <input type="search" placeholder="Rechercher..." class="mt-0 w-4/6 h-1/3 focus:outline-none text-xs pl-2 -ml-3" id="recherche" name="recherche" :class="classApply">
+                <input type="search" placeholder="Rechercher..." class="outline-none w-5/6" :class="classApply[6]" id="search" name="search" >
             </div>
         </form>
     </div>
@@ -21,44 +21,32 @@
     }
 </script>
 
-<style scoped>
-    @media screen and (max-width: 405px) {
-        form div {
-            margin-bottom: 10px;
-        }
-    }
-    @media screen and (min-width: 405px) {
-        form div {
-            display: block;
-            margin: 10px auto;
-            max-width: 55%;
-            border: 1px solid transparent;
-            border-radius: 30px;
-            padding-top: 5px
+<style lang="scss" scoped>
+    .header__search {
+        
+
+        @media screen and (min-width: 500px) {
+            width: 400px;
+            margin: 5px auto;
+            border-radius: 15px;
         }
 
-        input[type="search"] {
-            max-width: 47%;
-            margin-left: 10px;
-            font-size: .85em
-        }
-    }
-
-    @media screen and (min-width: 600px) {
-        form div {
-            display: block;
-            margin: 20px auto;
-            width: 332px;
-            height: 40px;
-            border: 1px solid rgba(128, 128, 128, 0.13);
-            border-radius: 30px;
-            padding-top: 5px
+        input {
+        
+            @media screen and (min-width: 500px) {
+                width: 90%;
+            }
         }
 
-        input[type="search"] {
-            max-width: 47%;
-            margin-left: 10px;
-            font-size: .85em
+        span.inline-block {
+
+            @media screen and (min-width: 500px) {
+                width: 10%;
+                padding-right: 20px
+            }
         }
+
     }
+
+    
 </style>
