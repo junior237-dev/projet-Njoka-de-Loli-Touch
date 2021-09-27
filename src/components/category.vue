@@ -1,12 +1,9 @@
 <!-- voici le composant "categorie" que j'ai commencé -->
 <template>
-    <div class="max-w-lg mx-auto min-h-screen bg-blue-500 pt-16"> <!-- son contenant principal dont j'ai mis le background en bleu -->
+    <div class="max-w-lg mx-auto min-h-screen bg-blue-500 pt-20 px-3"> <!-- son contenant principal dont j'ai mis le background en bleu -->
         <search-bar :classApply="['z-10','right-0','left-0','top-0','fixed', 'shadow-md','bg-white']"/>
-        <div class="categories w-5/6 mx-auto grid grid-cols-2 gap-2">
-            <div class="category-element w-full h-24 shadow-lg mb-1 bg-white" v-for="item in 18" :key="item">
-                {{item}}
-                <div class="illustration w-2/3 bg-yellow-600 float-right h-full  rounded-tl-full rounded-r-2xl shadow-lg"></div>
-            </div>
+        <div class="categories w-full mx-auto grid grid-cols-2 gap-2">
+            <category-element />
         </div>
     </div>
 </template>
@@ -18,15 +15,14 @@
  * et enlever ce commentaire si tout est ok
  * et laisser juste la dernière ligne
  * import category-element from "./category-element.vue" */
- import searchBar from './searchBar.vue'
+import searchBar from './searchBar.vue'
+import categoryElement from './categoryElement.vue'
  
 export default {
     name: "category",
     components: {
-        //category-element,
+        categoryElement,
         searchBar
     }
 }
 </script>
-
-
