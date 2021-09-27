@@ -8,14 +8,14 @@
             </ul>
         </composant-retour>
         <banner-artist class="mb-5"/>
-        <pubs />
+        <pubs class="mt-10 mb-10"/>
         <div class="post-description mt-1 mb-5 h-auto bg-gray-800">
             <h1 class="text-center text-4xl font-semibold  mx-auto text-white">Cardio</h1>
             <h3 class="text-center text-white mx-auto -mt-2">X-maleya</h3>  
             <img src="../assets/Maleya.jpg" alt="" class="block w-full max-h-80 object-cover">
             <div class="description inline-block w-full align-bottom">
                 <div class="informations text-blue-500 text-2xl w-full mx-auto">
-                    <ul class="info-1 grid grid-cols-3">
+                    <ul class="info-1 grid grid-cols-3 sm:grid-cols-6">
                         <li class="w-full  border bg-black py-2 text-center"><i class="bi bi-eye-fill"></i><span class="value text-tiny font-bold block -mt-2">20</span></li>
                         <li class="w-full  border bg-black py-2 text-center"><i class="bi bi-hand-thumbs-up-fill"></i><span class="value text-tiny font-bold block -mt-2">20</span></li>
                         <li class="w-full  border bg-black py-2 text-center"><i class="bi bi-share-fill"></i><span class="value text-tiny font-bold block -mt-2">20</span></li>
@@ -32,8 +32,8 @@
                 </div>
             </div>
         </div>
-        <fake class="mb-3"/>
-        <pubs />
+        <music-player class="mb-3"/>
+        <pubs class="mt-10 mb-10"/>
     </div>
 </template>
 
@@ -41,10 +41,10 @@
 import pubs from './pubs.vue'
 import composantRetour from "./composantRetour.vue"
 import bannerArtist from './bannerArtist.vue'
-import fake from "./fake.vue"
+import musicPlayer from "./musicPlayer.vue"
 export default {
     name: 'postAlbum',
-    components: {fake, bannerArtist, composantRetour, pubs},
+    components: {musicPlayer, bannerArtist, composantRetour, pubs},
 }
 </script>
 

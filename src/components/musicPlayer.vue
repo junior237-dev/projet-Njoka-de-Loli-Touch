@@ -65,7 +65,7 @@
 import VueRouter from 'vue-router'
 import { ref } from 'vue'
 export default {
-	name: 'fake',
+	name: 'musicPlayer',
 	plugins: {
 		VueRouter
 	},
