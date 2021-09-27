@@ -9,26 +9,12 @@
             <div class="artistes">
                 <h2 class="mb-2 font-bold text-black text-xl ml-3 text-left">Artistes</h2>
                 <splide :options="options2">
-                    <splide-slide class="text-center">
+                    <splide-slide class="text-center" v-for="i in 10" :key="i">
                         <span class="inline-block">
                             <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-32 h-32 shadow-md border-2">
                         </span>
                         <br>
                         <span class="text-black font-semibold text-tiny">X-maleya</span>
-                    </splide-slide>
-                    <splide-slide class="text-center">
-                        <span class="inline-block">
-                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-32 h-32 shadow-md border-2">
-                        </span>
-                        <br>
-                        <span class="text-center text-black font-semibold text-tiny">X-maleya</span>
-                    </splide-slide>
-                    <splide-slide class="text-center">
-                        <span class="inline-block">
-                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-32 h-32 shadow-md border-2">
-                        </span>
-                        <br>
-                        <span class=" text-black font-semibold text-tiny">X-maleya</span>
                     </splide-slide>
                     <splide-slide class="text-center">
                         <span class="inline-block">
@@ -36,27 +22,6 @@
                         </span>
                         <br>
                         <span class="text-center text-black font-semibold text-tiny">X-maleya</span>
-                    </splide-slide>
-                    <splide-slide class="text-center">
-                        <span class="inline-block">
-                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-32 h-32 shadow-md border-2">
-                        </span>
-                        <br>
-                        <span class="text-black font-semibold text-tiny">X-maleya</span>
-                    </splide-slide>
-                    <splide-slide class="text-center">
-                        <span class="inline-block">
-                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-32 h-32 shadow-md border-2">
-                        </span>
-                        <br>
-                        <span class="text-black font-semibold text-tiny">X-maleya</span>
-                    </splide-slide>
-                    <splide-slide class="text-center">
-                        <span class="inline-block">
-                            <img src="../assets/xmaleya.jpg" alt="artiste" class="object-cover rounded-full w-32 h-32 shadow-md border-2">
-                        </span>
-                        <br>
-                        <span class="text-black font-semibold text-tiny">X-maleya</span>
                     </splide-slide>
                 </splide>
             </div>
@@ -99,6 +64,7 @@ export default {
                 },
                 453: {
                     perPage: 2,
+                    arrows: false
                 }
             }
             

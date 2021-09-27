@@ -1,16 +1,14 @@
 <template>
     <div class="post-album max-w-lg mx-auto mb-20">
-        <div class="header flex flex-row justify-between w-full px-4  h-16 mb-1">
-            <span class="back inline-block text-3xl text-black py-2">
-                <i class="bi bi-arrow-left"></i>
-            </span>
+        <composant-retour>
             <ul class="flex flex-row justify-between w-48 float-right text-3xl text-black">
                 <li class="border-l border-gray-300 px-4 h-full py-2"><a><i class="bi bi-search"></i></a></li>
                 <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-cart"></i></a></li>
                 <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-three-dots-vertical"></i></a></li>
             </ul>
-        </div>
+        </composant-retour>
         <banner-artist class="mb-5"/>
+        <pubs />
         <div class="post-description mt-1 mb-5 h-auto bg-gray-800">
             <h1 class="text-center text-4xl font-semibold  mx-auto text-white">Cardio</h1>
             <h3 class="text-center text-white mx-auto -mt-2">X-maleya</h3>  
@@ -35,15 +33,18 @@
             </div>
         </div>
         <fake class="mb-3"/>
+        <pubs />
     </div>
 </template>
 
 <script>
+import pubs from './pubs.vue'
+import composantRetour from "./composantRetour.vue"
 import bannerArtist from './bannerArtist.vue'
 import fake from "./fake.vue"
 export default {
     name: 'postAlbum',
-    components: {fake, bannerArtist},
+    components: {fake, bannerArtist, composantRetour, pubs},
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
-    <div class="header h-16 max-w-lg mx-auto shadow-lg bg-white">
-        <a href="#" class="inline-block float-left w-10 ml-3 mt-5">
-            <i class="bi bi-arrow-left text-2xl"></i>
-        </a>
+    <div class="header flex flex-row justify-between w-full px-4  h-16 mb-1">
+        <span class="back inline-block text-3xl text-black py-2">
+            <i class="bi bi-arrow-left"></i>
+        </span>
         <slot></slot>
     </div>
 </template>

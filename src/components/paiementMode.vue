@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-lg mx-auto">
+    <div class="max-w-lg mx-auto border shadow-lg min-h-screen pb-10">
         <composant-retour />
         <main class="container mt-10">
             <p class="text-center text-base px-3 text-gray-400">
@@ -8,7 +8,7 @@
             <div class="momoAndOm mt-32 px-14 grid grid-cols-2">
                 <a href="#" class="block w-full"><img src="../assets/Momo.jpg"  class="momo object-cover shadow-md w-full h-full"  alt="transfert Momo">
                 </a>
-                <a href="#" class="block w-full"><img src="../assets//orange-money-logo.png"  class="mo object-cover shadow-md w-full h-full"  alt="transfert orange-money">
+                <a href="#" class="block w-full"><img src="../assets/orange-money-logo.png"  class="mo object-cover shadow-md w-full h-full"  alt="transfert orange-money">
                 </a>
             </div>
             <div>

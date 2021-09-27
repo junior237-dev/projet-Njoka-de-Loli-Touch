@@ -58,7 +58,7 @@ export default {
   }
   .card-wrapper {
     width: 100%;
-    height: 90%;
+    height: 85%;
     position: relative;
     padding: 5px;
 

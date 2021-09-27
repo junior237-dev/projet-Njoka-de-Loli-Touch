@@ -22,6 +22,12 @@
             <splide-slide>
                 <img src="../assets/Lydol.jpg" alt="" class="w-full h-full cover">
             </splide-slide>
+            <splide-slide>
+                <img src="../assets/flyers01.jpg" alt="" class="w-full h-full cover">
+            </splide-slide>
+            <splide-slide>
+                <img src="../assets/flyers02.jpg" alt="" class="w-full h-full cover">
+            </splide-slide>
         </splide>
     </div>
 </template>

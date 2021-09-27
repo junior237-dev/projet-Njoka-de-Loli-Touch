@@ -1,6 +1,6 @@
 <template>
     <div>
-        <category />  
+        <!-- <category />   -->
         <navbar />
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
@@ -13,7 +13,7 @@
         <!-- <ma-musique /> -->
         <!-- <exemple /> -->
         <!-- <home /> -->
-        <!-- <post-album /> -->
+        <post-album />
         <!-- <compteArtist /> -->
     </div>
 </template>
