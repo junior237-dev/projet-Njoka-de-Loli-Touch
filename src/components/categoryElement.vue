@@ -1,18 +1,27 @@
 <template>
-    <div class="category-element w-full h-28 rounded-3xl mb-1 bg-red-700" v-for="item in 18" :key="item">
+    <div class="category-element w-full h-28 rounded-3xl mb-1" :class="classList[0]" v-for="item in 18" :key="item">
         <div class="title-category w-2/5 float-left pl-3 pt-2">
-            <span class="align-top text-white font-semibold text-sm leading-none">
-                Bikutsi du Kmer
-            </span>
+            <span class="align-top text-white font-semibold text-sm leading-none">Bikutsi du Kmer</span>
         </div>
         <div class="illustration w-3/5 bg-yellow-700 float-right h-full shadow-lg">
-            <img src="../assets/jovi.jpg" alt="tenor" class="object-cover w-full h-full" >
+            <img :src="getImageUrl('../assets/jovi.jpg')" alt="tenor" class="object-cover w-full h-full" >
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: "categoryElement"
+    name: "categoryElement",
+    props: {
+        classList: {
+            type: Array,
+            default: ["bg-red-700"]
+        },
+    },
+    methods: {
+        getImageUrl(name) {
+            return new URL(name, import.meta.url)
+        }
+    }
 }
 </script>
 <style>

@@ -42,6 +42,7 @@ import pubs from './pubs.vue'
 import composantRetour from "./composantRetour.vue"
 import bannerArtist from './bannerArtist.vue'
 import musicPlayer from "./musicPlayer.vue"
+
 export default {
     name: 'postAlbum',
     components: {musicPlayer, bannerArtist, composantRetour, pubs},

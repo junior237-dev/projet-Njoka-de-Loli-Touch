@@ -28,7 +28,7 @@
         @media screen and (min-width: 500px) {
             width: 400px;
             margin: 5px auto;
-            border-radius: 15px;
+            border-radius: 25px;
         }
 
         input {
