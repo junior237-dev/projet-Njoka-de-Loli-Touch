@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import VueRouter from 'vue-router'
+import * as VueRouter from 'vue-router'
 import { ref } from 'vue'
 export default {
 	name: 'musicPlayer',

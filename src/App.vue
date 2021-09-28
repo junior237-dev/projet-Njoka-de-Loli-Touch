@@ -1,5 +1,8 @@
 <template>
-    <director />
+ <div class="max-w-lg mx-auto">
+    <router-view />
+ </div>
+    
 </template>
 
 <script setup>
@@ -14,6 +17,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  color: #2c3e50;
+  /* color: #2c3e50; */
 }
 </style>

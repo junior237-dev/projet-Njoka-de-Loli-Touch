@@ -31,9 +31,9 @@
 
 <script>
 
-import pubs from "./pubs.vue"
-import searchBar from "./searchBar.vue"
-import slideSystem from './slideSystem.vue'
+import pubs from "../components/pubs.vue"
+import searchBar from "../components/searchBar.vue"
+import slideSystem from '../components/slideSystem.vue'
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import Splide from '@splidejs/vue-splide/src/js/components/Splide.vue'
 import SplideSlide from '@splidejs/vue-splide/src/js/components/SplideSlide.vue'

@@ -15,8 +15,8 @@
  * et enlever ce commentaire si tout est ok
  * et laisser juste la dernière ligne
  * import category-element from "./category-element.vue" */
-import searchBar from './searchBar.vue'
-import categoryElement from './categoryElement.vue'
+import searchBar from '../components/searchBar.vue'
+import categoryElement from '../components/categoryElement.vue'
  
 export default {
     name: "category",

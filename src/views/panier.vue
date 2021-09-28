@@ -22,8 +22,8 @@
 
 <script>
     import image from '../assets/xmaleya.jpg'
-    import compoVerification from "./compoVerification.vue"
-    import infoArticlePanier from "./infoArticlePanier.vue"
+    import compoVerification from "../components/compoVerification.vue"
+    import infoArticlePanier from "../components/infoArticlePanier.vue"
     export default {
         name: "panier",
 

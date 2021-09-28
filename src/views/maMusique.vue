@@ -9,8 +9,8 @@
 
 <script>
     import carouselParams from '../../dossiersJs/carouselParams'
-    import searchBar from './searchBar.vue'
-    import slideSystem from './slideSystem.vue'
+    import searchBar from '../components/searchBar.vue'
+    import slideSystem from '../components/slideSystem.vue'
     
     export default {
         name: "maMusique",

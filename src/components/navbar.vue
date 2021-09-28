@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 
     .active {
         @apply bg-gray-300 mb-5 shadow-md opacity-100 p-1 h-auto text-blue-500 rounded-none
