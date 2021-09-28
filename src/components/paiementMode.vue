@@ -33,14 +33,17 @@
             </div>
         </main>
     </div>
+    <navbar />
 </template>
 
 <script>
     import composantRetour from './composantRetour.vue'
+    import Navbar from './navbar.vue'
     export default {
         name: "paiementMode",
         components: {
-            composantRetour
+            composantRetour,
+            Navbar
         },
         setup () {
             let montant = "500 XAF"

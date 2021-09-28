@@ -4,7 +4,9 @@
         <div class="txt-block">
             <span class="block artistName">X-Maleya</span>
             <i class="fas fa-users"></i> 12k Abonnés
-            <button class="btn block">S'abonner</button>
+            <router-link to='/compteArtist'>
+                <button class="btn block">S'abonner</button>
+            </router-link>
         </div>
     </div>
 </template>

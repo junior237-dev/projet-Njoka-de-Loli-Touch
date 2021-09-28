@@ -16,14 +16,17 @@
 
         <i class="fas fa-ellipsis-v"></i>
     </div>
+    <navbar />
 </template>
 
 <script>
 import ComposantRetour from "./composantRetour.vue";
+import Navbar from './navbar.vue';
 export default {
     name: 'listDeSouhait',
     components: {
-        ComposantRetour
+        ComposantRetour,
+        Navbar
     }
 }
 </script>

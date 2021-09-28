@@ -35,6 +35,7 @@
         <music-player class="mb-3"/>
         <pubs class="mt-10 mb-10"/>
     </div>
+    <navbar />
 </template>
 
 <script>
@@ -42,10 +43,11 @@ import pubs from './pubs.vue'
 import composantRetour from "./composantRetour.vue"
 import bannerArtist from './bannerArtist.vue'
 import musicPlayer from "./musicPlayer.vue"
+import Navbar from './navbar.vue'
 
 export default {
     name: 'postAlbum',
-    components: {musicPlayer, bannerArtist, composantRetour, pubs},
+    components: {musicPlayer, bannerArtist, composantRetour, pubs, Navbar},
 }
 </script>
 

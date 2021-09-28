@@ -1,7 +1,7 @@
 <template>
-    <div class="header shadow-lg h-16 mb-1">
+    <div class="header max-w-lg mx-auto shadow-lg h-16 mb-1">
         <span class="back inline-block text-3xl cursor-pointer text-black py-2" @click="back">
-            <i class="bi bi-arrow-left"></i>
+            <i class="bi bi-arrow-left float-left"></i>
         </span>
         <slot></slot>
     </div>

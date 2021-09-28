@@ -1,7 +1,7 @@
 <template>
     <div class="profil bg-gray-50 max-w-lg mx-auto border shadow-lg">
         <composant-retour class="fixed left-0 right-0">
-            <div class="py-4 mr-2 text-center text-xl  font-medium">Profil d'utilisateur</div>
+            <div class="py-4 mr-2 text-center text-xl font-medium">Profil d'utilisateur</div>
         </composant-retour>
         <div class="informations pt-16"> 
             <div class="h-20  px-4 mt-2  bg-white  border-b  flex justify-between items-center">
@@ -52,14 +52,17 @@
             </div>
         </div>
     </div>
+    <navbar />
 </template>
 
 <script>
     import composantRetour from './composantRetour.vue'
+    import Navbar from './navbar.vue'
     export default {
         name: "profil",
         components: {
-            composantRetour
+            composantRetour,
+                Navbar
         }
     }
 </script>

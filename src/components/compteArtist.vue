@@ -1,13 +1,13 @@
 <template>
     <div class="compteArtsite max-w-lg mx-auto mb-20 border shadow-md">
         <div class="header flex flex-row justify-between w-full px-4  h-16">
-            <span class="back inline-block text-3xl text-black py-2">
+            <span class="back cursor-pointer inline-block text-3xl text-black py-2" @click="back">
                 <i class="bi bi-arrow-left"></i>
             </span>
             <ul class="flex flex-row justify-between w-48 float-right text-3xl text-black">
                 <li class="border-l border-gray-300 px-4 h-full py-2"><a><i class="bi bi-search"></i></a></li>
-                <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-cart"></i></a></li>
-                <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-three-dots-vertical"></i></a></li>
+                <router-link to="/panier"><li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-cart"></i></a></li></router-link>
+                <router-link to="/reglage"><li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-three-dots-vertical"></i></a></li></router-link>
             </ul>
         </div>
         <banner-artist class="mb-5 mt-1"/>
@@ -15,18 +15,27 @@
             <slide-system :itemInformations="music"/>
         </div>
     </div>
+    <navbar />
 </template>
 
 <script>
 import bannerArtist from './bannerArtist.vue'
 import slideSystem from './slideSystem.vue'
 import carouselParams from "../../dossiersJs/carouselParams"
+import Navbar from './navbar.vue'
 
 export default {
     name: 'compteArtist',
     components: {
         slideSystem,
-        bannerArtist
+        bannerArtist,
+        Navbar
+    },
+
+    methods: {
+        back() {
+            this.$router.go(-1)
+        }
     },
 
     setup () {

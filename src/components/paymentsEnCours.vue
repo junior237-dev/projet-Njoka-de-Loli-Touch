@@ -38,19 +38,24 @@
         <div class="text"><span>Total: </span> <span class="text-black">500 fcfa</span></div>
       </div>
       <div class="confirm">
-        <span>CONFIRMER LE PAIEMENT</span>
+        <router-link to="/paiementsMode">
+            <span>CONFIRMER LE PAIEMENT</span>
+        </router-link>
       </div>
     </div>
+    <navbar />
 </template>
 
 <script>
 import ComposantRetour from "./composantRetour.vue";
+import Navbar from './navbar.vue';
 
 export default {
     name: 'paymentsEnCours',
 
     components: {
-        ComposantRetour
+        ComposantRetour,
+        Navbar
     }
 }
 </script>

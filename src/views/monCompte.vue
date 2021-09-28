@@ -19,10 +19,12 @@
                         Panier
                     </span>
                </router-link>
-                <span class="inline-block text-center text-sm">
-                    <img src="../assets/icones/heart.png" alt="coeur" class="w-9 h-9 mx-auto">
-                    Liste de souhaits
-                </span>
+                <router-link to="/listDeSouhait">
+                    <span class="inline-block text-center text-sm">
+                        <img src="../assets/icones/heart.png" alt="coeur" class="w-9 h-9 mx-auto">
+                        Liste de souhaits
+                    </span>
+                </router-link>
             </div>
         </div>
         <div class="mt-5 w-full bg-white pt-16 text-left">
