@@ -1,21 +1,21 @@
 <template>
     <nav class="navbar max-w-lg mx-auto text-center text-black ">
         <div class="py-2  w-full mx-auto bg-white border border-gray-300 rounded-t-md shadow-md">
-            <a href="#" @click.stop="activeClass"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#home"></use></svg>
+            <router-link to="/"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#home"></use></svg>
                 Accueil
-            </a>
-            <a href="#" @click.stop="activeClass"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#menu (1)"></use></svg>
+            </router-link>
+            <router-link to="/category"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#menu (1)"></use></svg>
                 Catégories
-            </a>
-            <a href="#" @click.stop="activeClass"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#add-to-cart"></use></svg>
+            </router-link>
+            <router-link to="/panier"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#add-to-cart"></use></svg>
                 Panier
-            </a>
-            <a href="#" @click.stop="activeClass"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#music-note-on-folder"></use></svg>
+            </router-link>
+            <router-link to="/maMusique"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#music-note-on-folder"></use></svg>
                 Ma musique
-            </a>
-            <a href="#" class="active" @click.stop="activeClass"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#profile-user"></use></svg>
+            </router-link>
+            <router-link to="/monCompte"><svg class="icon"><use xlink:href="../assets/icones/sprite.svg#profile-user"></use></svg>
                 Mon compte
-            </a>
+            </router-link>
         </div>
     </nav>
 </template>
@@ -70,7 +70,7 @@ export default {
 
 <style lang="postcss" scoped>
 
-    .active {
+    a.router-link-exact-active {
         @apply bg-gray-300 mb-5 shadow-md opacity-100 p-1 h-auto text-blue-500 rounded-none
     }
     .navbar {

@@ -1,6 +1,6 @@
 <template>
     <div class="header shadow-lg h-16 mb-1">
-        <span class="back inline-block text-3xl text-black py-2">
+        <span class="back inline-block text-3xl cursor-pointer text-black py-2" @click="back">
             <i class="bi bi-arrow-left"></i>
         </span>
         <slot></slot>
@@ -9,7 +9,12 @@
 
 <script>
 export default {
-    name: "composantRetour"
+    name: "composantRetour",
+    methods: {
+        back() {
+            this.$router.go(-1)
+        }
+    }
 }
 </script>
 

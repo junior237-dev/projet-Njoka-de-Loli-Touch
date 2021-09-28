@@ -27,6 +27,7 @@
             </div>
         </div>
     </div>
+    <navbar />
 </template>
 
 <script>
@@ -38,6 +39,7 @@ import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import Splide from '@splidejs/vue-splide/src/js/components/Splide.vue'
 import SplideSlide from '@splidejs/vue-splide/src/js/components/SplideSlide.vue'
 import carouselParams from "../../dossiersJs/carouselParams"
+import Navbar from '../components/navbar.vue';
 
 export default {
     name: 'home',
@@ -46,7 +48,8 @@ export default {
         slideSystem,
         Splide,
         SplideSlide,
-        pubs
+        pubs,
+        Navbar
     },
     setup() {
         

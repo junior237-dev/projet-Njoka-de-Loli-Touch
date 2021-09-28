@@ -6,6 +6,7 @@
             <category-element />
         </div>
     </div>
+    <navbar />
 </template>
 
 <script>
@@ -17,12 +18,14 @@
  * import category-element from "./category-element.vue" */
 import searchBar from '../components/searchBar.vue'
 import categoryElement from '../components/categoryElement.vue'
+import Navbar from '../components/navbar.vue'
  
 export default {
     name: "category",
     components: {
         categoryElement,
-        searchBar
+        searchBar,
+        Navbar
     }
 }
 </script>

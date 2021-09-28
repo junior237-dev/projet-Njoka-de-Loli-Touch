@@ -3,7 +3,9 @@
         <h2 class="mb-2 font-semibold text-xs ml-3 text-left" :class="titleClass">{{informations.carouselTitle}}</h2>
         <splide :options="options"  class="m-auto">
             <splide-slide v-for="(item, indice) in informations.items" :key="indice">
-                <item-exemple :itemInfo="item"/>
+                <router-link :to="{name: 'postAlbum', params: {itemTitle: item.itemTitle}}">
+                    <item-exemple :itemInfo="item"/>
+                </router-link>
             </splide-slide>
         </splide>
     </div>

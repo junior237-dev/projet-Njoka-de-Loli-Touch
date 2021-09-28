@@ -18,18 +18,21 @@
             <compo-verification />
         </main>
     </div>
+    <navbar />
 </template>
 
 <script>
     import image from '../assets/xmaleya.jpg'
     import compoVerification from "../components/compoVerification.vue"
     import infoArticlePanier from "../components/infoArticlePanier.vue"
+    import Navbar from '../components/navbar.vue'
     export default {
         name: "panier",
 
         components: {
             infoArticlePanier,
-            compoVerification
+            compoVerification,
+            Navbar
         },
 
         data () {

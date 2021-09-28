@@ -8,7 +8,9 @@
                 </div>
                 <div class="__infoGroup  inline-block  w-60">
                     <div class="flex justify-center item-center">
-                        <img :src="image" class="w-28 h-28  rounded-md  shadow-md  object-cover" alt="photoXmaleya">
+                        <router-link :to="{name: 'postAlbum', params: {itemTitle: nomArtiste}}">
+                            <img :src="image" class="w-28 h-28  rounded-md  shadow-md  object-cover" alt="photoXmaleya">
+                        </router-link>
                         <p class="text-left pl-2">
                             <span class="inline-block  font-bold  text-lg">{{intitule}}</span>
                             <br>

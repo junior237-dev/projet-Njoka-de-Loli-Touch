@@ -5,10 +5,12 @@
             <slide-system :itemInformations="myMusic"  class="mb-4"/>
         </div>
     </div>
+    <navbar />
 </template>
 
 <script>
     import carouselParams from '../../dossiersJs/carouselParams'
+    import Navbar from '../components/navbar.vue'
     import searchBar from '../components/searchBar.vue'
     import slideSystem from '../components/slideSystem.vue'
     
@@ -16,7 +18,8 @@
         name: "maMusique",
         components: {
             searchBar,
-            slideSystem
+            slideSystem,
+            Navbar
         },
         setup () {
             let myMusic = carouselParams.MyMusic[0]

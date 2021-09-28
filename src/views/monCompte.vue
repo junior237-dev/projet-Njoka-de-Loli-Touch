@@ -4,7 +4,7 @@
             <div class="w-4/5 h-20 mx-auto flex justify-center items-center bg-white shadow-lg rounded-full" v-if="visible">
                 <img src="../assets/tenor.jpg" alt="photo de profil" class="w-20 h-20 rounded-full">
                 <span class="inline-block w-44 text-2xl text-blue-400 font-medium mx-3">Rigobert Song</span>
-                <img src="../assets/icones/settings.png" alt="setting">
+                <router-link to="/profil"><img src="../assets/icones/settings.png" alt="setting"></router-link>
             </div>
             <div class="w-72 h-20 mx-auto flex justify-center items-center bg-white shadow-lg rounded-full" v-else if="!visible">
                 <a href="#" class="text-xl text-blue-400 font-semibold">Connexion-Enregistrement</a>
@@ -13,10 +13,12 @@
         <div class="mesAchats h-48 border-b bg-white">
             <span class="inline-block text-xl font-medium text-center text-blue-400 mt-3 w-full">mes Achats</span>
             <div class="flex justify-between items-center mt-14 px-9">
-                <span class="inline-block text-center text-sm">
-                    <img src="../assets/icones/panier.png" alt="panier" class="w-9 h-9 mx-auto">
-                    Panier
-                </span>
+                <router-link to="/panier">
+                    <span class="inline-block text-center text-sm">
+                        <img src="../assets/icones/panier.png" alt="panier" class="w-9 h-9 mx-auto">
+                        Panier
+                    </span>
+               </router-link>
                 <span class="inline-block text-center text-sm">
                     <img src="../assets/icones/heart.png" alt="coeur" class="w-9 h-9 mx-auto">
                     Liste de souhaits
@@ -43,10 +45,13 @@
             <button class="w-full h-11 my-3 mx-auto rounded-full bg-blue-400 text-lg text-white">se déconnecter</button>
         </div>
     </div>
+    <navbar />
 </template>
 
 <script>
+    import navbar from '../components/navbar.vue'
     export default {
+    components: { navbar },
         name: "monCompte",
 
         setup () {

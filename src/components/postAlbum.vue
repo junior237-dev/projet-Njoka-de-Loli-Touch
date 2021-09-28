@@ -3,8 +3,8 @@
         <composant-retour>
             <ul class="flex flex-row justify-between w-48 float-right text-3xl text-black">
                 <li class="border-l border-gray-300 px-4 h-full py-2"><a><i class="bi bi-search"></i></a></li>
-                <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-cart"></i></a></li>
-                <li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-three-dots-vertical"></i></a></li>
+                <router-link to="/panier"><li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-cart"></i></a></li></router-link>
+                <router-link to="/reglage"><li class="border-l border-gray-300 px-4 py-2"><a><i class="bi bi-three-dots-vertical"></i></a></li></router-link>
             </ul>
         </composant-retour>
         <banner-artist class="mb-5"/>
