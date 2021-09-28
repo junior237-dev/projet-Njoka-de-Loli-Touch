@@ -1,12 +1,12 @@
 <template>
     <div>
-        <category />  
+        <!-- <category />   -->
         <navbar />
         <!-- <paiement-mode /> -->
         <!-- <panier /> -->
         <!-- <verif-art-panier />  -->
         <!-- <most-popular /> -->
-        <!-- <connexion-enregistr /> -->
+        <connexion-enregistr />
         <!-- <profil /> -->
         <!-- <reglages /> -->
         <!-- <mon-compte /> -->
