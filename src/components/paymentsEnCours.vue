@@ -162,7 +162,7 @@ export default {
     color: white;
 }
 
-@media screen and (max-width: 334px) {
+@media screen and (max-width: 336px) {
     .footer {
         flex-direction: column;
     }

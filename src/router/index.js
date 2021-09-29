@@ -12,6 +12,9 @@ import paymentsEnCours from '../components/paymentsEnCours.vue'
 import paiementsMode from '../components/paiementMode.vue'
 import listDeSouhait from '../components/listDeSouhait.vue'
 import compteArtist from '../components/compteArtist.vue'
+import componentConnexion from '../components/componentConnexion.vue'
+import componentInscription from '../components/componentInscription.vue'
+import categorieRap from '../components/categorieRap.vue'
 
 const routes = [
     {
@@ -84,6 +87,24 @@ const routes = [
         path: '/compteArtist',
         name: 'compteArtist',
         component: compteArtist
+    },
+
+    {
+        path: '/componentConnexion',
+        name: 'componentConnexion',
+        component: componentConnexion
+    },
+
+    {
+        path: '/componentInscription',
+        name: 'componentInscription',
+        component: componentInscription
+    },
+
+    {
+        path: '/categorieRap',
+        name: 'categorieRap',
+        component: categorieRap
     },
 
     {

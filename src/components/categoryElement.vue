@@ -1,12 +1,17 @@
 <template>
-    <div class="category-element w-full h-28 rounded-3xl mb-1" :class="classList[0]" v-for="item in 18" :key="item">
-        <div class="title-category w-2/5 float-left pl-3 pt-2">
-            <span class="align-top text-white font-semibold text-sm leading-none">Bikutsi du Kmer</span>
-        </div>
-        <div class="illustration w-3/5 bg-yellow-700 float-right h-full shadow-lg">
-            <img :src="getImageUrl('../assets/jovi.jpg')" alt="tenor" class="object-cover w-full h-full" >
-        </div>
+    <div v-for="item in 18" :key="item">
+        <router-link to="/categorieRap">
+            <div class="category-element w-full h-28 rounded-3xl mb-1" :class="classList[0]">
+                <div class="title-category w-2/5 float-left pl-3 pt-2">
+                    <span class="align-top text-white font-semibold text-sm leading-none">Bikutsi du Kmer</span>
+                </div>
+                <div class="illustration w-3/5 bg-yellow-700 float-right h-full shadow-lg">
+                    <img :src="getImageUrl('../assets/jovi.jpg')" alt="tenor" class="object-cover w-full h-full" >
+                </div>
+            </div>
+        </router-link>
     </div>
+    
 </template>
 <script>
 export default {
@@ -24,7 +29,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
     .illustration, .illustration img {
         border-top-left-radius: 50%;
         border-bottom-left-radius: 50%;

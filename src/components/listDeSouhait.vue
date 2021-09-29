@@ -69,6 +69,11 @@ export default {
     right: 10px;
 }
 
+.header {
+    justify-content: space-around;
+    padding-left: 0;
+}
+
 .header span {
     display: block;
     padding: 17px;
@@ -100,7 +105,6 @@ export default {
 @media screen and (max-width: 301px) {
     .header span.option, .header span.name {
         font-size: 4.2vw;
-        padding-top: 23px;
     }
 }
 </style>

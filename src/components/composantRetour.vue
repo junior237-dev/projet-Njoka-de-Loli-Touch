@@ -18,15 +18,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .header {
         display: flex;
-        justify-content: space-around;
+        padding-left: 15px;
     }
 
     @media screen and (max-width: 301px) {
         .header i {
             font-size: 25px;
+        }
+
+        .header i {
+            padding-top: 5px;
         }
     }
 </style>

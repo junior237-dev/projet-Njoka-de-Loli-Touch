@@ -48,10 +48,13 @@
             </div>
         </div>
     </div>
+    <navbar />
 </template>
 
 <script>
+import navbar from './navbar.vue'
 export default {
+  components: { navbar },
     name: "componentInscription"
 }
 </script>
