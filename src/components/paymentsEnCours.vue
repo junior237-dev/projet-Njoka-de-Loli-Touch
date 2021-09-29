@@ -37,7 +37,7 @@
       <div class="total">
         <div class="text"><span>Total: </span> <span class="text-black">500 fcfa</span></div>
       </div>
-      <div class="confirm">
+      <div class="confirm bg-blue-500">
         <router-link to="/paiementsMode">
             <span>CONFIRMER LE PAIEMENT</span>
         </router-link>
@@ -158,7 +158,6 @@ export default {
 }
 
 .footer .confirm {
-    background-color: blue;
     padding: 15px;
     color: white;
 }
